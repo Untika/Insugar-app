@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,7 +16,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".MenuActivity"
+            android:label="@string/menu_name"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:label="@string/calculator_name"
+            android:theme="@style/AppThemeWithActionBarCalculator" />
+        <activity
+            android:name=".HistoryActivity"
+            android:label="@string/history_name"
+            android:theme="@style/AppThemeWithActionBarHistory" />
+        <activity
+            android:name=".KnowledgeActivity"
+            android:label="@string/knowledge_name"
+            android:theme="@style/AppThemeWithActionBarKnowledge" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/settings_name"
+            android:theme="@style/AppThemeWithActionBarSettings"/>
     </application>
 
 </manifest>

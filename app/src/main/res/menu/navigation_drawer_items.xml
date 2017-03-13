@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/navItem0"
+        android:title="@string/account_name"
+        android:icon="@mipmap/ic_account_circle_black_24dp"/>
+
+    <group android:id="@+id/group1"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navItem1"
+            android:title="หน้าหลัก"
+            android:icon="@mipmap/ic_home_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem2"
+            android:title="@string/calculator_name"
+            android:icon="@mipmap/ic_phone_android_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem3"
+            android:title="@string/history_name"
+            android:icon="@mipmap/ic_format_list_bulleted_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem4"
+            android:title="@string/knowledge_name"
+            android:icon="@mipmap/ic_star_border_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem5"
+            android:title="@string/settings_name"
+            android:icon="@mipmap/ic_settings_black_24dp"/>
+</group>
+
+    <group android:id="@+id/group2"
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/navItem6"
+            android:title="ช่วยเหลือ"
+            android:icon="@mipmap/ic_help_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem7"
+            android:title="รายงานปัญหา"
+            android:icon="@mipmap/ic_report_problem_black_24dp"/>
+
+        <item
+            android:id="@+id/navItem8"
+            android:title="เกี่ยวกับ INSUGAR"
+            android:icon="@mipmap/ic_info_black_24dp"/>
+
+    </group>
+
+</menu>

@@ -1,17 +1,22 @@
 package th.ac.camt.insugar_app;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Collection;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -19,9 +24,6 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import th.ac.camt.insugar_app.Model.Check;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.Collection;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
     private String URL;
@@ -34,22 +36,32 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button btnSignUp;
     private String gender;
     private RadioButton radioSexButton;
+    private TextView btnBackToLogin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         byWidget();
         btnSignUp.setOnClickListener(this);
+
+        btnBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     private void byWidget() {
-        txtName = (EditText) findViewById(R.id.etName);
-        txtAge = (EditText) findViewById(R.id.etAge);
-        txtGender = (RadioGroup) findViewById(R.id.rgOperater);
-        txtPhone = (EditText) findViewById(R.id.etPhone);
+        txtName = (EditText) findViewById(R.id.regis_name);
+        txtAge = (EditText) findViewById(R.id.regis_age);
+        txtGender = (RadioGroup) findViewById(R.id.regis_gender_group);
+        txtPhone = (EditText) findViewById(R.id.regis_phone);
         txtEmail = (EditText) findViewById(R.id.regis_email);
-        txtPassword = (EditText) findViewById(R.id.password);
-        btnSignUp = (Button) findViewById(R.id.sign_up_button);
+        txtPassword = (EditText) findViewById(R.id.regis_password);
+        btnSignUp = (Button) findViewById(R.id.regis_btn_register);
+        btnBackToLogin = (TextView) findViewById(R.id.regis_btn_back_to_login);
     }
 
     @Override

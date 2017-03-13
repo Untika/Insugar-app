@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">Insugar-App</string>
+    <string name="app_name">INSUGAR</string>
+    <string name="menu_name">INSUGAR</string>
+    <string name="calculator_name">คำนวณอินซูลิน</string>
+    <string name="history_name">ประวัติการคำนวณ</string>
+    <string name="knowledge_name">สาระน่ารู้</string>
+    <string name="settings_name">ตั้งค่า</string>
+    <string name="account_name">บัญชีผู้ใช้งาน</string>
+
+    <string name="open_drawer">Open Menu</string>
+    <string name="close_drawer">Close Menu</string>
 </resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B3E5FC"
+    tools:context="th.ac.camt.insugar_app.MenuActivity">
+
+    <!-- Content -->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnCal"
+                android:background="@drawable/selector_round_rect_button_blue"
+                android:paddingTop="@dimen/button_menu_paddingtop"
+                android:textColor="#ffff"
+                android:textSize="@dimen/button_menu_textsize"
+                android:layout_margin="@dimen/button_menu_margin"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/calculator_name"
+                android:drawablePadding="30dp"
+                android:drawableTop="@mipmap/ic_phone_android_white_48dp"
+                android:layout_width="@dimen/button_menu_width"
+                android:layout_height="@dimen/button_menu_height"/>
+
+            <Button
+                android:layout_toRightOf="@+id/btnCal"
+                android:id="@+id/btnHis"
+                android:background="@drawable/selector_round_rect_button_pink"
+                android:paddingTop="@dimen/button_menu_paddingtop"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/button_menu_textsize"
+                android:layout_margin="@dimen/button_menu_margin"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/history_name"
+                android:drawablePadding="30dp"
+                android:drawableTop="@mipmap/ic_format_list_bulleted_white_48dp"
+                android:layout_width="@dimen/button_menu_width"
+                android:layout_height="@dimen/button_menu_height" />
+
+            <Button
+                android:id="@+id/btnKnow"
+                android:layout_below="@id/btnCal"
+                android:background="@drawable/selector_round_rect_button_orange"
+                android:paddingTop="@dimen/button_menu_paddingtop"
+                android:layout_margin="@dimen/button_menu_margin"
+                android:textSize="@dimen/button_menu_textsize"
+                android:textColor="#ffffff"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/knowledge_name"
+                android:drawablePadding="30dp"
+                android:drawableTop="@mipmap/ic_star_border_white_48dp"
+                android:layout_width="@dimen/button_menu_width"
+                android:layout_height="@dimen/button_menu_height"/>
+
+            <Button
+                android:layout_toRightOf="@+id/btnKnow"
+                android:layout_below="@id/btnHis"
+                android:id="@+id/btnSet"
+                android:background="@drawable/selector_round_rect_button_purple"
+                android:paddingTop="@dimen/button_menu_paddingtop"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/button_menu_textsize"
+                android:layout_margin="@dimen/button_menu_margin"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/settings_name"
+                android:drawablePadding="30dp"
+                android:drawableTop="@mipmap/ic_settings_white_48dp"
+                android:layout_width="@dimen/button_menu_width"
+                android:layout_height="@dimen/button_menu_height"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!-- Menu -->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="@dimen/drawer_menu_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_drawer_header"
+        app:itemIconTint="#333"
+        app:itemTextColor="#333"
+        app:theme="@style/ItemStyle"
+        app:menu="@menu/navigation_drawer_items">
+
+    </android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>
