@@ -3,6 +3,7 @@ package th.ac.camt.insugar_app;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -44,13 +45,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
         byWidget();
         btnSignUp.setOnClickListener(this);
-
-        btnBackToLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        btnBackToLogin.setOnClickListener(this);
     }
 
     private void byWidget() {
@@ -78,12 +73,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             if (txtName.getText().length() != 0 && txtAge.getText().length() != 0 &&
                     txtPhone.getText().length() != 0 && txtEmail.getText().length() != 0 &&
                     txtPassword.getText().length() != 0 ) {
+Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender +
+        txtPhone.getText().toString()+ txtEmail.getText().toString()+ txtPassword.getText().toString());
 
                 new UserRegistrationTask().execute(txtName.getText().toString(),txtAge.getText().toString(),gender,
                         txtPhone.getText().toString(),txtEmail.getText().toString(),txtPassword.getText().toString());
             }else{
                 // Toast.makeText("sfasfas");
             }
+        }else if(v ==btnBackToLogin){
+            finish();
         }
     }
 
