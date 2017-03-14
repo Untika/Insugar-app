@@ -4,6 +4,11 @@
     <string name="calculator_name">คำนวณอินซูลิน</string>
     <string name="history_name">ประวัติการคำนวณ</string>
     <string name="knowledge_name">สาระน่ารู้</string>
+    <string name="knowledgetopic1_name">โรคเบาหวานชนิดที่ 1 [Type 1 diabetes]</string>
+    <string name="knowledgetopic2_name">TOPIC2</string>
+    <string name="knowledgetopic3_name">TOPIC3</string>
+    <string name="knowledgetopic4_name">TOPIC4</string>
+    <string name="knowledgetopic5_name">TOPIC5</string>
     <string name="settings_name">ตั้งค่า</string>
     <string name="account_name">บัญชีผู้ใช้งาน</string>
 

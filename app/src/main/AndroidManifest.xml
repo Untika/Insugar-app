@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="th.ac.camt.insugar_app">
 
+    <!--Login-->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,25 +19,57 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--Register-->
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
+
+        <!--Menu-->
         <activity
             android:name=".MenuActivity"
             android:label="@string/menu_name"
             android:theme="@style/AppTheme" />
+
+        <!--Calculator-->
         <activity
             android:name=".CalculatorActivity"
             android:label="@string/calculator_name"
             android:theme="@style/AppThemeWithActionBarCalculator" />
+
+        <!--History-->
         <activity
             android:name=".HistoryActivity"
             android:label="@string/history_name"
             android:theme="@style/AppThemeWithActionBarHistory" />
+
+        <!--Knowledge-->
         <activity
             android:name=".KnowledgeActivity"
             android:label="@string/knowledge_name"
             android:theme="@style/AppThemeWithActionBarKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic1Activity"
+            android:label="@string/knowledgetopic1_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic2Activity"
+            android:label="@string/knowledgetopic2_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic3Activity"
+            android:label="@string/knowledgetopic3_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic4Activity"
+            android:label="@string/knowledgetopic4_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic5Activity"
+            android:label="@string/knowledgetopic5_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+
+        <!--Settings-->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings_name"

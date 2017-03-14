@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/type1diabetes"
+                android:layout_width="match_parent"
+                android:layout_height="1.5in" />
+            <TextView
+                android:gravity="center"
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#00f"
+                android:text="โรคเบาหวานชนิดที่ 1 [Type 1 diabetes]"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="          เมื่อท่านผู้อ่านได้รับการวินิจฉัยว่าเป็นโรคเบาหวานชนิดที่1 ก็ไม่ต้องตกใจ แม้ว่าโรคเบาหวานจะเป็นโรคที่ร้ายแรง แต่ผู้ป่วยก็สามารถอยู่อย่างมีความสุข ภาวะน้ำตาลที่สูงแต่ร่างกายไม่สามารถนำไปใช้ก่อให้เกิดปัญหากับร่างกาย กล่าวคือเซลล์จะขาดพลังงาน และระดับน้ำตาลที่สูงจะทำร้าย ตา หัวใจ หลอดเลือด และเส้นประสาท"/>
+
+            <TextView
+                android:textColor="#00ff00"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="สาเหตุของโรคเบาหวานชนิดที่1"/>
+
+            <TextView
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="          โดยปกติบีต้าเซลล์ในตับอ่อนทำหน้าที่สร้างอินซูลิน ซึ่งเป็นฮอร์โมนที่ทำให้น้ำตาลเข้าเซลล์  ผู้ป่วยเบาหวานชนิดที่หนึ่งจะมีการทำลายบีต้าเซลล์ทำให้ไม่สามารถสร้างอินซูลิน น้ำตาลจึงอยู่ในกระแสเลือดจึงเกิดเบาหวาน สาเหตุที่สำคัญคือระบบภูมิคุ้มกัน [immune system] มีการทำลายบีต้าเซลล์"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

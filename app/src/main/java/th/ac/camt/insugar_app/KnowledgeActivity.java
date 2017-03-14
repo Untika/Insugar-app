@@ -11,6 +11,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic1Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic2Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic3Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic4Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic5Activity;
+import th.ac.camt.insugar_app.AdapterKnowledge.KnowledgeListAdapter;
 
 public class KnowledgeActivity extends AppCompatActivity {
 
@@ -19,6 +29,9 @@ public class KnowledgeActivity extends AppCompatActivity {
     Toolbar toolbar;
 
     NavigationView navigation;
+
+    ListView listView;
+    KnowledgeListAdapter listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +118,53 @@ public class KnowledgeActivity extends AppCompatActivity {
                         break;
                 }
                 return false;
+            }
+        });
+
+        int[] resId = { R.drawable.type1diabetes
+                , R.drawable.shblue1, R.drawable.shblue1, R.drawable.shblue1
+                , R.drawable.shblue1};
+
+        String[] list = { "โรคเบาหวานชนิดที่ 1 [Type 1 diabetes]"
+                , "Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 "
+                , "Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 "
+                , "Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 "
+                , "Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 "
+        };
+
+
+        listView = (ListView) findViewById(R.id.listView);
+        listAdapter = new KnowledgeListAdapter(this, list, resId);
+        listView.setAdapter(listAdapter);
+
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> arg0
+                    , View arg1, int arg2, long arg3) {
+                Intent intent;
+                switch(arg2) {
+                    case 0 :
+                        Intent intentKL1 = new Intent(KnowledgeActivity.this, KnowledgeTopic1Activity.class);
+                        startActivity(intentKL1);
+                        break;
+                    case 1 :
+                        Intent intentKL2 = new Intent(KnowledgeActivity.this, KnowledgeTopic2Activity.class);
+                        startActivity(intentKL2);
+                        break;
+                    case 2 :
+                        Intent intentKL3 = new Intent(KnowledgeActivity.this, KnowledgeTopic3Activity.class);
+                        startActivity(intentKL3);
+                        break;
+                    case 3 :
+                        Intent intentKL4 = new Intent(KnowledgeActivity.this, KnowledgeTopic4Activity.class);
+                        startActivity(intentKL4);
+                        break;
+                    case 4 :
+                        Intent intentKL5 = new Intent(KnowledgeActivity.this, KnowledgeTopic5Activity.class);
+                        startActivity(intentKL5);
+                        break;
+                }
             }
         });
     }
