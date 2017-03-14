@@ -78,7 +78,7 @@
             android:gravity="center"
             android:layout_marginTop="30dp"
             android:background="@drawable/selector_overlay"
-            android:text="สมัครสมาชิก"
+            android:text="สมัครสมาชิกเดี๋ยวนี้"
             android:textAllCaps="false"
             android:textColor="#ffffff"
             android:textSize="15dp" />

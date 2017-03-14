@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="th.ac.camt.insugar_app">
 
-    <!--Login-->
+    <!-- Login -->
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -20,30 +20,30 @@
             </intent-filter>
         </activity>
 
-        <!--Register-->
+        <!-- Register -->
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <!--Menu-->
+        <!-- Menu -->
         <activity
             android:name=".MenuActivity"
             android:label="@string/menu_name"
             android:theme="@style/AppTheme" />
 
-        <!--Calculator-->
+        <!-- Calculator -->
         <activity
             android:name=".CalculatorActivity"
             android:label="@string/calculator_name"
             android:theme="@style/AppThemeWithActionBarCalculator" />
 
-        <!--History-->
+        <!-- History -->
         <activity
             android:name=".HistoryActivity"
             android:label="@string/history_name"
             android:theme="@style/AppThemeWithActionBarHistory" />
 
-        <!--Knowledge-->
+        <!-- Knowledge -->
         <activity
             android:name=".KnowledgeActivity"
             android:label="@string/knowledge_name"
@@ -69,11 +69,11 @@
             android:label="@string/knowledgetopic5_name"
             android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
 
-        <!--Settings-->
+        <!-- Settings -->
         <activity
             android:name=".SettingsActivity"
             android:label="@string/settings_name"
-            android:theme="@style/AppThemeWithActionBarSettings"/>
+            android:theme="@style/AppThemeWithActionBarSettings" />
     </application>
 
 </manifest>

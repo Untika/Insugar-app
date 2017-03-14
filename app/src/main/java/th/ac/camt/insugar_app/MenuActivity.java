@@ -171,14 +171,40 @@ public class MenuActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navItem6:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
-                    case R.id.navItem7:
+                        AlertDialog DialogHelp = new AlertDialog.Builder(
+                                MenuActivity.this).create();
+                        DialogHelp.setTitle("ช่วยเหลือ");
+                        DialogHelp.setIcon(R.mipmap.ic_launcher);
+                        DialogHelp.setMessage("\n Q : Question \n" + "A : Answer \n" + "\n Q : Question \n" + "A : Answer \n"
+                        + "\n Q : Question \n" + "A : Answer \n" + "\n Q : Question \n" + "A : Answer \n"
+                        + "\n Q : Question \n" + "A : Answer \n" + "\n Q : Question \n" + "A : Answer \n"
+                        + "\n Q : Question \n" + "A : Answer \n" + "\n Q : Question \n" + "A : Answer \n"
+                        + "\n Q : Question \n" + "A : Answer \n" + "\n Q : Question \n" + "A : Answer \n");
+                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        DialogHelp.show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                     case R.id.navItem8:
+                        AlertDialog alertDialog = new AlertDialog.Builder(
+                                MenuActivity.this).create();
+                        alertDialog.setTitle("เกี่ยวกับ INSUGAR");
+                        alertDialog.setIcon(R.mipmap.ic_launcher);
+                        alertDialog.setMessage("\n          I got high got so high\n" + "กินขนมหวานแล้วก็นั่งจิบไวน์\n" +
+                                "มีกัญชลีเป็นของคู่กาย\n" + "ตอนแรกกูตาลายตอนนี้กูตาส่าย\n" + "ถ้าเบื่อหน่ายไปผ่อนคลาย\n" + "ออกจากบ้านไปแถวหาดทราย\n" +
+                                "หาเวลาว่างให้ตัวเองตอนบ่าย\n" + "ได้หมดถ้าสดชื่นทำให้ใจสบาย\n" + "Say goodbye เรื่องเบื่อหน่าย \n" +
+                                "เรื่องแย่ๆ I never mind\n" + "เสียเวลาเสียค่าใช้จ่าย\n" + "เสียแค่นี้กูไม่ค่าตัวตาย\n" + "ไม่เป็นไร แค่ปล่อยไป\n" +
+                                "ไม่ต้องคิดให้มันปวดใจ\n" + "วันพรุ้งนี้เราแค่เริ่มใหม่\n" + "Wake up in the morning ลืมมันไป \n");
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        alertDialog.show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }

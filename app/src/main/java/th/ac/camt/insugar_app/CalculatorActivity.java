@@ -97,9 +97,6 @@ public class CalculatorActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.navItem7:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
 
                     case R.id.navItem8:
                         drawerLayout.closeDrawer(GravityCompat.START);

@@ -46,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         byWidget();
         btnSignUp.setOnClickListener(this);
         btnBackToLogin.setOnClickListener(this);
+
     }
 
     private void byWidget() {
@@ -140,4 +141,5 @@ Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender 
 
         }
     }
+
 }

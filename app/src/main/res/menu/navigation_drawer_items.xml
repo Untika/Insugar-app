@@ -46,11 +46,6 @@
             android:icon="@mipmap/ic_help_black_24dp"/>
 
         <item
-            android:id="@+id/navItem7"
-            android:title="รายงานปัญหา"
-            android:icon="@mipmap/ic_report_problem_black_24dp"/>
-
-        <item
             android:id="@+id/navItem8"
             android:title="เกี่ยวกับ INSUGAR"
             android:icon="@mipmap/ic_info_black_24dp"/>
