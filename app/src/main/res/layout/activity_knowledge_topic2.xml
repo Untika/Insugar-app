@@ -1,11 +1,317 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
 
-    <ImageView
-        android:text="2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:src="@drawable/kl2"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="อาหารกับผู้เป็นเบาหวาน"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ผู้เป็นเบาหวาน"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     คือ ผู้มีระดับน้ำตาลในเลือดสูงกว่าปกติ จากการขาดฮอร์โมนอินซูลิน หรือฮอร์โมนอินซูลินออกฤทธิ์ไม่เต็มที่ ฮอร์โมนอินซูลินมีที่ทำหน้าที่นำน้ำตาลในเลือดเข้าสู่เซลล์เพื่อเผาผลาญให้เกิดเป็นพลังงานในการทำกิจกรรมต่างๆของร่างกาย หากเกิดความบกพร่องดังกล่าว ร่างกายจะไม่สามารถนำน้ำตาลในเลือดไปใช้ประโยชน์ได้ตามปกติจึงทำให้ระดับน้ำตาลในเลือดสูงขึ้น"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="อาหารกับเบาหวาน"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     อาหารที่รับประทานเข้าไปส่วนใหญ่จะเปลี่ยนเป็นน้ำตาลกลูโคสในกระแสเลือด ดังนั้น การควบคุมอาหารเป็นวิธีหนึ่งที่สำคัญในการควบคุมระดับน้ำตาลในเลือด"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="เป้าหมายการควบคุมโรคเบาหวานของผู้เป็นเบาหวานแล้ว"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     • ระดับน้ำตาลก่อนมื้ออาหาร  90-130 มิลลิกรัม / เดซิลิตร\n     • ระดับน้ำตาลหลังมื้ออาหาร 2 ชั่วโมง ให้น้อยกว่า 180 มิลลิกรัม / เดซิลิตร\n     • ระดับน้ำตาลสะสม (HbA1c)  น้อยกว่าหรือเท่ากับ 7%"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="เลือกรับประทานอาหารอย่างไรเมื่อเป็นเบาหวาน?"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผู้เป็นเบาหวานควรเลือกรับประทานอาหารหลากหลายชนิด เพื่อให้ได้สารอาหารครบถ้วนที่ร่างกายต้องการโดยเลือกรับประทานอาหารที่มีความหวานต่ำ ปรับสัดส่วนอาหารให้เหมาะสม อาหารสามารถแยกกลุ่มต่างๆ ดังนี้"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 1 ข้าว แป้งต่างๆ อาหารจำพวกเส้น ขนมปัง เผือกมัน ถั่วเมล็ดแห้ง"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/kl21"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผู้เป็นเบาหวานรับประทานอาหารในกลุ่มนี้ได้เช่นเดียวกับคนปกติ แต่ต้องกำหนดสัดส่วนให้เหมาะสม ไม่จำเป็นต้องงดหรือจำกัดมากเกินไป เพราะเป็นแหล่งพลังงานสำคัญของร่างกายในการทำกิจกรรมต่างๆ \n     ผู้ที่่อ้วน รับประทานข้าวได้มื้อละ 2 ทัพพี ถ้าไม่อ้วนสามารถรับประทานได้ 3 ทัพพี (เมื่อเลือกรับประทานก๋วยเตี๋ยวหรือขนมปังแล้ว ต้องงดหรือลดข้าวในมื้อนั้นลงตามสัดส่วนที่กำหนด) เลือกรับประทานแหล่งอาหารที่มีใยอาหารสูง เช่น ข้าวซ้อมมือ ข้าวกล้อง หรือข้าวขัดสีน้อยอื่นๆ ขนมปังโฮลวีท "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่มข้าว-แป้ง 1 ส่วน (1ทัพพี) ประกอบด้วย คาร์โบไฮเดรต15 กรัม โปรตีน 3 กรัม ให้พลังงาน 80 กิโลแคลอรี่ "
+                android:textSize="14sp"
+                android:textColor="#9575CD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 2 ผักชนิดต่างๆ"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/kl22"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     อาหารกลุ่มนี้ มีวิตามิน เกลือแร่ และใยอาหารมาก ผู้ป่วยเบาหวานควรรับประทานผักวันละ 3-4ทัพพี ทั้งผักสดและผักสุก โดยเฉพาะผักใบเขียว เช่น ผักกาด คะน้า กวางตุ้ง บวบ ตำลึง ต้นหอม ลดการรับประทานผักที่เป็นหัวใต้ดินหรือมีแป้งสะสมเยอะ เช่น ฟักทอง หัวแครอท หัวผักกาดข้าว"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่มผักต่างๆ 1 ส่วน ประกอบด้วย คาร์โบไฮเดรต 5 กรัม โปรตีน 2 ให้พลังงาน 25 กิโลแคลอรี่"
+                android:textSize="14sp"
+                android:textColor="#9575CD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 3 ผลไม้"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/kl23"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผลไม้ทุกชนิดมีน้ำตาลเป็นส่วนประกอบ ถึงแม้จะมีใยอาหาร แต่หากรับประทานมากกว่าปริมาณที่กำหนด จะทำให้น้ำตาลในเลือดสูงได้ ผู้เป็นเบาหวานควรเลือกรับประทานผลไม้ 1 ชนิดต่อมื้อวันละ 2-3 ครั้งหลังอาหาร ควรหลีกเลี่ยงผลไม้รสหวานจัด เช่น ทุเรียน ขนุน น้อยหน่า ละมุด หรือผลไม้ตากแห้ง ผลไม้กวน ผลไม้เชื่อม ผลไม้แช่อิ่ม ผลไม้กระป๋อง"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ** การรับประทานผลไม้ครั้งละมากๆ แม้จะเป็นผลไม้ที่ไม่หวานก็ทำให้น้ำตาลในเลือดสูงได้"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่มผลไม้ 1 ส่วน ประกอบด้วย คาร์โบไฮเดรต 15 กรัม ให้พลังงาน 60 กิโลแคลอรี่"
+                android:textSize="14sp"
+                android:textColor="#9575CD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 4 เนื้อสัตว์ (ไม่ติดมัน)"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/kl24"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     อาหารกลุ่มนี้ให้โปรตีนเป็นหลัก ผู้เป็นเบาหวานควรได้รับทุกมื้อ มื้อละ 2-4 ช้อนกินข้าวพูนน้อยๆ และควรเลือกเนื้อสัตว์ชนิดไม่ติดมันและหนัง รับประทานปลาและเต้าหู้ให้บ่อยขึ้น"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่มเนื้อสัตว์ไม่ติดมัน 1 ส่วน (2 ช้อนพูน) ประกอบด้วย โปรตีน 7 กรัม ไขมัน 3 กรัม ให้พลังงาน 55-75 กิโลแคลอรี่"
+                android:textSize="14sp"
+                android:textColor="#9575CD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 5 ไขมัน"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:padding="6dp"
+                android:src="@drawable/kl25"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผู้เป็นเบาหวานควรเลือกใช้น้ำมันพืช เช่น น้ำมันรำข้าว น้ำมันถั่วลิสง น้ำมันถั่วเหลือง น้ำมันมะกอกแทนน้ำมันหมูในการประกอบอาหารทั่วไป นอกจากนี้ควรหลีกเลี่ยงการรับประทานอาหารทอด อาหารที่มีกะทิ อาหารที่มีไขมันทรานส์ (ไขมันทรานส์ เป็นไขมันที่ผ่านกระบวนการไฮโดรจีเนชั่น เพื่อให้ทนความร้อนได้สูง เก็บได้นานโดยไม่เหม็นหืน รสชาติใกล้เคียงไขมันจากสัตว์แต่ราคาถูกกว่า พบได้ในเนยขาว ครีมเทียม น้ำมันที่ทอดซ้ำ เนยเทียม(มาการีน) หรืออาหารที่มีเป็นส่วนประกอบ เช่น เบเกอร์รี่ ขนมขบเคี้ยว โดนัท ฟาสต์ฟู้ด มีผลทำให้เพิ่มความเสี่ยงของการเกิดโรคหัวใจและหลอดเลือด)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่มไขมัน 1 ส่วน (1 ช้อนชา) ประกอบด้วย ไขมัน 5 กรัม ให้พลังงาน 45 กิโลแคลอรี่"
+                android:textSize="14sp"
+                android:textColor="#9575CD"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="กลุ่มที่ 6 น้ำนม (วัว)"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:padding="6dp"
+                android:src="@drawable/kl26" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผู้เป็นเบาหวานควรเลือกดื่มนมพร่องมันเนย  นมขาดมันเนย หรือโยเกิร์ตรสธรรมชาติ หลีกเลี่ยงนมรสหวาน นมเปรี้ยว โยเกิร์ตพร้อมดื่ม เพราะนมเหล่านี้มีการเติมน้ำตาลในปริมาณที่สูง  ส่วนนมถั่วเหลือง ถือว่าเป็นนมที่เป็นโปรตีนสูง ใกล้เคียงกับเนื้อสัตว์ อีกทั้งมีไขมันไม่อิ่มตัวมากกว่านมวัว ช่วยลดไขมันคลอเลสเตอรอล แต่มีข้อเสียคือปริมาณแคลเซียมน้อยกว่านมวัว (ทั้งนมวัวและนมถั่วเหลืองต้องสังเกตปริมาณน้ำตาลที่ระบุบนฉลากโภชนาการทุกครั้งก่อนบริโภค)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     กลุ่ม น้ำนม (วัว) 1 ส่วน ประกอบด้วย คาร์โบไฮเดรต12 กรัม โปรตีน 8 กรัม  ให้พลังงานแตกต่างกันตามปริมาณไขมันในน้ำนมชนิดนั้นๆ
+                \n\n     •    นมครบส่วนหรือนมสด (whole Milk) 240 มิลลิลิตร  ประกอบด้วยไขมัน 8 กรัม ให้พลังงาน 150 กิโลแคลอรี่
+                \n\n     •    นมพร่องมันเนย (Low Fat Milk) 240 มิลลิลิตร  ประกอบด้วย ไขมัน 5 กรัม ให้พลังงาน 120 กิโลแคลอรี่
+                \n\n     •    นมขาดมันเนย (Slim Milk or Nonfat Milk) 240 มิลลิลิตร  ประกอบด้วยไขมันน้อยมากให้พลังงาน 90 กิโลแคลอรี่กลุ่มน้ำนมถั่วเหลือง 1 ส่วน 240 มิลลิลิตร ประกอบด้วย โปรตีน 7 กรัม ไขมัน 5 กรัม ให้พลังงาน 75 กิโลแคลอรี่ (ไม่เติมน้ำตาล)"
+                android:textColor="#9575CD"
+                android:textSize="14sp" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เบาหวาน กับค่าดัชนีน้ำตาลในอาหาร (Glycemic index or GI)"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     อาหารที่มีคาร์โบไฮเดรตแต่ละชนิดจะถูกย่อยและถูกดูดซึมเข้าร่างกายในอัตราที่แตกต่างกัน ทำให้ระดับน้ำตาลในเลือดเพิ่มสูงขึ้นต่างกันอาหารที่มี GI สูงจะทำให้ระดับน้ำตาลในเลือดขึ้นสูงเร็วกว่าอาหารที่มี GI ต่ำ ส่วนอาหารที่มี GI ต่ำจะถูกย่อยช้าๆ จึงทำให้น้ำตาลกลูโคสถูกปล่อยเข้าไปในกระแสเลือดอย่างช้าๆ ระดับน้ำตาลในเลือดก็จะขึ้นช้าด้วย"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     อาหารที่มีค่าดัชนีน้ำตาลต่ำ : ข้าวกล้อง ขนมปังโฮลวีท ผักใบต่างๆฝรั่ง ชมพู่ แอปเปิ้ล แก้วมังกร วุ้นเส้น นมจืด ถั่วและธัญพืชต่างๆ
+                \n\n     อาหารที่มีค่าดัชนีน้ำตาลสูง : เช่น ข้าวขัดสี ข้าวเหนียว ขนมปัง (ขาว) ฟักทอง  แตงโม อินทผาลัม มันฝรั่งบด ไอศกรีม น้ำอัดลม โดนัท เครื่องดื่มชูกำลัง น้ำผลไม้
+                \n\n     หลักสำคัญ คือ การรับประทานอาหารให้ตรงเวลา รับประทานอาหารให้ครบ 5 หมู่และหลากหลาย จำกัดน้ำตาลและของหวาน ลดอาหารที่มีไขมันสูง รับประทานผักให้มาก รับประทานผลไม้ตามสัดส่วน และหมั่นดูแลน้ำหนักตัว
+
+"/>
+
+
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://sriphat.med.cmu.ac.th/th/knowledge-68"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

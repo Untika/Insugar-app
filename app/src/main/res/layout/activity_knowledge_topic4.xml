@@ -1,11 +1,235 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
 
-    <Button
-        android:text="4"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="1">
+
+            <ImageView
+                android:src="@drawable/kl4"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="โรคไตจากเบาหวาน"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     โรคเบาหวานเป็นโรคเรื้อรังที่เพิ่มมากขึ้นในทุกประเทศทั่วโลก  และเป็นสาเหตุที่พบมาก ที่สุดของผู้ป่วยโรคไตเรื้อรังระยะสุดท้าย  การที่ผู้ป่วยเบาหวานควบคุม ระดับน้ำตาลในเลือด ได้ไม่ดีเป็นเวลานาน มีผลทำให้การทำงานของไตลดลงเร็วกว่าผู้ป่วย ที่ควบคุมระดับน้ำตาล ได้ดีถึง 10 เท่า  ที่สำคัญคือผู้ป่วยจำนวนมากมักไม่มีอาการในช่วงแรกๆ  เมื่อเริ่มมีอาการและ มาพบแพทย์ก็เป็นโรคไตเรื้อรังระยะท้ายๆ และต้องได้รับการบำบัดทดแทนไต ( การฟอกเลือด ด้วยเครื่องไตเทียม  การล้างไตทางหน้าท้อง ) ในที่สุด"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ปัจจัยเสี่ยงต่อการเกิดโรคไตจากเบาหวาน มีดังต่อไปนี้"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1.    การควบคุมระดับน้ำตาลในเลือดที่ไม่ดี
+\n2.    การควบคุมภาวะความดันโลหิตสูงไม่ดี
+\n3.    ภาวะไขมันในเลือดสูง
+\n4.    การสูบบุหรี่
+\n5.    ภาวะอ้วนจากดัชนีมวลกายสูง ( Body Mass Index , BMI  )
+\n6.    ปัจจัยทางพันธุกรรม โอกาสเป็นเบาหวานเพิ่มขึ้น เมื่อญาติสายตรงเป็นโรคไตจาก เบาหวาน"/>
+
+            <ImageView
+                android:src="@drawable/sc"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="แนวทางการชะลอการเสื่อมของไตจากเบาหวาน"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="1.   การควบคุมระดับน้ำตาลในเลือด"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1.1      ผู้ป่วยเบาหวานทั่วไปที่ไม่ได้เป็นโรคไต และผู้ป่วยโรคไตจากเบาหวานระยะที่ 1-3
+\n              :  ควรควบคุมระดับน้ำตาลในเลือดหลังอดอาหาร 8 ชั่วโมง ให้อยู่ในช่วง  90-130  มิลลิกรัม %
+\n              :  ควรควบคุมระดับน้ำตาลในเลือดหลังรับประทานอาหารให้น้อยกว่า 180  มิลลิกรัม %
+\n              :  ควรควบคุมระดับฮีโมโกลบิน เอวันซี ( Hb A1C ; เป็นค่าน้ำตาลสะสม  บอกถึงความสม่ำเสมอในการควบคุมน้ำตาลของผู้ป่วยในช่วง 3 เดือนที่ผ่านมา ) ให้มีค่าน้อยกว่า 7.0
+\n\n     1.2      ผู้ป่วยโรคไตจากเบาหวานระยะที่ 4-5  ผู้ป่วยที่มีโรคร่วมหลายโรค  ผู้ป่วยสูงอายุ  ผู้ป่วยในกลุ่มนี้มีความเสี่ยงต่อการเกิดภาวะน้ำตาลในเลือดต่ำ ซึ่งอาจอันตรายถึงชีวิต การควบคุมระดับน้ำตาลในเลือดอาจไม่เข้มงวดเหมือนกับผู้ป่วยโรคเบาหวานทั่วไป และผู้ป่วยโรคไตจากเบาหวานระยะที่ 1-3 (อนุโลมให้ Hb A1C  มากกว่า  7.0   ; พิจารณาเป็นรายๆ ไป)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="2.   การควบคุมความดันโลหิต"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     2.1      ผู้ป่วยโรคไตจากเบาหวานที่มีอัลบูมินในปัสสาวะน้อยกว่า 30 มิลลิกรัมต่อวัน ควรควบคุมระดับความดันโลหิตให้น้อยกว่า 140 /90  มิลลิเมตรปรอท
+\n     2.2      ผู้ป่วยโรคไตจากเบาหวานที่มีอัลบูมินในปัสสาวะมากกว่า 30 มิลลิกรัมต่อวัน ควรควบคุมระดับความดันโลหิตให้น้อยกว่า 130/80  มิลลิเมตรปรอท
+\n     2.3      พิจารณาเลือกใช้ยาลดความดันกลุ่มเอซีอีไอ ( ACE-I ) หรือเออาร์บี ( ARB) เป็นกลุ่มแรก ซึ่งนอกจากเป็นยาลดความดันโลหิตแล้ว ยังสามารถลดปริมาณโปรตีนในปัสสาวะ และชะลอการเสื่อมของไต)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="3.   การลดปริมาณโปรตีนในปัสสาวะ"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     โดยการเลือกใช้ยากลุ่ม ACE-I  หรือ ARB   "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="4.   การควบคุมไขมันในเลือดะ"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     4.1      ผู้ป่วยเบาหวานที่ไม่มีความเสี่ยงต่อโรคหัวใจและหลอดเลือด ควรควบคุมระดับไขมัน LDL  (ไขมันไม่ดี) ให้น้อยกว่า 100  มิลลิกรัม %
+\n     4.2      ผู้ป่วยเบาหวานที่มีประวัติเป็นโรคหัวใจและหลอดเลือดแล้ว ควรควบคุมระดับไขมัน LDL ให้น้อยกว่า 70  มิลลิกรัม % "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="5.   ลดการทานเนื้อสัตว์"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     โดยเฉพาะผู้ป่วยที่เริ่มมีไตเสื่อม "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="6.   ลดอาหารเค็ม"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     การจำกัดเกลือในอาหารและลดทานอาหารเค็ม สามารถช่วยควบคุมระดับความดันโลหิตได้ และสามารถเพิ่มประสิทธิภาพการลดโปรตีนในปัสสาวะของยากลุ่ม ACE-I  และ ARB "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="7.   การควบคุมน้ำหนักตัว"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     การลดน้ำหนักสามารถลดโปรตีนในปัสสาวะได้ ควรควบคุมดัชนีมวลกายให้อยู่ในช่วง 18.5 – 24.9  กิโลกรัม/เมตร 2 "
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="8.    การงดสูบบุหรี่ "
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="9.    หลีกเลี่ยงการทานหรือฉีดยาที่มีผลเสียต่อไต"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     เช่น ยาแก้ปวดโดยเฉพาะกลุ่มเอนเสด ( NSAIDs )  หรือยาที่ยังไม่รู้ส่วนประกอบ และยังไม่ได้รับการพิสูจน์ว่าไม่ทำอันตรายกับไต เช่น ยาสมุนไพร ยาหม้อต้ม ยาพื้นบ้าน ควรได้รับคำแนะนำจากแพทย์ก่อนการใช้ยาใหม่ และรีบมาปรึกษาแพทย์เมื่อเริ่มรู้สึกว่ามีปัญหา"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="10.   เนื่องจากโรคเบาหวานทำให้ระบบประสาทบกพร่อง"
+                android:textColor="#2196F3"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ส่งผลให้กระเพาะปัสสาวะมีแรงบีบตัวน้อยลง และมีปัสสาวะคั่งค้างซึ่งเพิ่มความเสี่ยง ต่อการติดเชื้อทางเดินปัสสาวะอยู่แล้ว การกลั้นปัสสาวะจะทำให้เกิดการติดเชื้อได้ง่ายกว่า คนปกติ  เมื่อเกิดการติดเชื้อบ่อยครั้ง สามารถทำให้เกิดไตเสื่อมได้ในที่สุด"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://sriphat.med.cmu.ac.th/th/knowledge-111"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

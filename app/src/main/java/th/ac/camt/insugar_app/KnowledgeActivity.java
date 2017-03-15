@@ -33,6 +33,7 @@ public class KnowledgeActivity extends AppCompatActivity {
     ListView listView;
     KnowledgeListAdapter listAdapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -118,15 +119,15 @@ public class KnowledgeActivity extends AppCompatActivity {
             }
         });
 
-        int[] resId = { R.drawable.type1diabetes
-                , R.drawable.shblue1, R.drawable.shblue1, R.drawable.shblue1
-                , R.drawable.shblue1};
+        int[] resId = { R.drawable.kl1
+                , R.drawable.kl2, R.drawable.kl3, R.drawable.kl4
+                , R.drawable.kl5};
 
-        String[] list = { "โรคเบาหวานชนิดที่ 1 [Type 1 diabetes]"
-                , "Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 Topic2 "
-                , "Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 Topic3 "
-                , "Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 Topic4 "
-                , "Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 Topic5 "
+        String[] list = { "ความรู้ทั่วไปเรื่องโรคเบาหวาน"
+                , "อาหารกับผู้เป็นเบาหวาน"
+                , "เบาหวานขึ้นตา"
+                , "โรคไตจากเบาหวาน "
+                , "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน"
         };
 
 
@@ -164,6 +165,8 @@ public class KnowledgeActivity extends AppCompatActivity {
                 }
             }
         });
+
+
     }
 
     @Override
@@ -184,6 +187,7 @@ public class KnowledgeActivity extends AppCompatActivity {
             return true;
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onBackPressed() {
         super.onBackPressed();

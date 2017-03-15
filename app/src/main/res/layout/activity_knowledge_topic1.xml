@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff">
+    android:background="#FBE9E7">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -15,46 +15,93 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:src="@drawable/type1diabetes"
+                android:src="@drawable/diabele02"
                 android:layout_width="match_parent"
-                android:layout_height="1.5in" />
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
             <TextView
-                android:gravity="center"
-                android:padding="10dp"
+                android:padding="16dp"
                 android:textStyle="bold"
                 android:textSize="22sp"
-                android:textColor="#00f"
-                android:text="โรคเบาหวานชนิดที่ 1 [Type 1 diabetes]"
+                android:textColor="#0D47A1"
+                android:text="ความรู้ทั่วไปเรื่องโรคเบาหวาน"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-            <TextView
 
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="          เมื่อท่านผู้อ่านได้รับการวินิจฉัยว่าเป็นโรคเบาหวานชนิดที่1 ก็ไม่ต้องตกใจ แม้ว่าโรคเบาหวานจะเป็นโรคที่ร้ายแรง แต่ผู้ป่วยก็สามารถอยู่อย่างมีความสุข ภาวะน้ำตาลที่สูงแต่ร่างกายไม่สามารถนำไปใช้ก่อให้เกิดปัญหากับร่างกาย กล่าวคือเซลล์จะขาดพลังงาน และระดับน้ำตาลที่สูงจะทำร้าย ตา หัวใจ หลอดเลือด และเส้นประสาท"/>
 
             <TextView
-                android:textColor="#00ff00"
+                android:textColor="#1976D2"
                 android:textSize="20sp"
                 android:padding="6dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="สาเหตุของโรคเบาหวานชนิดที่1"/>
+                android:text="โรคเบาหวานคืออะไร"/>
 
             <TextView
-                android:textColor="#000000"
                 android:textSize="18sp"
                 android:padding="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="          โดยปกติบีต้าเซลล์ในตับอ่อนทำหน้าที่สร้างอินซูลิน ซึ่งเป็นฮอร์โมนที่ทำให้น้ำตาลเข้าเซลล์  ผู้ป่วยเบาหวานชนิดที่หนึ่งจะมีการทำลายบีต้าเซลล์ทำให้ไม่สามารถสร้างอินซูลิน น้ำตาลจึงอยู่ในกระแสเลือดจึงเกิดเบาหวาน สาเหตุที่สำคัญคือระบบภูมิคุ้มกัน [immune system] มีการทำลายบีต้าเซลล์"/>
+                android:text="     เป็นชื่อของกลุ่มอาการที่เกิดจากความผิดปกติที่ร่างกายไม่สามารถใช้น้ำตาลได้ตามปกติ ทำให้ระดับน้ำตาลในเลือดสูงขึ้น เนื่องจากร่างกายขาดฮอร์โมนสำคัญตัวหนึ่ง คือ อินซูลินจากตับอ่อนที่ผลิตไม่พอใช้หรือผลิตแล้วใช้ไม่ได้ตามปกติ (ภาวะดื้ออินซูลิน)
+\n     การที่มีระดับน้ำตาลในเลือดสูงเป็นเวลานานจะก่อให้เกิดความผิดปกติต่ออวัยวะต่างๆ เช่น ตา ไต เส้นประสาท หัวใจและหลอดเลือด ซึ่งความผิดปกติของอวัยวะเหล่านี้เป็นสาเหตุสำคัญของการเสียชีวิตในผู้ป่วยเบาหวาน"/>
 
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="อินซูลิน…คืออะไร สำคัญอย่างไร"/>
 
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     อินซูลินเป็นฮอร์โมนสำคัญตัวหนึ่งของร่างกาย สร้างและหลั่งจากเบต้าเซลล์ของตับอ่อน
+ทำหน้าที่พาน้ำตาลกลูโคสซึ่งอยู่ในกระแสเลือดเข้าสู่อวัยวะต่างๆ ของร่างกายเพื่อใช้เป็นพลังงานในการดำรงชีวิต"/>
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="ภาวะปกติ"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ขณะที่ไม่ได้รับประทานอาหาร ตับเป็นอวัยวะหลักที่มีการสร้างน้ำตาลเข้าสู่กระแสเลือด ส่วนตับอ่อนจะมีการหลั่งอินซูลินเพื่อนำพาน้ำตาลไปให้อวัยวะต่างๆ เพื่อใช้เป็นพลังงานทำให้ระดับน้ำตาลอยู่ในระดับที่ปกติ
+เมื่อรับประทานอาหาร อาหารจะถูกย่อยสลายเป็นน้ำตาลกลูโคสในลำไส้เล็ก และดูดซึมเข้าสู่กระแสเลือดรวมกับน้ำตาลที่สร้างมาจากตับ ระดับน้ำตาลที่สูงขึ้นนี้จะกระตุ้นการหลั่งอินซูลินจากตับอ่อนเพิ่มขึ้นเพื่อนำพาน้ำตาลนั้นไปสู่อวัยวะต่างๆ ทำให้ระดับน้ำตาลในเลือดลดลงเป็นปกติ"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ภาวะเบาหวาน"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     เมื่อป่วยเป็นเบาหวาน ซึ่งมีความผิดปกติในการหลั่งอินซูลิน(หลั่งน้อยกว่าปกติหรือไม่หลั่งเลย) หรือความผิดปกติในการออกฤทธิ์ของอินซูลิน (หลั่งปริมาณปกติแต่ประสิทธิภาพลดลง) น้ำตาลก็จะไม่ถูกพาไปอวัยวะต่างๆทำให้ค้างอยู่ในกระแสเลือด จึงทำให้เกิดน้ำตาลในเลือดสูง เมื่อระดับน้ำตาลในเลือดสูงกว่าปกติ ร่างกายจะพยายามขับออกมาในปัสสาวะ ทำให้ตรวจพบน้ำตาลในปัสสาวะ จึงเป็นที่มาของโรค “เบาหวาน”"/>
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : https://www.bangkokpattayahospital.com/th/healthcare-services-th/dm-and-endocrinology-center-th/item/1283-knowledge-diabetes-th.html"/>
         </LinearLayout>
     </ScrollView>
 

@@ -1,11 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
 
-    <Button
-        android:text="3"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/kl3"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="เบาหวานขึ้นตา"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เบาหวานคืออะไร ?"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     เป็นโรคที่มีความผิดปกติเกี่ยวกับการนำน้ำตาลในเลือดไปใช้งาน ทำให้มีระดับน้ำตาลในเลือดสูง มีผลทำให้กระหายน้ำบ่อย ปัสสาวะบ่อย บางรายที่น้ำตาลในเลือดสูงมาก อาจหมดสติได้ แต่บางรายก็อาจไม่มีอาการ"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เบาหวานต้องรักษาหรือไม่ ?"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     จำเป็นอย่างยิ่งต้องรักษาเบาหวานให้ดี เพราะเบาหวานมีผลเสียต่อร่างกายมากมาย เช่น ไตวาย เบาหวานขึ้นตา เป็นแผลที่เท้า และโรคหลอดเลือดหัวใจ เป็นต้น"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="เบาหวานขึ้นตาคืออะไร ?"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     เบาหวานทำให้มีการเสื่อมของหลอดเลือดที่จอประสาทตา คือ
+\n     1. มีการรั่วของน้ำเหลืองและไขมันจากหลอดเลือดออกมา ทำให้จอประสาทตาบวม
+\n     2. มีการอุดตันของหลอดเลือดของจอประสาทตา ทำให้จอประสาทตาขาดเลือดไปเลี้ยง และมีการงอกของเส้นเลือดฝอยที่ผิดปกติ ร่วมกับการเกิดพังผืดภายในตา ทำให้มีเลือดออกภายในลูกตา และจอประสาทตาลอกได้
+\n     การเสื่อมของหลอดเลือดทั้งสองแบบทำให้ตามัวลง ถ้าไม่ได้รับการรักษาที่ถูกต้อง ก็จะทำให้สูญเสียสายตาอย่างถาวรได้"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="เบาหวานขึ้นตามีอาการอย่างไร ?"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     ผู้ที่มีอาการเบาหวานขึ้นตา มักมีอาการตามัว เห็นเงาดำคล้ายหยากไย่ลอยไปลอยมา มีฝ้าดำๆ มาบดบังการมองเห็น และบางรายอาจเห็นภาพบิดเบี้ยว แต่บางรายอาจไม่มีอาการเลย แม้จะมีเบาหวานขึ้นตาอย่างรุนแรงก็ตาม"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="จะทราบได้อย่างไรว่ามีเบาหวานขึ้นตาหรือไม่ ?"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ผู้ที่เป็นเบาหวานทุกท่านควรได้รับการตรวจตาทันทีที่ทราบว่าเป็นเบาหวาน ถ้าผลการตรวจพบว่าเบาหวานยังไม่ขึ้นตา ควรตรวจซ้ำอย่างน้อยปีละ 1 ครั้ง แต่ถ้าจักษุแพทย์ตรวจพบว่าท่านมีเบาหวานขึ้นตา อาจจำเป็นต้องตรวจบ่อยขึ้น เช่น ทุก 3 - 6 เดือน แล้วแต่ความรุนแรงของโรค"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="เป็นเบาหวานขึ้นตาแล้วตาจะบอดหรือไม่ ?"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ถ้าไม่รักษา ส่วนมากมักสูญเสียการมองเห็นอย่างถาวร การรักษาจะช่วยลดโอกาสที่จะสูญเสียสายตาลงได้"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="ถ้าเบาหวานขึ้นตา จะรักษาอย่างไร ?"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ในรายที่จอประสาทตาบวมบริเวณจุดศูนย์ของการมองเห็น หรือรายละเอียดที่มีเส้นเลือดฝอยงอกมาผิดปกติ แพทย์อาจแนะนำให้รักษาโดยการใช้แสงเลเซอร์
+\n     2. รายที่รุนแรงจนกระทั่งมีเลือดออกในตา หรือจอประสาทตาลอกจากพังผืดดึงรั้ง อาจจำเป็นต้องได้รับการผ่าตัด
+\n     3. นอกเหนือจากการรักษาที่ตาโดยตรงด้วยเลเซอร์หรือการผ่าตัดแล้ว ผู้ที่เป็นเบาหวานทุกท่านต้องควบคุมระดับน้ำตาล ตลอดจนระดับไขมันในเลือด และความดันโลหิตให้อยู่ในระดับที่เหมาะสม ตามคำแนะนำของแพทย์ทันทีที่ทราบว่าเป็นเบาหวาน (มิใช่รอให้เกิดเบาหวานขึ้นตาแล้วค่อยควบคุม)"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="สรุป"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ถ้าท่านเป็นเบาหวานและยังไม่ได้รับการตรวจตา ให้รีบไปพบจักษุแพทย์ทันที
+\n     2. ควบคุมเบาหวาน ไขมันในเลือด และความดันโลหิตให้อยู่ในระดับที่เหมาะสม
+\n     3. ควรออกกำลังกายอย่างสม่ำเสมอ และหลีกเลี่ยงการดื่มสุรา และการสูบบุหรี่
+\n     4. ถ้าเบาหวานยังไม่ขึ้นตา ควรได้รับการตรวจตาโดยจักษุแพทย์ อย่างน้อยปีละ 1 ครั้ง
+\n     5. ถ้ามีเบาหวานขึ้นตารีบปรึกษาแพทย์ผู้เชี่ยวชาญทันที และตรวจตาอย่างน้อยทุก 3 - 6 เดือน ตามคำแนะนำของแพทย์
+\n\n          การตรวจเบาหวานขึ้นตา จักษุแพทย์มักต้องหยอดยาขยายม่านตา ซึ่งจะทำให้หลังตรวจตามีอาการตาพร่าไปบ้าง และอาจแพ้แสงประมาณ 4 - 6 ชั่วโมง ดังนั้น เวลาไปพบแพทย์ จึงไม่ควรเดินทางไปโดยลำพัง ควรมีคนดูแลขณะเดินทางกลับ และถ้ามีแว่นตากันแดดควรนำติดตัวไปด้วย"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://sriphat.med.cmu.ac.th/th/knowledge-105"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

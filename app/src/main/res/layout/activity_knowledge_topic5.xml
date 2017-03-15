@@ -1,11 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
 
-    <Button
-        android:text="5"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-</LinearLayout>
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/kl5"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ปัญหาโรคเท้าของผู้ป่วยเบาหวาน"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     -  หนึ่งในหกของผู้ป่วยเบาหวานจะเกิดแผลที่เท้าในช่วงของชีวิต
+\n     -  แต่ละปีมีผู้ป่วยเบาหวาน 4 ล้านคนทั่วโลกเกิดแผลที่เท้า
+\n     -  ทุกๆ 30 วินาที จะมีผู้ป่วยเบาหวานในโลกนี้ถูกตัดขาหนึ่งราย
+\n     -  ในบรรดาผู้ที่ถูกตัดขา พบว่ามีสาเหตุจากโรคเบาหวานได้ถึง 70%
+\n     -  ผู้ป่วยเบาหวานมีโอกาสถูกตัดขามากกว่าผู้ที่ไม่เป็นเบาหวาน 40 เท่า
+\n     -  โรคเท้าเป็นสาเหตุที่สำคัญที่ทำให้ผู้ป่วยต้องนอนโรงพยาบาล
+\n     -  ผู้ที่ถูกตัดขาหรือเท้า ทำให้คุณภาพชีวิตเลวลง
+\n     -  การถูกตัดขามักเริ่มจากการเกิดแผลที่เท้า
+\n     -  การเกิดแผลและการถูกตัดขา สามารถป้องกันได้โดยการดูแลเท้าที่เหมาะสม"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="สาเหตุที่ทำให้ผู้ป่วยเบาหวานเกิดแผลที่เท้า"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     มีปัจจัยหลายประการที่เกิดจากภาวะแทรกซ้อนเรื้อรังของเบาหวาน ที่ทำให้มีโอกาสเกิดแผลที่เท้าได้บ่อยและเรื้อรังในผู้ป่วยเบาหวาน ได้แก่
+\n\n     -  การเสื่อมสภาพของระบบประสาทส่วนปลายทำให้เท้าผิดรูป จึงเกิดการเสียดสีกับรองเท้าได้ง่ายและลงน้ำหนักที่จุดใดจุดหนึ่งของเท้าผิดปกติ การเสียความรู้สึกเจ็บที่เท้าทำให้ไม่ทราบว่าเกิดการบาดเจ็บ จึงทำให้ขาดการดูแลและรอยโรคลุกลาม ความผิดปกติของระบบประสาทอัตโนมัติทำให้เหงื่อออกลดลงผิวหนังจึงแห้ง แตก เกิดเป็นแผลได้ง่าย
+\n     -  ภาวะแทรกซ้อนของหลอดเลือดทำให้เท้าเกิดภาวะขาดเลือดและแผลหายช้า
+\n     -  น้ำตาลในเลือดที่สูงทำให้ระบบภูมิต้านทานบกพร่อง แผลมีการติดเชื้อได้ง่ายและลุกลามเร็ว
+\n     -  เมื่อเกิดแผลอาจลุกลามไปสู่การถูกตัดขา ทำให้เกิดความพิการ คุณภาพชีวิตเลวลงหรือมีโอกาสเสียชีวิตน"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="การปฏิบัติตัวของผู้ป่วยเบาหวานเพื่อป้องกันการเกิดแผลที่เท้า"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     -  สำรวจเท้าทุกวันรวมทั้งบริเวณซอกนิ้ว รอยโรคที่ควรดู ได้แก่ แผล หนังด้านแข็ง ตาปลา หรือการติดเชื้อรา ถ้ามีปัญหาทางสายตาหรือก้มตรวจเท้าไม่ได้ ควรให้ญาติมาช่วยตรวจให้
+\n     -  ทำความสะอาดเท้าวันละสองครั้งด้วยน้ำสะอาดและสบู่อ่อน และทุกครั้งที่เปื้อนสิ่งสกปรก เช็ดเท้าให้แห้ง
+\n     -  ถ้าผิวแห้งควรทาครีมโลชั่นบางๆ ไม่ทาซอกนิ้ว เนื่องจากอาจทำให้อับชื้น
+\n     -  ห้ามแช่เท้าในน้ำร้อน ใช้กระเป๋าน้ำร้อนวาง หรือใช้เครื่องฮีทเตอร์เป่าเท้า
+\n     -  ควรตัดเล็บตามแนวของเล็บเท่านั้น ไม่ตัดสั้นเกินไปจนถึงจมูกเล็บ ห้ามแคะและตัดเนื้อจนเกิดบาดแผล
+\n     - ห้ามตัดตาปลาหรือหนังด้านแข็งด้วยตัวเอง หรือใช้สารเคมีใดๆลอกตาปลา
+\n     - ห้ามเดินเท้าเปล่าออกนอกบ้าน โดยเฉพาะพื้นผิวที่ร้อน เช่น ซีเมนต์หรือหาดทราย
+\n     -  เลือกใส่รองเท้าที่พอดี เหมาะสมกับรูปเท้า และทำจากวัสดุที่นุ่ม
+\n     -  หลีกเลี่ยงการใส่รองเท้าที่ทำด้วยยางหรือพลาสติก รองเท้าแตะที่ใช้นิ้วคีบ
+\n     -  ไม่ควรสวมรองเท้าใหม่เป็นเวลานานหลายชั่วโมงต่อเนื่องกัน ควรสวมรองเท้าเก่าสลับ จนกว่าจะมีความนุ่มและเข้ากับรูปเท้า ควรผึ่งรองเท้าที่ไม่ได้ใส่ให้แห้ง เพื่อลดความอับชื้น
+\n     -  สวมถุงเท้าก่อนใส่รองเท้า ถุงเท้าควรทำจากผ้าฝ้าย ไม่มีตะเข็บและไม่รัดแน่นเกินไป และควรเปลี่ยนทุกวัน
+\n     -  สำรวจรองเท้าก่อนใส่ว่ามีสิ่งแปลกปลอมในรองเท้าหรือไม่
+\n     -  ควบคุมน้ำตาลในเลือดให้ดี
+\n     -  หยุดสูบบุหรี่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="การพบแพทย์เพื่อตรวจเท้า"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     - ควรบอกแพทย์เกี่ยวกับปัญหาที่เท้าเมื่อไปติดตามการรักษา
+\n     -  หากพบว่ามีบาดแผลแม้เพียงเล็กน้อย ให้ทำความสะอาดและควรพบแพทย์ทันที
+\n     -  ควรได้รับการตรวจเท้าโดยละเอียดจากแพทย์อย่างน้อยปีละหนึ่งครั้ง
+\n     -  เท้าที่เคยเป็นแผล  ผิดรูป ชาไม่รู้สึก มีอาการขาดเลือด หรือมีรอยโรค ควรได้รับการตรวจทุกครั้งเมื่อไปพบแพทย์"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     การที่ผู้ป่วยและญาติเข้าใจและตระหนักถึงความสำคัญในการดูแลเท้า และปฏิบัติตามคำแนะนำอย่างเคร่งครัด เป็นการป้องกันการเกิดแผลที่เท้าในผู้ป่วยเบาหวานได้ดีที่สุด"
+                android:textSize="18sp"
+                android:textStyle="italic"/>
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://sriphat.med.cmu.ac.th/th/knowledge-58"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
