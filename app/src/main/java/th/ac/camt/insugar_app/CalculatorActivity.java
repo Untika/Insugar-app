@@ -130,5 +130,8 @@ public class CalculatorActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent = new Intent(CalculatorActivity.this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

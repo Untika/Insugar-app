@@ -128,5 +128,8 @@ public class HistoryActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent = new Intent(HistoryActivity.this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

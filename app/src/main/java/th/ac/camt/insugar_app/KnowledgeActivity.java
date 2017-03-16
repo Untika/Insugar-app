@@ -192,5 +192,8 @@ public class KnowledgeActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent = new Intent(KnowledgeActivity.this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

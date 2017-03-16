@@ -128,5 +128,8 @@ public class SettingsActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
+        Intent intent = new Intent(SettingsActivity.this, MenuActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
