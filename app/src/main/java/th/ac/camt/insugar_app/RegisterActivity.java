@@ -27,7 +27,7 @@ import okhttp3.Response;
 import th.ac.camt.insugar_app.Model.Check;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private String URL;
+    private String URL = "http://192.168.1.38/service/Registration.php";
     private EditText txtName;
     private EditText txtAge;
     private RadioGroup txtGender;
@@ -74,13 +74,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             if (txtName.getText().length() != 0 && txtAge.getText().length() != 0 &&
                     txtPhone.getText().length() != 0 && txtEmail.getText().length() != 0 &&
                     txtPassword.getText().length() != 0 ) {
-Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender +
-        txtPhone.getText().toString()+ txtEmail.getText().toString()+ txtPassword.getText().toString());
 
                 new UserRegistrationTask().execute(txtName.getText().toString(),txtAge.getText().toString(),gender,
                         txtPhone.getText().toString(),txtEmail.getText().toString(),txtPassword.getText().toString());
             }else{
-                // Toast.makeText("sfasfas");
+                Toast.makeText(getApplicationContext(), "กรุณากรอกให้ครบ", Toast.LENGTH_LONG).show();
             }
         }else if(v ==btnBackToLogin){
             finish();
@@ -95,8 +93,8 @@ Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender 
                 OkHttpClient client = new OkHttpClient();
 
                 RequestBody data = new FormBody.Builder()
-                        .add("name", params[0])
-                        .add("age", params[1])
+                        .add("fullName", params[0])
+                        .add("birthDate", params[1])
                         .add("gender", params[2])
                         .add("phone", params[3])
                         .add("email", params[4])
@@ -111,12 +109,15 @@ Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender 
                 Response response = client.newCall(request).execute();
                 String result = response.body().string();
 
+                Log.i("gof", result);
+
                 Gson gson = new Gson();
 
                 Type listType = new TypeToken<ArrayList<Check>>() {
                 }.getType();
                 Collection<Check> enums = gson.fromJson(result, listType);
                 Check[] checks = enums.toArray(new Check[enums.size()]);
+                Log.i("gof2", checks.toString());
                 return checks;
 
             } catch (Exception e) {
@@ -136,7 +137,6 @@ Log.i("user", txtName.getText().toString()+ txtAge.getText().toString()+ gender 
                 txtEmail.setError(" e-mail นี้มีอยุ่ในระบบแล้ว");
             } else {
                 Toast.makeText(getApplicationContext(), "ไม่สามารถลงทะเบียนได้ ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
-                finish();
             }
 
         }

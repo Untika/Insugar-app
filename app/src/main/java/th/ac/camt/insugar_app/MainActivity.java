@@ -17,14 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         byWidget();
-       /* btnGoToRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent GoToLogin = new Intent(MainActivity.this,
-                        RegisterActivity.class);
-                startActivity(GoToLogin);
-            }
-        });*/
+
         btnGoToRegister.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
     }
