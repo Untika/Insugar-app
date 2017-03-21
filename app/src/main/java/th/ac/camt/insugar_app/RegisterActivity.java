@@ -27,7 +27,7 @@ import okhttp3.Response;
 import th.ac.camt.insugar_app.Model.Check;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private String URL = "http://192.168.1.38/service/Registration.php";
+    private String URL = "http://insugardmtype1.com/service/Registration.php";
     private EditText txtName;
     private EditText txtAge;
     private RadioGroup txtGender;
