@@ -14,7 +14,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="#81D4FA"
+        android:background="#4FC3F7"
         android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/activity_horizontal_margin">
@@ -25,7 +25,7 @@
             android:layout_height="@dimen/logo_w_h"
             android:layout_gravity="center_horizontal"
             android:layout_marginBottom="30dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@mipmap/ic_test" />
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -64,9 +64,9 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dip"
-            android:background="#f2fe71"
+            android:background="@drawable/selector_round_rect_button_yellow"
             android:text="เข้าสู่ระบบ"
-            android:textColor="#03A9F4"
+            android:textColor="#0288D1"
             android:textStyle="bold" />
 
         <!-- Link to Login Screen -->

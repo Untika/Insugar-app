@@ -174,7 +174,7 @@ public class MenuActivity extends AppCompatActivity {
                         AlertDialog DialogHelp = new AlertDialog.Builder(
                                 MenuActivity.this).create();
                         DialogHelp.setTitle("ช่วยเหลือ");
-                        DialogHelp.setIcon(R.mipmap.ic_launcher);
+                        DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
                         DialogHelp.setMessage("\n โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
                                 "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
                                 "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย \n");
@@ -191,12 +191,10 @@ public class MenuActivity extends AppCompatActivity {
                         AlertDialog alertDialog = new AlertDialog.Builder(
                                 MenuActivity.this).create();
                         alertDialog.setTitle("เกี่ยวกับ INSUGAR");
-                        alertDialog.setIcon(R.mipmap.ic_launcher);
-                        alertDialog.setMessage("\n          I got high got so high\n" + "กินขนมหวานแล้วก็นั่งจิบไวน์\n" +
-                                "มีกัญชลีเป็นของคู่กาย\n" + "ตอนแรกกูตาลายตอนนี้กูตาส่าย\n" + "ถ้าเบื่อหน่ายไปผ่อนคลาย\n" + "ออกจากบ้านไปแถวหาดทราย\n" +
-                                "หาเวลาว่างให้ตัวเองตอนบ่าย\n" + "ได้หมดถ้าสดชื่นทำให้ใจสบาย\n" + "Say goodbye เรื่องเบื่อหน่าย \n" +
-                                "เรื่องแย่ๆ I never mind\n" + "เสียเวลาเสียค่าใช้จ่าย\n" + "เสียแค่นี้กูไม่ค่าตัวตาย\n" + "ไม่เป็นไร แค่ปล่อยไป\n" +
-                                "ไม่ต้องคิดให้มันปวดใจ\n" + "วันพรุ้งนี้เราแค่เริ่มใหม่\n" + "Wake up in the morning ลืมมันไป \n");
+                        alertDialog.setIcon(R.mipmap.ic_info_black_24dp);
+                        alertDialog.setMessage("\n          โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
+                                "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
+                                "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย\n");
                         alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
