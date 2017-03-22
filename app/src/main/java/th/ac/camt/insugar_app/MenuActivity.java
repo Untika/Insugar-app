@@ -16,6 +16,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import th.ac.camt.insugar_app.Model.User;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -29,11 +32,17 @@ public class MenuActivity extends AppCompatActivity {
     Button btnHis;
     Button btnKnow;
     Button btnSet;
+    GlobalClass global;
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+
+        global = (GlobalClass) getApplicationContext();
+        user = global.getUser();
+        Toast.makeText(getApplicationContext(), "สวัสดี คุณ "+ user.getFullName(), Toast.LENGTH_LONG).show();
 
         initInstance();
 
@@ -43,10 +52,9 @@ public class MenuActivity extends AppCompatActivity {
         drawerLayout.closeDrawer(GravityCompat.START);
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setTitle("EXIT");
         dialog.setCancelable(true);
-        dialog.setMessage("Do you want to exit ?");
-        dialog.setPositiveButton("Yes", new OnClickListener() {
+        dialog.setMessage("คุณต้องการออกหรือไม่ ? \n");
+        dialog.setPositiveButton("ตกลง", new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
                 intent.addCategory(Intent.CATEGORY_HOME);
@@ -54,7 +62,7 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        dialog.setNegativeButton("Cancle", new OnClickListener() {
+        dialog.setNegativeButton("ยกเลิก", new OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
@@ -134,10 +142,6 @@ public class MenuActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navItem1:
-                        Intent intent = new Intent(MenuActivity.this,
-                                MenuActivity.class);
-                        startActivity(intent);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -145,7 +149,6 @@ public class MenuActivity extends AppCompatActivity {
                         Intent intentCal = new Intent(MenuActivity.this,
                                 CalculatorActivity.class);
                         startActivity(intentCal);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -153,7 +156,6 @@ public class MenuActivity extends AppCompatActivity {
                         Intent intentBlo = new Intent(MenuActivity.this,
                                 HistoryActivity.class);
                         startActivity(intentBlo);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -161,7 +163,6 @@ public class MenuActivity extends AppCompatActivity {
                         Intent intentKL = new Intent(MenuActivity.this,
                                 KnowledgeActivity.class);
                         startActivity(intentKL);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -169,7 +170,6 @@ public class MenuActivity extends AppCompatActivity {
                         Intent intentSet = new Intent(MenuActivity.this,
                                 SettingsActivity.class);
                         startActivity(intentSet);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 

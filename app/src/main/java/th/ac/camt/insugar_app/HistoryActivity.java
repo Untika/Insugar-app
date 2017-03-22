@@ -53,9 +53,7 @@ public class HistoryActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.navItem1:
-                        Intent intent = new Intent(HistoryActivity.this,
-                                MenuActivity.class);
-                        startActivity(intent);
+
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -69,10 +67,6 @@ public class HistoryActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navItem3:
-                        Intent intentBlo = new Intent(HistoryActivity.this,
-                                HistoryActivity.class);
-                        startActivity(intentBlo);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -128,8 +122,8 @@ public class HistoryActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
-        Intent intent = new Intent(HistoryActivity.this, MenuActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(HistoryActivity.this, MenuActivity.class);
+        //startActivity(intent);
         finish();
     }
 }

@@ -67,9 +67,6 @@ public class KnowledgeActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.navItem1:
-                        Intent intent = new Intent(KnowledgeActivity.this,
-                                MenuActivity.class);
-                        startActivity(intent);
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -91,10 +88,6 @@ public class KnowledgeActivity extends AppCompatActivity {
                         break;
 
                     case R.id.navItem4:
-                        Intent intentKL = new Intent(KnowledgeActivity.this,
-                                KnowledgeActivity.class);
-                        startActivity(intentKL);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -192,8 +185,8 @@ public class KnowledgeActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
-        Intent intent = new Intent(KnowledgeActivity.this, MenuActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(KnowledgeActivity.this, MenuActivity.class);
+        //startActivity(intent);
         finish();
     }
 }

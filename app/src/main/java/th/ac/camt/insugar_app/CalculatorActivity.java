@@ -54,18 +54,12 @@ public class CalculatorActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.navItem1:
-                        Intent intent = new Intent(CalculatorActivity.this,
-                                MenuActivity.class);
-                        startActivity(intent);
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                     case R.id.navItem2:
-                        Intent intentCal = new Intent(CalculatorActivity.this,
-                                CalculatorActivity.class);
-                        startActivity(intentCal);
-                        finish();
+
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -130,8 +124,8 @@ public class CalculatorActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
-        Intent intent = new Intent(CalculatorActivity.this, MenuActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(CalculatorActivity.this, MenuActivity.class);
+        //startActivity(intent);
         finish();
     }
 }

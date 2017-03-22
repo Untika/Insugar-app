@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
 
             } else {
-                Toast.makeText(getApplicationContext(), "email or password incorrect", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "อีเมลหรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -127,4 +127,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return null;
     }
+
 }

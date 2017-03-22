@@ -1,18 +1,58 @@
 package th.ac.camt.insugar_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class AccountActivity extends AppCompatActivity {
+import th.ac.camt.insugar_app.Model.User;
+
+public class AccountActivity extends AppCompatActivity implements View.OnClickListener {
+
+
+    private Button btnLogout;
+
+    GlobalClass global;
+    private User user;
+    private TextView txtNameAccount;
+    private TextView txtEmailAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        global = (GlobalClass) getApplicationContext();
+        user = global.getUser();
+
         initInstance();
 
+        byWidget();
+        btnLogout.setOnClickListener(this);
+    }
+
+    private void byWidget() {
+        btnLogout = (Button) findViewById(R.id.account_btn_logout);
+        txtNameAccount = (TextView) findViewById(R.id.account_name);
+        txtNameAccount.setText("ชื่อผู้ใช้งาน : " + user.getFullName());
+
+        txtEmailAccount = (TextView) findViewById(R.id.account_email);
+        txtEmailAccount.setText("อีเมล : " + user.getEmail());
+    }
+
+    @Override
+    public void onClick(View v) {
+        logOut();
+    }
+
+    //sign out method
+    public void logOut() {
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     private void initInstance() {
@@ -28,5 +68,4 @@ public class AccountActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

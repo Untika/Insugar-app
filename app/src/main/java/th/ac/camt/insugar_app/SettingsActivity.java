@@ -77,9 +77,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                         break;
 
                     case R.id.navItem1:
-                        Intent intent = new Intent(SettingsActivity.this,
-                                MenuActivity.class);
-                        startActivity(intent);
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
@@ -109,10 +106,6 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
                         break;
 
                     case R.id.navItem5:
-                        Intent intentSet = new Intent(SettingsActivity.this,
-                                SettingsActivity.class);
-                        startActivity(intentSet);
-                        finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -152,8 +145,8 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
-        Intent intent = new Intent(SettingsActivity.this, MenuActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(SettingsActivity.this, MenuActivity.class);
+        //startActivity(intent);
         finish();
     }
 }
