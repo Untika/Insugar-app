@@ -11,14 +11,18 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
 
     NavigationView navigation;
+
+    private Button btnAccount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,19 @@ public class SettingsActivity extends AppCompatActivity {
 
         initInstance();
 
+        byWidget();
+        btnAccount.setOnClickListener(this);
+    }
+
+    private void byWidget() {
+        btnAccount = (Button) findViewById(R.id.settings_btn_account);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intentAcc = new Intent(SettingsActivity.this,
+                AccountActivity.class);
+        startActivity(intentAcc);
     }
 
     private void initInstance() {
@@ -52,6 +69,13 @@ public class SettingsActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 switch (id) {
+                    case R.id.navItem0:
+                        Intent intentAcc = new Intent(SettingsActivity.this,
+                                AccountActivity.class);
+                        startActivity(intentAcc);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
                     case R.id.navItem1:
                         Intent intent = new Intent(SettingsActivity.this,
                                 MenuActivity.class);

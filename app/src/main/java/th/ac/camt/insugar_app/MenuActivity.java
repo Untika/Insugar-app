@@ -127,6 +127,9 @@ public class MenuActivity extends AppCompatActivity {
                 int id = menuItem.getItemId();
                 switch (id) {
                     case R.id.navItem0:
+                        Intent intentAcc = new Intent(MenuActivity.this,
+                                AccountActivity.class);
+                        startActivity(intentAcc);
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
