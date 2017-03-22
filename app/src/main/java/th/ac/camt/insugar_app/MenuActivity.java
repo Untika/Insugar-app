@@ -175,9 +175,7 @@ public class MenuActivity extends AppCompatActivity {
                                 MenuActivity.this).create();
                         DialogHelp.setTitle("ช่วยเหลือ");
                         DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
-                        DialogHelp.setMessage("\n โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
-                                "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
-                                "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย \n");
+                        DialogHelp.setMessage("\n Coming Soon... \n");
                         DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
