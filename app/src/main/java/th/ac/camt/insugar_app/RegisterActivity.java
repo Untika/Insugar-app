@@ -27,7 +27,7 @@ import okhttp3.Response;
 import th.ac.camt.insugar_app.Model.Check;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
-    private String URL = "http://insugardmtype1.com/service/Registration.php";
+
     private EditText txtName;
     private EditText txtAge;
     private RadioGroup txtGender;
@@ -38,6 +38,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private String gender;
     private RadioButton radioSexButton;
     private TextView btnBackToLogin;
+    GlobalClass global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void byWidget() {
+        global = (GlobalClass) getApplicationContext();
         txtName = (EditText) findViewById(R.id.regis_name);
         txtAge = (EditText) findViewById(R.id.regis_age);
         txtGender = (RadioGroup) findViewById(R.id.regis_gender_group);
@@ -102,7 +104,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                         .build();
 
                 Request request = new Request.Builder()
-                        .url(URL)
+                        .url(global.URL_REGISTRATION)
                         .post(data)
                         .build();
 

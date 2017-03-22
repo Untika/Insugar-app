@@ -5,14 +5,16 @@ package th.ac.camt.insugar_app.Model;
  */
 
 public class User {
-    private  int id;
+    private int id;
     private String fullName;
     private String birthDate;
     private String gender;
     private String phone;
     private String email;
 
-    public User(String fullName, String birthDate, String gender, String phone, String email) {
+
+    public User(int id, String fullName, String birthDate, String gender, String phone, String email) {
+        this.id = id;
         this.fullName = fullName;
         this.birthDate = birthDate;
         this.gender = gender;
