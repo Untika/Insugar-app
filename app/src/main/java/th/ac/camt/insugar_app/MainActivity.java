@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText txtPassword;
     GlobalClass global;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +51,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin = (Button) findViewById(R.id.login_btn_login);
         txtEmail = (EditText) findViewById(R.id.login_email);
         txtPassword = (EditText) findViewById(R.id.login_password);
+        
+        progressBar = (ProgressBar) findViewById(R.id.progressBars);
     }
 
     @Override
@@ -74,11 +79,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected void onPostExecute(User[] users) {
             super.onPostExecute(users);
+            progressBar.setVisibility(View.GONE);
             if (users != null) {
                 global.setUser(users[0]);
                 Intent i = new Intent(getApplicationContext(), MenuActivity.class);
