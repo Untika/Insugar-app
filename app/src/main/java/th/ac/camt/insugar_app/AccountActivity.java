@@ -37,10 +37,10 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private void byWidget() {
         btnLogout = (Button) findViewById(R.id.account_btn_logout);
         txtNameAccount = (TextView) findViewById(R.id.account_name);
-        txtNameAccount.setText("ชื่อผู้ใช้งาน : " + user.getFullName());
+        txtNameAccount.setText("" + user.getFullName());
 
         txtEmailAccount = (TextView) findViewById(R.id.account_email);
-        txtEmailAccount.setText("อีเมล : " + user.getEmail());
+        txtEmailAccount.setText("" + user.getEmail());
     }
 
     @Override

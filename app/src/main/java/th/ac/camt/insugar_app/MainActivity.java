@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 global.setUser(users[0]);
                 Intent i = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(i);
-
             } else {
                 Toast.makeText(getApplicationContext(), "อีเมลหรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_LONG).show();
             }
