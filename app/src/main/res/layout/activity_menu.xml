@@ -8,6 +8,11 @@
     android:background="#B3E5FC"
     tools:context="th.ac.camt.insugar_app.MenuActivity">
 
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <!-- Content -->
     <LinearLayout
         android:orientation="vertical"
@@ -88,8 +93,9 @@
                 android:layout_height="@dimen/button_menu_height"/>
 
         </RelativeLayout>
-
     </LinearLayout>
+
+    </ScrollView>
 
     <!-- Menu -->
     <android.support.design.widget.NavigationView

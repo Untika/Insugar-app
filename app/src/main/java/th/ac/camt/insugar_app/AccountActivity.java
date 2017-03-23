@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import th.ac.camt.insugar_app.Model.User;
@@ -14,37 +15,38 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private Button btnLogout;
-
     GlobalClass global;
     private User user;
     private TextView txtNameAccount;
     private TextView txtEmailAccount;
 
+    private ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
-
-        global = (GlobalClass) getApplicationContext();
-        user = global.getUser();
-
-        initInstance();
-
         byWidget();
+        user = global.getUser();
+        txtNameAccount.setText(user.getFullName());
+        txtEmailAccount.setText(user.getEmail());
+        initInstance();
         btnLogout.setOnClickListener(this);
     }
 
     private void byWidget() {
+        global = (GlobalClass) getApplicationContext();
         btnLogout = (Button) findViewById(R.id.account_btn_logout);
         txtNameAccount = (TextView) findViewById(R.id.account_name);
-        txtNameAccount.setText("" + user.getFullName());
-
         txtEmailAccount = (TextView) findViewById(R.id.account_email);
-        txtEmailAccount.setText("" + user.getEmail());
+
+        progressBar = (ProgressBar) findViewById(R.id.progressBars);
+
     }
 
     @Override
     public void onClick(View v) {
+        progressBar.setVisibility(View.VISIBLE);
         logOut();
     }
 

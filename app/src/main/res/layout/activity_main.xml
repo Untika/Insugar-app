@@ -73,7 +73,8 @@
             android:background="@drawable/selector_round_rect_button_yellow"
             android:text="เข้าสู่ระบบ"
             android:textColor="#03A9F4"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textSize="16sp"/>
 
         <!-- Link to Login Screen -->
 

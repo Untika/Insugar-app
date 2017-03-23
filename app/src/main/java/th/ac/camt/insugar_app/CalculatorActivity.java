@@ -11,6 +11,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import java.util.Calendar;
 
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -25,7 +28,9 @@ public class CalculatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-
+        Calendar now = Calendar.getInstance();
+        String today = String.valueOf(now.get(Calendar.DATE)+"/"+String.valueOf(now.get(Calendar.MONTH))+"/"+String.valueOf(now.get(Calendar.YEAR)));
+        Toast.makeText(getApplicationContext(),today, Toast.LENGTH_LONG).show();
         initInstance();
 
     }
