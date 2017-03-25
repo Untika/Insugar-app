@@ -14,10 +14,15 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 
-public class CalculatorActivity extends AppCompatActivity {
+public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
@@ -28,12 +33,15 @@ public class CalculatorActivity extends AppCompatActivity {
     private EditText weight;
     GlobalClass global;
 
+    private Spinner spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
         byWidGet();
         initInstance();
+        spinner.setOnItemSelectedListener(this);
         tDD.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -101,9 +109,11 @@ public class CalculatorActivity extends AppCompatActivity {
     }
 
     private void byWidGet() {
+        global = (GlobalClass) getApplicationContext();
         tDD = (EditText) findViewById(R.id.cal_edtTDD);
         weight = (EditText) findViewById(R.id.cal_edtWeight);
-        global = (GlobalClass) getApplicationContext();
+        spinner = (Spinner) findViewById(R.id.cal_spinner);
+
     }
 
     private void initInstance() {
@@ -203,5 +213,24 @@ public class CalculatorActivity extends AppCompatActivity {
         //Intent intent = new Intent(CalculatorActivity.this, MenuActivity.class);
         //startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
+        if (position < 1) {
+
+        }else if(position < 6){
+            String toast = adapter.getItem(position).toString() + " is Short Insulin";
+            Toast.makeText(CalculatorActivity.this, toast, Toast.LENGTH_LONG).show();
+        }else {
+            String toast = adapter.getItem(position).toString() + " is Rapid Insulin";
+            Toast.makeText(CalculatorActivity.this, toast, Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+        Toast.makeText(CalculatorActivity.this, "No Select", Toast.LENGTH_LONG).show();
     }
 }

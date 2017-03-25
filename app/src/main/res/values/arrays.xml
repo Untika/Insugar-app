@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="insulin_array">
+        <item>เลือก</item>
+        <item>Actrapid HM</item>
+        <item>Humulin R</item>
+        <item>Gensulin R</item>
+        <item>Insugen R</item>
+        <item>Insuman Rapid</item>
+        <item>Insulin Lispro (Humalog)</item>
+        <item>Insulin aspart (NovoRapid)</item>
+        <item>Insulin Glulisine (Aprida)</item>
+    </string-array>
+    
+</resources>
