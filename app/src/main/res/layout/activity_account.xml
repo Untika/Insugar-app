@@ -68,7 +68,7 @@
             android:layout_margin="16dp"
             android:background="@drawable/selector_round_rect_button_bluemain"
             android:text="ออกจากระบบ"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textColor="#ffffff"
             android:textStyle="bold" />
 

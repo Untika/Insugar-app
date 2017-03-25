@@ -179,7 +179,9 @@
             android:layout_height="wrap_content"
             android:text="คำนวณ"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:background="@drawable/selector_round_rect_button_blue"/>
         </LinearLayout>
 
     <!-- Menu -->

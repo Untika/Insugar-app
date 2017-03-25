@@ -76,10 +76,13 @@
             android:name=".SettingsActivity"
             android:label="@string/settings_name"
             android:theme="@style/AppThemeWithActionBarSettings" />
-
-        <activity android:name=".AccountActivity"
+        <activity
+            android:name=".AccountActivity"
             android:label="@string/account_name"
             android:theme="@style/AppThemeWithActionBar" />
 
-</application>
+        <activity android:name=".ResultActivity"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator"/>
+    </application>
+
 </manifest>
