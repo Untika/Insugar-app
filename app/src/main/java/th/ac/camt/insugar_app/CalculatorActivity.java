@@ -10,10 +10,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
-import android.widget.Toast;
-
-import java.util.Calendar;
+import android.widget.EditText;
 
 
 public class CalculatorActivity extends AppCompatActivity {
@@ -21,18 +22,78 @@ public class CalculatorActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
-
     NavigationView navigation;
+
+    private EditText tDD;
+    private EditText weight;
+    GlobalClass global;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        Calendar now = Calendar.getInstance();
-        String today = String.valueOf(now.get(Calendar.DATE)+"/"+String.valueOf(now.get(Calendar.MONTH))+"/"+String.valueOf(now.get(Calendar.YEAR)));
-        Toast.makeText(getApplicationContext(),today, Toast.LENGTH_LONG).show();
+        byWidGet();
         initInstance();
+        tDD.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(tDD.getText().length()>0){
+
+                }
+            }
+        });
+        weight.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Double tDDCal;
+                if(weight.getText().length()>0){
+                   // tDD.setEnabled(false);
+                    try{
+                        tDDCal = Double.parseDouble(weight.getText().toString())*0.5;
+                        tDD.setText(String.valueOf(tDDCal));
+                        //Log.i("TDD", String.valueOf(tDDCal));
+                    }catch (Exception e){
+
+                    }
+                }
+            }
+        });
+    }
+
+    private void calTDD() {
+        Double tDDCal;
+        //String weightStr = weight.getText().toString();
+
+        try{
+            tDDCal = Double.parseDouble(weight.getText().toString())*0.5;
+            Log.i("TDD", String.valueOf(tDDCal));
+        }catch (Exception e){
+
+        }
+    }
+
+    private void byWidGet() {
+        tDD = (EditText) findViewById(R.id.cal_edtTDD);
+        weight = (EditText) findViewById(R.id.cal_edtWeight);
+        global = (GlobalClass) getApplicationContext();
     }
 
     private void initInstance() {
