@@ -45,9 +45,9 @@ public class CalculatorActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(tDD.getText().length()>0){
+                    if(tDD.getText().length()>0){
 
-                }
+                    }
             }
         });
         weight.addTextChangedListener(new TextWatcher() {
@@ -69,10 +69,20 @@ public class CalculatorActivity extends AppCompatActivity {
                     try{
                         tDDCal = Double.parseDouble(weight.getText().toString())*0.5;
                         tDD.setText(String.valueOf(tDDCal));
+                        tDD.setEnabled(false);
                         //Log.i("TDD", String.valueOf(tDDCal));
                     }catch (Exception e){
 
                     }
+                }else if(weight.getText().length()==0){
+                    try{
+                        tDDCal = 0.0;
+                        tDD.setText("");
+                        tDD.setEnabled(true);
+                    }catch (Exception e){
+
+                    }
+
                 }
             }
         });
