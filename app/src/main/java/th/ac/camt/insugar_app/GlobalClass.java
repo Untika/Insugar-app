@@ -13,6 +13,9 @@ public class GlobalClass extends Application {
     public final String URL_REGISTRATION = "http://insugardmtype1.com/service/Registration.php";
     public final String URL_LOGIN = "http://www.insugardmtype1.com/service/login.php";
     private User user;
+    public double tDD;
+    public double bloodSugar;
+    public String insulinName;
 
 
     public User getUser() {

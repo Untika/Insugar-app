@@ -12,28 +12,28 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 
-public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
     NavigationView navigation;
-
     private EditText tDD;
     private EditText weight;
     GlobalClass global;
-
     private Spinner spinner;
+    private Button btnCal;
+    private EditText bloodSugar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +53,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
             @Override
             public void afterTextChanged(Editable s) {
-                    if(tDD.getText().length()>0){
 
-                    }
             }
         });
         weight.addTextChangedListener(new TextWatcher() {
@@ -71,49 +69,37 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
             @Override
             public void afterTextChanged(Editable s) {
-                Double tDDCal;
                 if(weight.getText().length()>0){
-                   // tDD.setEnabled(false);
                     try{
-                        tDDCal = Double.parseDouble(weight.getText().toString())*0.5;
-                        tDD.setText(String.valueOf(tDDCal));
+                        global.tDD = Double.parseDouble(weight.getText().toString())*0.5;
+                        tDD.setText(String.valueOf(global.tDD));
                         tDD.setEnabled(false);
-                        //Log.i("TDD", String.valueOf(tDDCal));
                     }catch (Exception e){
 
                     }
                 }else if(weight.getText().length()==0){
                     try{
-                        tDDCal = 0.0;
+                        global.tDD = 0.0;
                         tDD.setText("");
                         tDD.setEnabled(true);
                     }catch (Exception e){
 
                     }
-
                 }
             }
         });
+        btnCal.setOnClickListener(this);
     }
 
-    private void calTDD() {
-        Double tDDCal;
-        //String weightStr = weight.getText().toString();
 
-        try{
-            tDDCal = Double.parseDouble(weight.getText().toString())*0.5;
-            Log.i("TDD", String.valueOf(tDDCal));
-        }catch (Exception e){
-
-        }
-    }
 
     private void byWidGet() {
         global = (GlobalClass) getApplicationContext();
         tDD = (EditText) findViewById(R.id.cal_edtTDD);
         weight = (EditText) findViewById(R.id.cal_edtWeight);
         spinner = (Spinner) findViewById(R.id.cal_spinner);
-
+        btnCal = (Button) findViewById(R.id.cal_btn_cal);
+        bloodSugar = (EditText) findViewById(R.id.cal_edtBloodSugar);
     }
 
     private void initInstance() {
@@ -210,17 +196,14 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     public void onBackPressed() {
         super.onBackPressed();
         drawerLayout.closeDrawer(GravityCompat.START);
-        //Intent intent = new Intent(CalculatorActivity.this, MenuActivity.class);
-        //startActivity(intent);
         finish();
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-        if (position < 1) {
 
-        }else if(position < 6){
+        if(position < 6 && position > 0 ){
             String toast = adapter.getItem(position).toString() + " is Short Insulin";
             Toast.makeText(CalculatorActivity.this, toast, Toast.LENGTH_LONG).show();
         }else {
@@ -232,5 +215,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         Toast.makeText(CalculatorActivity.this, "No Select", Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == btnCal){
+            global.bloodSugar = Double.parseDouble(bloodSugar.getText().toString());
+
+        }
     }
 }
