@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -202,13 +203,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-
+        global.insulinName = adapter.getItem(position).toString();
         if(position < 6 && position > 0 ){
-            String toast = adapter.getItem(position).toString() + " is Short Insulin";
-            Toast.makeText(CalculatorActivity.this, toast, Toast.LENGTH_LONG).show();
+            global.insulinType = "Short Insulin";
+            Log.i("Insulin Type :", global.insulinType);
         }else {
-            String toast = adapter.getItem(position).toString() + " is Rapid Insulin";
-            Toast.makeText(CalculatorActivity.this, toast, Toast.LENGTH_LONG).show();
+            global.insulinType = "Rapid Insulin";
+            Log.i("Insulin Type :", global.insulinType);
         }
     }
 
@@ -221,7 +222,27 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     public void onClick(View v) {
         if (v == btnCal){
             global.bloodSugar = Double.parseDouble(bloodSugar.getText().toString());
+            Log.i("blood sugar :", String.valueOf(global.bloodSugar));
 
+            //check type of insulin for get results1
+            double results1 = 0;
+            if(global.insulinType.equals("Short Insulin")){
+                results1 = 1500/global.tDD;
+            }else if(global.insulinType.equals("Rapid Insulin")){
+                results1 = 1800/global.tDD;
+            }
+            Log.i("results1 :", String.valueOf(results1));
+
+            //calculate the unit
+            if ( results1<= global.bloodSugar){
+                global.unit = 1;
+            }else {
+                global.unit = (int) (global.bloodSugar/results1);
+                if(global.unit ==0){
+                    global.unit =1;
+                }
+            }
+            Log.i("unit :", String.valueOf(global.unit));
         }
     }
 }

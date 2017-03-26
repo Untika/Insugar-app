@@ -16,6 +16,8 @@ public class GlobalClass extends Application {
     public double tDD;
     public double bloodSugar;
     public String insulinName;
+    public String insulinType;
+    public int unit;
 
 
     public User getUser() {
