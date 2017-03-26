@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -43,6 +44,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         byWidGet();
         initInstance();
         spinner.setOnItemSelectedListener(this);
+        btnCal.setOnClickListener(this);
         tDD.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -54,7 +56,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                if(tDD.getText().length()>0) {
+                    tDD.setError(null);
+                    weight.setError(null);
+                    global.tDD = Double.parseDouble(tDD.getText().toString());
+                }
             }
         });
         weight.addTextChangedListener(new TextWatcher() {
@@ -86,10 +92,12 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     }catch (Exception e){
 
                     }
+                }else {
+                    tDD.setEnabled(true);
+                    tDD.setFocusable(true);
                 }
             }
         });
-        btnCal.setOnClickListener(this);
     }
 
 
@@ -203,11 +211,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
-        global.insulinName = adapter.getItem(position).toString();
-        if(position < 6 && position > 0 ){
+
+        if(position >0 && position < 6 ){
+            global.insulinName = adapter.getItem(position).toString();
             global.insulinType = "Short Insulin";
             Log.i("Insulin Type :", global.insulinType);
-        }else {
+        }else if(position >=6) {
+            global.insulinName = adapter.getItem(position).toString();
             global.insulinType = "Rapid Insulin";
             Log.i("Insulin Type :", global.insulinType);
         }
@@ -221,28 +231,42 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onClick(View v) {
         if (v == btnCal){
-            global.bloodSugar = Double.parseDouble(bloodSugar.getText().toString());
-            Log.i("blood sugar :", String.valueOf(global.bloodSugar));
-
-            //check type of insulin for get results1
-            double results1 = 0;
-            if(global.insulinType.equals("Short Insulin")){
-                results1 = 1500/global.tDD;
-            }else if(global.insulinType.equals("Rapid Insulin")){
-                results1 = 1800/global.tDD;
+            if(tDD.getText().length()==0 && weight.getText().length()==0){
+                tDD.setError("ห้ามเว้นว่าง");
+                weight.setError("ห้ามเว้นว่าง");
             }
-            Log.i("results1 :", String.valueOf(results1));
+            if(bloodSugar.getText().length()==0){
+                bloodSugar.setError("ห้ามเว้นว่าง");
+            }
+            if(spinner.getSelectedItemPosition()==0){
+                ((TextView)spinner.getSelectedView()).setError("");
+            }
+            if(tDD.getText().length()!=0 && weight.getText().length()!=0 && bloodSugar.getText().length()!=0 && spinner.getSelectedItemPosition()!=0){
 
-            //calculate the unit
-            if ( results1<= global.bloodSugar){
-                global.unit = 1;
-            }else {
-                global.unit = (int) (global.bloodSugar/results1);
-                if(global.unit ==0){
-                    global.unit =1;
+                bloodSugar.setError(null);
+                global.bloodSugar = Double.parseDouble(bloodSugar.getText().toString());
+                Log.i("blood sugar :", String.valueOf(global.bloodSugar));
+
+                //check type of insulin for get results1
+                double results1 = 0;
+                if (global.insulinType.equals("Short Insulin")) {
+                    results1 = 1500 / global.tDD;
+                } else if (global.insulinType.equals("Rapid Insulin")) {
+                    results1 = 1800 / global.tDD;
                 }
+                Log.i("results1 :", String.valueOf(results1));
+
+                //calculate the unit
+                if (global.bloodSugar <= results1) {
+                    global.unit = 1;
+                } else {
+                    global.unit = (int) (global.bloodSugar / results1);
+                    if (global.unit == 0) {
+                        global.unit = 1;
+                    }
+                }
+                Log.i("unit :", String.valueOf(global.unit));
             }
-            Log.i("unit :", String.valueOf(global.unit));
         }
     }
 }

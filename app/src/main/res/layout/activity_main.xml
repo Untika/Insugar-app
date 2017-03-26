@@ -69,12 +69,13 @@
             android:id="@+id/login_btn_login"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dip"
+            android:layout_marginTop="20dp"
             android:background="@drawable/selector_round_rect_button_yellow"
             android:text="เข้าสู่ระบบ"
             android:textColor="#03A9F4"
             android:textStyle="bold"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            android:padding="6dp"/>
 
         <!-- Link to Login Screen -->
 
