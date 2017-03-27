@@ -1,5 +1,6 @@
 package th.ac.camt.insugar_app;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -134,13 +136,19 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             public boolean onNavigationItemSelected(MenuItem menuItem) {
                 int id = menuItem.getItemId();
                 switch (id) {
+                    case R.id.navItem0:
+                        Intent intentAcc = new Intent(CalculatorActivity.this,
+                                AccountActivity.class);
+                        startActivity(intentAcc);
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        break;
+
                     case R.id.navItem1:
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
                     case R.id.navItem2:
-
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
@@ -169,11 +177,35 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         break;
 
                     case R.id.navItem6:
+                        AlertDialog DialogHelp = new AlertDialog.Builder(
+                                CalculatorActivity.this).create();
+                        DialogHelp.setTitle("ช่วยเหลือ");
+                        DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
+                        DialogHelp.setMessage("\n Coming Soon... \n");
+                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        DialogHelp.show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
 
                     case R.id.navItem8:
+                        AlertDialog alertDialog = new AlertDialog.Builder(
+                                CalculatorActivity.this).create();
+                        alertDialog.setTitle("เกี่ยวกับ INSUGAR");
+                        alertDialog.setIcon(R.mipmap.ic_info_black_24dp);
+                        alertDialog.setMessage("\n          โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
+                                "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
+                                "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย\n");
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                        alertDialog.show();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }

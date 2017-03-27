@@ -5,6 +5,7 @@ import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -48,27 +49,27 @@ public class MenuActivity extends AppCompatActivity {
 
     }
 
+    boolean doubleBackToExitPressedOnce = false;
+
+    @Override
     public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
+        this.doubleBackToExitPressedOnce = true;
         drawerLayout.closeDrawer(GravityCompat.START);
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
 
-        AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-        dialog.setCancelable(true);
-        dialog.setMessage("คุณต้องการออกหรือไม่ ? \n");
-        dialog.setPositiveButton("ตกลง", new OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.addCategory(Intent.CATEGORY_HOME);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(intent);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
             }
-        });
-        dialog.setNegativeButton("ยกเลิก", new OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        dialog.show();
+        }, 2000);
     }
 
     private void initInstance() {
