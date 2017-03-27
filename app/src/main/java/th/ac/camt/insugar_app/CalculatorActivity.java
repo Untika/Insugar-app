@@ -38,6 +38,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private Spinner spinner;
     private Button btnCal;
     private EditText bloodSugar;
+    private EditText sumCarbo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +59,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(tDD.getText().length()>0) {
+                if (tDD.getText().length() > 0) {
                     tDD.setError(null);
                     weight.setError(null);
                     global.tDD = Double.parseDouble(tDD.getText().toString());
@@ -78,30 +79,29 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
             @Override
             public void afterTextChanged(Editable s) {
-                if(weight.getText().length()>0){
-                    try{
-                        global.tDD = Double.parseDouble(weight.getText().toString())*0.5;
+                if (weight.getText().length() > 0) {
+                    try {
+                        global.tDD = Double.parseDouble(weight.getText().toString()) * 0.5;
                         tDD.setText(String.valueOf(global.tDD));
                         tDD.setEnabled(false);
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
                     }
-                }else if(weight.getText().length()==0){
-                    try{
+                } else if (weight.getText().length() == 0) {
+                    try {
                         global.tDD = 0.0;
                         tDD.setText("");
                         tDD.setEnabled(true);
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
                     }
-                }else {
+                } else {
                     tDD.setEnabled(true);
                     tDD.setFocusable(true);
                 }
             }
         });
     }
-
 
 
     private void byWidGet() {
@@ -111,10 +111,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         spinner = (Spinner) findViewById(R.id.cal_spinner);
         btnCal = (Button) findViewById(R.id.cal_btn_cal);
         bloodSugar = (EditText) findViewById(R.id.cal_edtBloodSugar);
+        sumCarbo = (EditText) findViewById(R.id.cal_sumCarbo);
     }
 
     private void initInstance() {
-        toolbar = (Toolbar)findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
@@ -182,7 +183,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         DialogHelp.setTitle("ช่วยเหลือ");
                         DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
                         DialogHelp.setMessage("\n Coming Soon... \n");
-                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
+                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE, "ปิด", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }
@@ -200,7 +201,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         alertDialog.setMessage("\n          โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
                                 "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
                                 "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย\n");
-                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
+                        alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "ปิด", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
                             }
@@ -244,11 +245,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
 
-        if(position >0 && position < 6 ){
+        if (position > 0 && position < 6) {
             global.insulinName = adapter.getItem(position).toString();
             global.insulinType = "Short Insulin";
             Log.i("Insulin Type :", global.insulinType);
-        }else if(position >=6) {
+        } else if (position >= 6) {
             global.insulinName = adapter.getItem(position).toString();
             global.insulinType = "Rapid Insulin";
             Log.i("Insulin Type :", global.insulinType);
@@ -262,18 +263,22 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onClick(View v) {
-        if (v == btnCal){
-            if(tDD.getText().length()==0 && weight.getText().length()==0){
+        if (v == btnCal) {
+            if (tDD.getText().length() == 0 && weight.getText().length() == 0) {
                 tDD.setError("ห้ามเว้นว่าง");
                 weight.setError("ห้ามเว้นว่าง");
             }
-            if(bloodSugar.getText().length()==0){
+            if (bloodSugar.getText().length() == 0) {
                 bloodSugar.setError("ห้ามเว้นว่าง");
             }
-            if(spinner.getSelectedItemPosition()==0){
-                ((TextView)spinner.getSelectedView()).setError("");
+            if (spinner.getSelectedItemPosition() == 0) {
+                ((TextView) spinner.getSelectedView()).setError("");
             }
-            if(tDD.getText().length()!=0 && weight.getText().length()!=0 && bloodSugar.getText().length()!=0 && spinner.getSelectedItemPosition()!=0){
+            if (sumCarbo.getText().length() == 0) {
+                sumCarbo.setError("ห้ามเว้นว่าง");
+            }
+            if (tDD.getText().length() != 0 && weight.getText().length() != 0 && bloodSugar.getText().length() != 0
+                    && spinner.getSelectedItemPosition() != 0 && sumCarbo.getText().length() != 0) {
 
                 bloodSugar.setError(null);
                 global.bloodSugar = Double.parseDouble(bloodSugar.getText().toString());
@@ -298,6 +303,26 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     }
                 }
                 Log.i("unit :", String.valueOf(global.unit));
+
+
+                ///// sum carbo /////
+
+                sumCarbo.setError(null);
+                global.sumCarbo = Double.parseDouble(sumCarbo.getText().toString());
+                Log.i("Sum Carbo :", String.valueOf(global.sumCarbo));
+
+                double results2 = 500 / global.tDD;
+                Log.i("results2 :", String.valueOf(results2));
+
+                if (global.sumCarbo <= results2) {
+                    global.unit = 1;
+                } else {
+                    global.unit = (int) (global.sumCarbo / results2);
+                    if (global.unit == 0) {
+                        global.unit = 1;
+                    }
+                }
+                Log.i("carbo unit :", String.valueOf(global.unit));
             }
         }
     }

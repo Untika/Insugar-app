@@ -149,10 +149,11 @@
                 android:textColor="#000000"/>
 
             <EditText
-                android:id="@+id/cal_edtCarbo"
+                android:id="@+id/cal_sumCarbo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:inputType="numberDecimal"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
