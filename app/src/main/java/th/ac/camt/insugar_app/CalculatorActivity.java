@@ -40,6 +40,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private EditText bloodSugar;
     private EditText sumCarbo;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -287,42 +288,47 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 //check type of insulin for get results1
                 double results1 = 0;
                 if (global.insulinType.equals("Short Insulin")) {
-                    results1 = 1500 / global.tDD;
+                    results1 = Math.round(1500 / global.tDD);
                 } else if (global.insulinType.equals("Rapid Insulin")) {
-                    results1 = 1800 / global.tDD;
+                    results1 = Math.round(1800 / global.tDD);
                 }
                 Log.i("results1 :", String.valueOf(results1));
 
                 //calculate the unit
                 if (global.bloodSugar <= results1) {
-                    global.unit = 1;
+                    global.unit1 = 1;
                 } else {
-                    global.unit = (int) (global.bloodSugar / results1);
-                    if (global.unit == 0) {
-                        global.unit = 1;
+                    global.unit1 = (int) (global.bloodSugar / results1);
+                    if (global.unit1 == 0) {
+                        global.unit1 = 1;
                     }
                 }
-                Log.i("unit :", String.valueOf(global.unit));
+                Log.i("unit1 :", String.valueOf(global.unit1));
 
 
                 ///// sum carbo /////
-
                 sumCarbo.setError(null);
                 global.sumCarbo = Double.parseDouble(sumCarbo.getText().toString());
                 Log.i("Sum Carbo :", String.valueOf(global.sumCarbo));
 
-                double results2 = 500 / global.tDD;
+                double results2 = Math.round(500 / global.tDD);
                 Log.i("results2 :", String.valueOf(results2));
 
                 if (global.sumCarbo <= results2) {
-                    global.unit = 1;
+                    global.unit2 = 1;
                 } else {
-                    global.unit = (int) (global.sumCarbo / results2);
-                    if (global.unit == 0) {
-                        global.unit = 1;
+                    global.unit2 = (int) Math.round(global.sumCarbo / results2);
+                    if (global.unit2 == 0) {
+                        global.unit2 = 1;
                     }
                 }
-                Log.i("carbo unit :", String.valueOf(global.unit));
+
+                global.sumUnit = global.unit1+global.unit2;
+                Log.i("carbo unit :", String.valueOf(global.unit2));
+
+                Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                startActivity(intent);
+                finish();
             }
         }
     }

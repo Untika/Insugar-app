@@ -17,7 +17,9 @@ public class GlobalClass extends Application {
     public double bloodSugar;
     public String insulinName;
     public String insulinType;
-    public int unit;
+    public int unit1;
+    public int unit2;
+    public int sumUnit;
     public double sumCarbo;
 
 
