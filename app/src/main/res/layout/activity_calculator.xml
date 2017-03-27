@@ -7,6 +7,10 @@
     android:layout_height="match_parent"
     tools:context="th.ac.camt.insugar_app.CalculatorActivity">
 
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <!-- Content -->
     <LinearLayout
         android:orientation="vertical"
@@ -22,6 +26,22 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/tdd"
+            android:layout_marginRight="6dp"
+            android:layout_gravity="center"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,12 +95,30 @@
                 android:textColor="#000000"/>
 
             </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
 
     <ImageView
     android:layout_width="match_parent"
     android:layout_height="1dp"
     android:background="#9E9E9E"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/bs"
+        android:layout_marginRight="6dp"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -131,11 +169,30 @@
             android:entries="@array/insulin_array">
         </Spinner>
         </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#9E9E9E"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/food"
+        android:layout_marginRight="6dp"
+        android:layout_gravity="center"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -169,6 +226,8 @@
                 android:textSize="16sp"/>
 
         </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/cal_btn_cal"
@@ -183,7 +242,7 @@
             android:textColor="#ffffff"
             android:background="@drawable/selector_round_rect_button_blue"/>
         </LinearLayout>
-
+</ScrollView>
     <!-- Menu -->
     <android.support.design.widget.NavigationView
         android:id="@+id/navigation"

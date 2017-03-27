@@ -278,7 +278,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (sumCarbo.getText().length() == 0) {
                 sumCarbo.setError("ห้ามเว้นว่าง");
             }
-            if (tDD.getText().length() != 0 && weight.getText().length() != 0 && bloodSugar.getText().length() != 0
+            if (tDD.getText().length() != 0 && bloodSugar.getText().length() != 0
                     && spinner.getSelectedItemPosition() != 0 && sumCarbo.getText().length() != 0) {
 
                 bloodSugar.setError(null);
@@ -325,10 +325,26 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
                 global.sumUnit = global.unit1+global.unit2;
                 Log.i("carbo unit :", String.valueOf(global.unit2));
+                drawerLayout.closeDrawer(GravityCompat.START);
 
-                Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
-                startActivity(intent);
-                finish();
+                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                dialog.setCancelable(true);
+                dialog.setMessage("ยืนยันการกรอกข้อมูล \n");
+                dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                });
+                dialog.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                dialog.show();
+
             }
         }
     }

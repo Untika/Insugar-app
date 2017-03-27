@@ -82,7 +82,7 @@
             android:theme="@style/AppThemeWithActionBar" />
 
         <activity android:name=".ResultActivity"
-            android:theme="@style/AppThemeWithActionBarSecondCalculator"/>
+            android:theme="@style/AppThemeWithActionBarCalculator"/>
     </application>
 
 </manifest>
