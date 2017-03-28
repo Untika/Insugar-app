@@ -1,6 +1,8 @@
 package th.ac.camt.insugar_app;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     GlobalClass global;
 
     private ProgressBar progressBar;
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +46,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         byWidget();
         btnGoToRegister.setOnClickListener(this);
         btnLogin.setOnClickListener(this);
+        sharedPreferences = getSharedPreferences("MY_PREFERENCES", Context.MODE_PRIVATE);
+        txtEmail.setText(sharedPreferences.getString("EMAIL",""));
     }
 
     private void byWidget() {
@@ -51,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin = (Button) findViewById(R.id.login_btn_login);
         txtEmail = (EditText) findViewById(R.id.login_email);
         txtPassword = (EditText) findViewById(R.id.login_password);
-        
         progressBar = (ProgressBar) findViewById(R.id.progressBars);
     }
 
@@ -134,4 +138,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return null;
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("EMAIL", txtEmail.getText().toString());
+        editor.commit();
+    }
 }

@@ -29,15 +29,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="6dp"
         android:orientation="horizontal">
 
         <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/tdd"
-            android:layout_marginRight="6dp"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            android:layout_marginRight="3dp"
+            android:layout_marginLeft="3dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,12 +55,27 @@
                 android:textSize="18sp"
                 android:textColor="#000000"/>
 
-            <EditText
-                android:id="@+id/cal_edtTDD"
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="1">
+            <EditText
+                android:id="@+id/cal_edtTDD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
                 android:inputType="numberDecimal" />
+            <TextView
+                android:layout_marginLeft="3dp"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:id="@+id/cal_tvTDD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/cal_edtTDD"
+                android:layout_alignBottom="@+id/cal_edtTDD"/>
+            </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -90,9 +106,18 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="kg."
+                android:text="kg.  คูณ : "
                 android:textSize="18sp"
                 android:textColor="#000000"/>
+            <Spinner
+                android:layout_gravity="center"
+                android:id="@+id/cal_multiplyWeight"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:dropDownWidth="60dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/multiplyWeight_array"/>
 
             </LinearLayout>
             </LinearLayout>
@@ -106,15 +131,16 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="6dp"
         android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@drawable/bs"
-        android:layout_marginRight="6dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -151,7 +177,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginBottom="20dp">
+            android:layout_marginBottom="15dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -180,19 +206,24 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginRight="6dp"
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal">
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:src="@drawable/food"
-        android:layout_marginRight="6dp"
-        android:layout_gravity="center"/>
+        android:layout_gravity="center"
+        android:layout_marginRight="3dp"
+        android:layout_marginLeft="3dp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -201,7 +232,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="อาหาร : "
+                android:text="คาร์โบไฮเดรตในอาหาร : "
                 android:textSize="18sp"
                 android:textColor="#000000"/>
 
@@ -218,14 +249,15 @@
                 android:textSize="18sp"
                 android:textColor="#000000"
                 android:layout_marginRight="10dp"/>
-            <Button
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="เลือก"
-                android:textSize="16sp"/>
 
         </LinearLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ค้นหาอาหาร"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:textSize="16sp"/>
         </LinearLayout>
         </LinearLayout>
 

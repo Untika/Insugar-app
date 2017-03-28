@@ -12,6 +12,8 @@
     <string name="settings_name">ตั้งค่า</string>
     <string name="account_name">บัญชีผู้ใช้งาน</string>
 
+    <string name="dialog_title">โปรดกรอก Long Insulin</string>
+
     <string name="open_drawer">Open Menu</string>
     <string name="close_drawer">Close Menu</string>
 </resources>

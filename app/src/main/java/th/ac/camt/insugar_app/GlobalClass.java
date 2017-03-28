@@ -21,6 +21,8 @@ public class GlobalClass extends Application {
     public int unit2;
     public int sumUnit;
     public double sumCarbo;
+    public String longInsulinName;
+    public String longInsulinUnit;
 
 
     public User getUser() {

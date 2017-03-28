@@ -13,6 +13,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
@@ -24,6 +25,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 
 public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -39,15 +42,21 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private Button btnCal;
     private EditText bloodSugar;
     private EditText sumCarbo;
-
+    private Spinner spinnerMultiply;
+    private TextView txtTDD;
+    private DecimalFormat df2;
+    private Spinner spinnerLongInsulin;
+    private EditText UnitLongInsulin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
+        openDialog();
         byWidGet();
         initInstance();
         spinner.setOnItemSelectedListener(this);
+        spinnerMultiply.setOnItemSelectedListener(this);
         btnCal.setOnClickListener(this);
         tDD.addTextChangedListener(new TextWatcher() {
             @Override
@@ -63,7 +72,14 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 if (tDD.getText().length() > 0) {
                     tDD.setError(null);
                     weight.setError(null);
+                    ((TextView) spinnerMultiply.getSelectedView()).setError(null);
+                    weight.setEnabled(false);
+                    spinnerMultiply.setEnabled(false);
                     global.tDD = Double.parseDouble(tDD.getText().toString());
+                }else {
+                    weight.setEnabled(true);
+                    weight.setFocusable(true);
+                    spinnerMultiply.setEnabled(true);
                 }
             }
         });
@@ -81,38 +97,101 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             @Override
             public void afterTextChanged(Editable s) {
                 if (weight.getText().length() > 0) {
+                    tDD.setEnabled(false);
                     try {
-                        global.tDD = Double.parseDouble(weight.getText().toString()) * 0.5;
-                        tDD.setText(String.valueOf(global.tDD));
-                        tDD.setEnabled(false);
-                    } catch (Exception e) {
+                        global.tDD = Double.parseDouble(weight.getText().toString())* Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
+                        global.tDD = Double.parseDouble(df2.format(global.tDD));
+                        Log.i("GTDD", String.valueOf(global.tDD));
+                        txtTDD.setText(String.valueOf(global.tDD));
+                    }catch (Exception e){
 
                     }
                 } else if (weight.getText().length() == 0) {
                     try {
                         global.tDD = 0.0;
                         tDD.setText("");
+                        txtTDD.setText(null);
                         tDD.setEnabled(true);
+                        tDD.setFocusable(true);
                     } catch (Exception e) {
 
                     }
-                } else {
-                    tDD.setEnabled(true);
-                    tDD.setFocusable(true);
+                }
+            }
+        });
+        txtTDD.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (txtTDD.getText().length() > 0) {
+                    tDD.setError(null);
                 }
             }
         });
     }
 
+    private void openDialog() {
+        /*
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setView(R.layout.dialog_longinsulin);
+        alertDialog.setTitle(R.string.dialog_title);
+        alertDialog.setPositiveButton("บันทึก", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        alertDialog.show();
+        */
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Title");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                global.longInsulinUnit = input.getText().toString();
+                Log.i("mk :", String.valueOf(global.longInsulinUnit));
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        builder.show();
+        }
+
+
 
     private void byWidGet() {
         global = (GlobalClass) getApplicationContext();
+        df2 = new DecimalFormat(".##");
         tDD = (EditText) findViewById(R.id.cal_edtTDD);
         weight = (EditText) findViewById(R.id.cal_edtWeight);
         spinner = (Spinner) findViewById(R.id.cal_spinner);
         btnCal = (Button) findViewById(R.id.cal_btn_cal);
         bloodSugar = (EditText) findViewById(R.id.cal_edtBloodSugar);
         sumCarbo = (EditText) findViewById(R.id.cal_sumCarbo);
+        spinnerMultiply = (Spinner) findViewById(R.id.cal_multiplyWeight);
+        txtTDD = (TextView) findViewById(R.id.cal_tvTDD);
+
+
     }
 
     private void initInstance() {
@@ -246,15 +325,28 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
 
-        if (position > 0 && position < 6) {
-            global.insulinName = adapter.getItem(position).toString();
-            global.insulinType = "Short Insulin";
-            Log.i("Insulin Type :", global.insulinType);
-        } else if (position >= 6) {
-            global.insulinName = adapter.getItem(position).toString();
-            global.insulinType = "Rapid Insulin";
-            Log.i("Insulin Type :", global.insulinType);
+        if(parent==spinner) {
+            if (position > 0 && position < 6) {
+                global.insulinName = adapter.getItem(position).toString();
+                global.insulinType = "Short Insulin";
+                Log.i("Insulin Type :", global.insulinType);
+            } else if (position >= 6) {
+                global.insulinName = adapter.getItem(position).toString();
+                global.insulinType = "Rapid Insulin";
+                Log.i("Insulin Type :", global.insulinType);
+            }
+        }else if(parent==spinnerMultiply){
+            try {
+                global.tDD = Double.parseDouble(weight.getText().toString())* Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
+                global.tDD = Double.parseDouble(df2.format(global.tDD));
+                Log.i("GTDD", String.valueOf(global.tDD));
+                txtTDD.setText(String.valueOf(global.tDD));
+            }catch (Exception e){
+
+            }
+
         }
+
     }
 
     @Override
@@ -265,7 +357,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onClick(View v) {
         if (v == btnCal) {
-            if (tDD.getText().length() == 0 && weight.getText().length() == 0) {
+            if (tDD.getText().length() == 0 && txtTDD.getText().length()==0 && weight.getText().length() == 0) {
                 tDD.setError("ห้ามเว้นว่าง");
                 weight.setError("ห้ามเว้นว่าง");
             }
@@ -278,7 +370,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (sumCarbo.getText().length() == 0) {
                 sumCarbo.setError("ห้ามเว้นว่าง");
             }
-            if (tDD.getText().length() != 0 && bloodSugar.getText().length() != 0
+            if ((tDD.getText().length() != 0 || txtTDD.getText().length() !=0)&& bloodSugar.getText().length() != 0
                     && spinner.getSelectedItemPosition() != 0 && sumCarbo.getText().length() != 0) {
 
                 bloodSugar.setError(null);
@@ -325,27 +417,14 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
                 global.sumUnit = global.unit1+global.unit2;
                 Log.i("carbo unit :", String.valueOf(global.unit2));
-                drawerLayout.closeDrawer(GravityCompat.START);
 
-                AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-                dialog.setCancelable(true);
-                dialog.setMessage("ยืนยันการกรอกข้อมูล \n");
-                dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
-                dialog.setNegativeButton("ยกเลิก", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                dialog.show();
+                Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                startActivity(intent);
+                finish();
+                Log.i("sum unit :", String.valueOf(global.sumUnit));
 
             }
         }
+
     }
 }
