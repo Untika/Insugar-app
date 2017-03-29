@@ -13,7 +13,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MenuItem;
@@ -45,8 +44,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private Spinner spinnerMultiply;
     private TextView txtTDD;
     private DecimalFormat df2;
-    private Spinner spinnerLongInsulin;
-    private EditText UnitLongInsulin;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -137,45 +135,33 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         });
     }
 
+
     private void openDialog() {
-        /*
-        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-        alertDialog.setView(R.layout.dialog_longinsulin);
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(CalculatorActivity.this);
         alertDialog.setTitle(R.string.dialog_title);
+        View v  = getLayoutInflater().inflate(R.layout.dialog_longinsulin, null);
+        final Spinner spinnerLongInsulin = (Spinner) v.findViewById(R.id.dialog_spinner);
+        final EditText edtUnitLongInsulin = (EditText) v.findViewById(R.id.dialog_edtUnit);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(CalculatorActivity.this, android.R.layout.simple_spinner_item,
+                getResources().getStringArray(R.array.long_insulin_array));
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLongInsulin.setAdapter(adapter);
+
         alertDialog.setPositiveButton("บันทึก", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                finish();
-            }
-        });
-        alertDialog.show();
-        */
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Title");
+                global.longInsulinName = spinnerLongInsulin.getSelectedItem().toString();
+                global.longInsulinUnit = edtUnitLongInsulin.getText().toString();
 
-// Set up the input
-        final EditText input = new EditText(this);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
-        builder.setView(input);
-
-// Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                global.longInsulinUnit = input.getText().toString();
-                Log.i("mk :", String.valueOf(global.longInsulinUnit));
+                Log.i("nameL :", String.valueOf(global.longInsulinName));
+                Log.i("unitL :", String.valueOf(global.longInsulinUnit));
 
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        alertDialog.setView(v);
+        AlertDialog dialog = alertDialog.create();
+        dialog.show();
 
-        builder.show();
-        }
+    }
 
 
 
