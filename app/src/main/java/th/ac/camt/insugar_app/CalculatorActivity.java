@@ -1,7 +1,9 @@
 package th.ac.camt.insugar_app;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -26,6 +28,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -44,14 +49,27 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private Spinner spinnerMultiply;
     private TextView txtTDD;
     private DecimalFormat df2;
+    private SharedPreferences sharedPreferences;
+    private String date;
+    private boolean checkInputDialog = false;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
-        openDialog();
         byWidGet();
+        if(date.equals("")){
+            openDialog();
+            date = String.valueOf(new SimpleDateFormat("yyyy/MM/dd", new Locale("TH")).format(new Date()));
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("DATE",date);
+            editor.commit();
+        }else if(!(date.equals(String.valueOf(new SimpleDateFormat("yyyy/MM/dd", new Locale("TH")).format(new Date()))))){
+            openDialog();
+        }
+        Log.i("Data :", date);
+        Log.i("Locale :", String.valueOf(new SimpleDateFormat("yyyy/MM/dd HH:mm:ss", new Locale("TH")).format(new Date())));
         initInstance();
         spinner.setOnItemSelectedListener(this);
         spinnerMultiply.setOnItemSelectedListener(this);
@@ -74,7 +92,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     weight.setEnabled(false);
                     spinnerMultiply.setEnabled(false);
                     global.tDD = Double.parseDouble(tDD.getText().toString());
-                }else {
+                } else {
                     weight.setEnabled(true);
                     weight.setFocusable(true);
                     spinnerMultiply.setEnabled(true);
@@ -97,11 +115,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 if (weight.getText().length() > 0) {
                     tDD.setEnabled(false);
                     try {
-                        global.tDD = Double.parseDouble(weight.getText().toString())* Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
+                        global.tDD = Double.parseDouble(weight.getText().toString()) * Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
                         global.tDD = Double.parseDouble(df2.format(global.tDD));
                         Log.i("GTDD", String.valueOf(global.tDD));
                         txtTDD.setText(String.valueOf(global.tDD));
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
                     }
                 } else if (weight.getText().length() == 0) {
@@ -135,13 +153,27 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(checkInputDialog){
+            date = String.valueOf(new SimpleDateFormat("yyyy/MM/dd", new Locale("TH")).format(new Date()));
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("DATE",date);
+            editor.commit();
+            Log.i("HHHHHHHHHHHH", "mark");
+        }
+    }
 
     private void openDialog() {
+
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(CalculatorActivity.this);
         alertDialog.setTitle(R.string.dialog_title);
-        View v  = getLayoutInflater().inflate(R.layout.dialog_longinsulin, null);
+        View v = getLayoutInflater().inflate(R.layout.dialog_longinsulin, null);
+
         final Spinner spinnerLongInsulin = (Spinner) v.findViewById(R.id.dialog_spinner);
         final EditText edtUnitLongInsulin = (EditText) v.findViewById(R.id.dialog_edtUnit);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(CalculatorActivity.this, android.R.layout.simple_spinner_item,
                 getResources().getStringArray(R.array.long_insulin_array));
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -149,24 +181,41 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
         alertDialog.setPositiveButton("บันทึก", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
-                global.longInsulinName = spinnerLongInsulin.getSelectedItem().toString();
-                global.longInsulinUnit = edtUnitLongInsulin.getText().toString();
-
-                Log.i("nameL :", String.valueOf(global.longInsulinName));
-                Log.i("unitL :", String.valueOf(global.longInsulinUnit));
 
             }
         });
         alertDialog.setView(v);
-        AlertDialog dialog = alertDialog.create();
+        final AlertDialog dialog = alertDialog.create();
         dialog.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Boolean wantToCloseDialog = false;
+
+                if (spinnerLongInsulin.getSelectedItemId() != 0 && edtUnitLongInsulin.getText().length() != 0) {
+                    wantToCloseDialog = true;
+                }
+                if (wantToCloseDialog) {
+                    global.longInsulinName = spinnerLongInsulin.getSelectedItem().toString();
+                    global.longInsulinUnit = edtUnitLongInsulin.getText().toString();
+
+                    Log.i("nameL :", String.valueOf(global.longInsulinName));
+                    Log.i("unitL :", String.valueOf(global.longInsulinUnit));
+                    checkInputDialog = true;
+                    dialog.dismiss();
+                }
+
+                //else dialog stays open. Make sure you have an obvious way to close the dialog especially if you set cancellable to false.
+            }
+        });
 
     }
 
 
-
     private void byWidGet() {
         global = (GlobalClass) getApplicationContext();
+        sharedPreferences = getSharedPreferences("MY_PREFERENCES", Context.MODE_PRIVATE);
+        date = sharedPreferences.getString("DATE","");
         df2 = new DecimalFormat(".##");
         tDD = (EditText) findViewById(R.id.cal_edtTDD);
         weight = (EditText) findViewById(R.id.cal_edtWeight);
@@ -311,7 +360,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         ArrayAdapter<String> adapter = (ArrayAdapter<String>) parent.getAdapter();
 
-        if(parent==spinner) {
+        if (parent == spinner) {
             if (position > 0 && position < 6) {
                 global.insulinName = adapter.getItem(position).toString();
                 global.insulinType = "Short Insulin";
@@ -321,13 +370,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 global.insulinType = "Rapid Insulin";
                 Log.i("Insulin Type :", global.insulinType);
             }
-        }else if(parent==spinnerMultiply){
+        } else if (parent == spinnerMultiply) {
             try {
-                global.tDD = Double.parseDouble(weight.getText().toString())* Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
+                global.tDD = Double.parseDouble(weight.getText().toString()) * Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
                 global.tDD = Double.parseDouble(df2.format(global.tDD));
                 Log.i("GTDD", String.valueOf(global.tDD));
                 txtTDD.setText(String.valueOf(global.tDD));
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
 
@@ -343,7 +392,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     @Override
     public void onClick(View v) {
         if (v == btnCal) {
-            if (tDD.getText().length() == 0 && txtTDD.getText().length()==0 && weight.getText().length() == 0) {
+            if (tDD.getText().length() == 0 && txtTDD.getText().length() == 0 && weight.getText().length() == 0) {
                 tDD.setError("ห้ามเว้นว่าง");
                 weight.setError("ห้ามเว้นว่าง");
             }
@@ -356,7 +405,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (sumCarbo.getText().length() == 0) {
                 sumCarbo.setError("ห้ามเว้นว่าง");
             }
-            if ((tDD.getText().length() != 0 || txtTDD.getText().length() !=0)&& bloodSugar.getText().length() != 0
+            if ((tDD.getText().length() != 0 || txtTDD.getText().length() != 0) && bloodSugar.getText().length() != 0
                     && spinner.getSelectedItemPosition() != 0 && sumCarbo.getText().length() != 0) {
 
                 bloodSugar.setError(null);
@@ -401,7 +450,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     }
                 }
 
-                global.sumUnit = global.unit1+global.unit2;
+                global.sumUnit = global.unit1 + global.unit2;
                 Log.i("carbo unit :", String.valueOf(global.unit2));
 
                 Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
