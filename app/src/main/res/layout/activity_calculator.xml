@@ -46,14 +46,18 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="6dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ค่า TDD : "
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
 
             <RelativeLayout
                 android:layout_width="0dp"
@@ -80,22 +84,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="unit/day"
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
             </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="6dp"
             android:layout_marginBottom="10dp">
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="น้ำหนัก : "
+                 android:textStyle="bold"
                  android:textSize="18sp"
-                 android:textColor="#000000"/>
+                 android:textColor="#1A237E"/>
 
             <EditText
                 android:id="@+id/cal_edtWeight"
@@ -106,9 +112,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="กก.  คูณ : "
+                android:text="กก.  คูณ :"
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
             <Spinner
                 android:layout_gravity="center"
                 android:id="@+id/cal_multiplyWeight"
@@ -153,8 +160,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="น้ำตาลในเลือด : "
+            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#000000"/>
+            android:textColor="#1A237E"/>
 
         <EditText
             android:id="@+id/cal_edtBloodSugar"
@@ -167,8 +175,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="mg/dL"
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
     </LinearLayout>
 
         <LinearLayout
@@ -176,14 +185,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="15dp">
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="4dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ยาที่ฉีด : "
+            android:text="ยาที่ฉีด :"
+            android:textStyle="bold"
             android:textSize="18sp"
-            android:textColor="#000000"/>
+            android:textColor="#1A237E"/>
         <Spinner
             android:layout_gravity="center"
             android:id="@+id/cal_spinner"
@@ -230,8 +241,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="คาร์โบไฮเดรตในอาหาร : "
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
 
             <EditText
                 android:id="@+id/cal_sumCarbo"
@@ -243,8 +255,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ก."
+                android:textStyle="bold"
                 android:textSize="18sp"
-                android:textColor="#000000"/>
+                android:textColor="#1A237E"/>
 
         </LinearLayout>
         <Button

@@ -31,7 +31,7 @@
         <Button
             android:id="@+id/settings_btn_account"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:text="บัญชีผู้ใช้งาน"
             android:textColor="#ffffff"
             android:textSize="16sp"
@@ -42,7 +42,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@drawable/selector_round_rect_button_purple"
             android:padding="16dp"
             android:textSize="16sp"
