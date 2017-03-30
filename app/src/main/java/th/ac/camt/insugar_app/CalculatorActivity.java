@@ -88,7 +88,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 if (tDD.getText().length() > 0) {
                     tDD.setError(null);
                     weight.setError(null);
-                    ((TextView) spinnerMultiply.getSelectedView()).setError(null);
                     weight.setEnabled(false);
                     spinnerMultiply.setEnabled(false);
                     global.tDD = Double.parseDouble(tDD.getText().toString());

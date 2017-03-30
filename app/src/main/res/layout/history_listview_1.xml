@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp">
         <TextView
-            android:text="วัน : "
+            android:text="วัน/เวลา : "
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_width="wrap_content"
@@ -25,18 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="16sp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="เวลา : "
-                android:textSize="16sp"
-                android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -49,7 +38,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Long Insulin : "
+                android:text="ชื่อ Long Insulin : "
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
