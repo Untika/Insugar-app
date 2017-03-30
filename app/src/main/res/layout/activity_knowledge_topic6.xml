@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/kl6"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="วิธีการใช้ยาอินซูลินแบบปากกา"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     ยาอินซูลินชนิดฉีดเป็นเภสัชภัณฑ์ที่มีลักษณัเป็นของเหลว ผ่านการทำให้ปราศจากเชื้อแล้ว ใช้ควบคุมระดับน้ำตาลในเลือดในผู้ป่วยเบาหวาน ผู้ป่วยสามารถฉีดยาอินซูลินเข้าสู่ร่างกายได้ด้วยตัวเองโดยอาศัยชุดอุปกรณ์สำหรับฉีดยาอินซูลิน ประกอบด้วย ยาฉีดอินซูลินบรรจุอยู่ในกระบอกยา ปากกาสำหรับให้ยาอินซูลิน และหัวเข็มฉีดยา"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="การบรรจุหลอดอินซูลิน"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     1. ถอดปลอกปากกาออก แล้วคลายเกลียวเพื่อถอดส่วนกระบอกบรรจุ penfill ออก
+\n     2. ทำความสะอาดส่วนแผ่นยางของ penfill ด้วยสำลีชุบแอลกอฮอล์ แล้วบรรจุลงในกระบอก
+\n     3. หมุนวงแหวนตามเข็มนาฬิกาให้ก้านลูกสูบกลับเข้ามาจนสุด
+\n     4. ประกอบส่วนของกระบอกบรรจุ penfill กลับเข้าตัวด้ามปากกา แล้วขันเกลียวให้แน่น"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="การใส่หัวเข็มฉีดอินซูลิน"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ลอกแผ่นผนึกออก
+\n     2. สวมเข็มเข้ากับปลายปากกาด้านที่มีแผ่นยางแล้วขันเกลียวให้แน่น
+\n     3. ดึงปลอกนอกออก่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="การตั้งขนาดยา"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     - หมุนวงแหวนปรับขนาดยาให้ได้ตามที่ต้องการ
+\n     - ถ้าท่านใช้อินซูลินออกฤทธิ์ปานกลาง(น้ำขุ่น) โปรดเขย่าอย่างช้าๆ อย่างน้อย 1 ครั้ง ลูกแก้วจะช่วยให้ยากระจายยาตัวสม่ำเสมอ ถอดปลอกในออก และพร้อมสำหรับขั้นตอนการฉีดยา่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="การเลือกตำแหน่งฉีดยาอินซูลิน"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     ลำดับการดูดซึมยา จากมากไปหาน้อย ดังนี้
+หน้าท้อง -> ต้นแขน -> ต้นขา่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="การฉีดยาอินซูลิน"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ทำความสะอาดตำแหน่งที่จะฉีดยาด้วยแอลกอฮอล์
+\n     2. แทงเข็มฉีดยาเข้าใต้ผิวหนัง กดปุ่มฉีดยาที่ปลายปากกาจนสุด และจับหัวเข็มให้ตั้งฉาก (90 องศา) กับบริเวณผิวหนังที่จะฉีด
+\n     3. หลังจากฉีดเสร็จแล้ว ให้สวมปลอกนอกหัวเข็มแล้วบิดหัวเข็มทิ้งลงในถุงที่ปลอดภัย"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="วิธีตรวจสอบขนาดยา"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ในบางครั้งอาจมีฟองอากาศเหลือค้างอยู่ในหัวเข็ม และเพ็นฟิลล์ ควรไล่ฟองอากาศทิ้งก่อนการฉีดยาทุกครั้ง
+\n     2. ถ้าอินซูลินชนิดออกฤทธิ์นาน (น้ำขุ่น) ควรเขย่าซ้ำๆ ประมาณ 10 ครั้งก่อนการใช้
+\n     3. สามารถตรวจสอบการทำงานของปากกาได้โดยตั้งปริมาณอินซูลินไว้ที่ตำแหน่ง 20 ยูนิต แล้วฉีดน้ำยาใส่ปลอกนอกเข็มจะได้ปริมาณของยาในระดับที่กำหนด
+\n     4. ถ้าท่านตั้งปริมาณอินซูลินที่จะฉีดผิด ให้ท่านดึงส่วนกระบอกที่ใช้บรรจุอินซูลินและตัวด้ามด้านบนให้แยกออกจากกัน ค้างเอาไว้ กดปุ่มฉีดยาจนสุดแล้วปล่อยกระบอกและตัวด้ามคืนตำแหน่งเดิม จากนั้นจึงตั้งปริมาณอินซูลินที่ท่นต้องการใหม่อีกครั้ง่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="ข้อแนะนำในการฉีดยา"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ไม่ควรฉีดยาซ้ำตำแหน่งเดิมทุกวัน
+\n     2. ตำแหน่งที่ฉีดใหม่ควรมีระยะห่างจากครั้งหลังสุดประมาณ 1 นิ้ว
+\n     3. ไม่ควรใช้เข็มฉีดยาร่วมกัน เพราะอาจทำให้ติดเชื้อโรคจากผู้อื่นได้
+\n     4. ก่อนฉีดยาแต่ละครั้ง ควรสังเกตปริมาณของยาที่เหลืออยู่อย่างคร่าวๆก่อน ว่าเพียงพอกับที่ท่านต้องการหรือไม่ ถ้าเพียงพอก็สามารถปฏิบัติตามขั้นตอนในการฉีดยาตามปกติได้เลย หากไม่เพียงพอท่านอาจเปลี่ยนเพ็นฟิลล์ใหม่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="6dp"
+                android:text="ข้อดีของการใช้ยาอินซูลินแบบปากกา"
+                android:textColor="#1976D2"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="     1. ใช้ง่าย ขนาดถูกต้อง พกพาสะดวก
+\n     2. ฉีดได้สูงสุด 70 ยูนิตต่อการฉีด 1 ครั้ง
+\n     3. ไม่ต้องเปลี่ยนหลอดยาบ่อย ไม่ต้องแช่เย็น
+\n     4. หัวเข็มเล็กทำให้ลดการเจ็บปวด่"
+                android:textSize="18sp" />
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://pharmacyjpr.blogspot.com/2010/04/guildline.html"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

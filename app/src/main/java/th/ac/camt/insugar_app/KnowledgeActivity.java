@@ -22,6 +22,8 @@ import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic2Activity;
 import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic3Activity;
 import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic4Activity;
 import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic5Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic6Activity;
+import th.ac.camt.insugar_app.ActivitySecondKnowledge.KnowledgeTopic7Activity;
 import th.ac.camt.insugar_app.AdapterKnowledge.KnowledgeListAdapter;
 
 public class KnowledgeActivity extends AppCompatActivity {
@@ -147,13 +149,15 @@ public class KnowledgeActivity extends AppCompatActivity {
 
         int[] resId = { R.drawable.kl1
                 , R.drawable.kl2, R.drawable.kl3, R.drawable.kl4
-                , R.drawable.kl5};
+                , R.drawable.kl5, R.drawable.kl6, R.drawable.kl71};
 
         String[] list = { "ความรู้ทั่วไปเรื่องโรคเบาหวาน"
                 , "อาหารกับผู้เป็นเบาหวาน"
                 , "เบาหวานขึ้นตา"
                 , "โรคไตจากเบาหวาน "
                 , "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน"
+                , "วิธีการใช้ยาอินซูลินแบบปากกา"
+                , "ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน"
         };
 
 
@@ -187,6 +191,14 @@ public class KnowledgeActivity extends AppCompatActivity {
                     case 4 :
                         Intent intentKL5 = new Intent(KnowledgeActivity.this, KnowledgeTopic5Activity.class);
                         startActivity(intentKL5);
+                        break;
+                    case 5 :
+                        Intent intentKL6 = new Intent(KnowledgeActivity.this, KnowledgeTopic6Activity.class);
+                        startActivity(intentKL6);
+                        break;
+                    case 6:
+                        Intent intentKL7 = new Intent(KnowledgeActivity.this, KnowledgeTopic7Activity.class);
+                        startActivity(intentKL7);
                         break;
                 }
             }

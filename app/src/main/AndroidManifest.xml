@@ -70,6 +70,14 @@
             android:name=".ActivitySecondKnowledge.KnowledgeTopic5Activity"
             android:label="@string/knowledgetopic5_name"
             android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic6Activity"
+            android:label="@string/knowledgetopic6_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
+        <activity
+            android:name=".ActivitySecondKnowledge.KnowledgeTopic7Activity"
+            android:label="@string/knowledgetopic7_name"
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge"/>
 
         <!-- Settings -->
         <activity
@@ -80,9 +88,9 @@
             android:name=".AccountActivity"
             android:label="@string/account_name"
             android:theme="@style/AppThemeWithActionBar" />
-
-        <activity android:name=".ResultActivity"
-            android:theme="@style/AppThemeWithActionBarCalculator"/>
+        <activity
+            android:name=".ResultActivity"
+            android:theme="@style/AppThemeWithActionBarCalculator" />
     </application>
 
 </manifest>

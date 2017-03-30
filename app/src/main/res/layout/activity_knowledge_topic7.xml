@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBE9E7">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:src="@drawable/kl7"
+                android:layout_width="match_parent"
+                android:layout_height="1.3in"
+                android:scaleType="centerCrop"/>
+
+            <TextView
+                android:padding="16dp"
+                android:textStyle="bold"
+                android:textSize="22sp"
+                android:textColor="#0D47A1"
+                android:text="ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     อินซูลิน เป็นฮอร์โมนที่ตับอ่อนสร้างขึ้น และมีหน้าที่สำคัญคือ นำน้ำตาลในเลือดไปยังเนื้อเยื่อต่างๆ ของร่างกายเพื่อสร้างเป็นพลังงาน แต่สำหรับผู้ป่วยโรคเบาหวานไม่สามารถนำน้ำตาลในเลือดไปใช้เป็นพลังงานได้เต็มที่ เนื่องจากขาดฮอร์โมนอินซูลิน  มีผลทำให้ระดับน้ำตาลในเลือดสูงขึ้น"/>
+
+            <TextView
+                android:textColor="#1976D2"
+                android:textSize="20sp"
+                android:padding="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ข้อควรระวัง"/>
+
+            <TextView
+                android:textSize="18sp"
+                android:padding="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="     1. ภาวะน้ำตาลในเลือดต่ำ อาจเป็นผลมาจากให้อินซูลินมากเกินไป ออกกำลังกายหรือทำงานมากกว่าปกติ รับประทานอาหารน้อยเกินไป ผิดเวลา หรือช่วงระหว่างมื้อนานเกินไป ดังนั้นก่อนที่จะฉีดอินซูลิน ควรเตรียมอาหารไว้ให้พร้อมก่อน โดยควรรับประทานอาหารหลังจากฉีดยาไปแล้วไม่เกิน 30 นาที  อาการที่เกิดมีได้หลายอย่าง เช่น ปวดหัว เหงื่อออก ตัวเย็น ใจสั่น กระสับกระส่าย หงุดหงิด หากมีอาการเหล่านี้ให้อมลูกอม ดื่มน้ำผลไม้ หรือทานของที่มีน้ำตาลผสม (ห้ามใช้น้ำตาลเทียม)
+\n\n     2.ควรฉีดอินซูลินบริเวณเดิมทุกวัน เพียงแต่ย้ายจุดฉีด โดยฉีดห่างจากจุดเดิมประมาณ 1 นิ้ว เพื่อป้องกันการเกิดก้อนเนื้อแข็งใต้ผิวหนัง บริเวณที่สามารถฉีดอินซูลินได้ คือ บริเวณหน้าท้อง ต้นแขน หน้าขา และสะโพก ซึ่งตำแหน่งที่อินซูลินดูดซึมได้ดีที่สุด คือ บริเวณหน้าท้อง รองลงมาคือหน้าขา และต้นแขน ตามลำดับ
+\n\n     3.หากมีเลือดออกบริเวณที่ฉีด ไม่ควรถูหรือคลึง ให้ใช้นิ้วหรือสำลีชุบแอลกอฮอล์กดลงบนจุดที่ฉีดก็พอ เพราะจะทำให้การดูดซึมของยาเร็วขึ้น
+\n\n     4.ควรเก็บรักษาอินซูลินไว้ในตู้เย็นช่องธรรมดา (อุณหภูมิ 2-8 องศาเซลเซียส) โดยไม่ควรวางไว้บริเวณฝาตู้เย็น เพราะมีการเปลี่ยนแปลงของอุณหภูมิค่อนข้างมาก ซึ่งอาจทำให้ยาเสื่อมคุณภาพได้ และก่อนฉีดนั้นควรรอให้อุณหภูมิของอินซูลินเท่ากับอุณหภูมิห้องก่อน
+\n\n     5.หากอินซูลินที่ใช้เป็นลักษณะขุ่น ให้คลึงขวดยาบนฝ่ามือทั้งสองข้างเบาๆ เพื่อให้ยาผสมกันทั่วทั้งขวด ห้ามเขย่าขวดแรง เพราะจะทำให้เกิดฟองอากาศ และขณะที่ดูดยานั้นควรระวังอย่าให้เกิดฟองอากาศ เนื่องจากอาจทำให้มีผลต่อขนาดยาที่ได้รับด้วย
+\n\n     6.เข็มฉีดอินซูลินที่ใช้แล้วอาจทิ้งเลย หรือใช้ได้อีก 2-3 ครั้ง จนรู้สึกเจ็บ โดยไม่ต้องทำความสะอาดเข็ม เนื่องจากจะทำให้ซิลิโคนที่เคลือบอยู่นั้นหลุดออกไป ซึ่งก่อนจะนำเข็มไปทิ้งนั้น ควรปิดปลอกเข็มให้สนิทและหาภาชนะที่มิดชิดใส่รวมไว้ให้เรียบร้อย นำมาให้โรงพยาบาลกำจัดทิ้ง เนื่องจากเป็นขยะติดเชื้อ"/>
+
+            <TextView
+                android:textColor="#2196F3"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_marginTop="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ที่มา : http://www.paolohospital.com/home/diabetes/insulin/"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
