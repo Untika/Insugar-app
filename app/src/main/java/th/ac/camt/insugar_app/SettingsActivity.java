@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import th.ac.camt.insugar_app.alarmactivity.AlarmActivity;
+
 public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
 
     DrawerLayout drawerLayout;
@@ -25,6 +27,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     NavigationView navigation;
 
     private Button btnAccount;
+    private Button btnAlarmClock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +38,25 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
         byWidget();
         btnAccount.setOnClickListener(this);
+        btnAlarmClock.setOnClickListener(this);
     }
 
     private void byWidget() {
         btnAccount = (Button) findViewById(R.id.settings_btn_account);
+        btnAlarmClock = (Button) findViewById(R.id.settings_btn_alarmclock);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intentAcc = new Intent(SettingsActivity.this,
-                AccountActivity.class);
-        startActivity(intentAcc);
+        if (v == btnAccount) {
+            Intent intentAcc = new Intent(SettingsActivity.this,
+                    AccountActivity.class);
+            startActivity(intentAcc);
+        } else if (v == btnAlarmClock){
+            Intent intent = new Intent(SettingsActivity.this,
+                    AlarmActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void initInstance() {

@@ -18,4 +18,25 @@
 
     <string name="open_drawer">Open Menu</string>
     <string name="close_drawer">Close Menu</string>
+
+    <!-- Math Alarm Activity -->
+    <string name="alarm_name">Alarm Clock</string>
+    <string name="title_activity_set_alarms">Set Alarm</string>
+    <string name="no_alarms">No alarms have been set</string>
+
+    <string name="button_new">New</string>
+    <!-- Menu Alarm -->
+    <string name="menu_item_new">New</string>
+    <string name="menu_item_save">Save</string>
+    <string name="menu_item_delete">Delete</string>
+
+    <!-- Alert -->
+
+    <string name="decimal_button_text">.</string>
+    <string name="clear_button_text">Clear</string>
+    <string name="minus_button_text">-</string>
+
+    <string name="button_delete">Delete</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
 </resources>

@@ -6,6 +6,16 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <!--Alarm-->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+
     <application
         android:name=".GlobalClass"
         android:allowBackup="true"
@@ -91,6 +101,49 @@
         <activity
             android:name=".ResultActivity"
             android:theme="@style/AppThemeWithActionBarCalculator" />
+
+        <!-- Alarm -->
+        <activity
+            android:name=".alarmactivity.AlarmActivity"
+            android:label="@string/alarm_name"
+            android:theme="@style/AppThemeWithActionBarSettings" />
+        <activity
+            android:name=".preferences.AlarmPreferencesActivity"
+            android:label="@string/title_activity_set_alarms"
+            android:parentActivityName=".alarmactivity.AlarmActivity"
+            android:theme="@style/AppThemeWithActionBarSecondSettings">
+
+            <!-- Parent activity meta-data to support API level 7+ -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="th.ac.camt.insugar_app.alarmactivity.AlarmActivity" />
+        </activity>
+
+        <service
+            android:name=".service.AlarmService"
+            android:label="@string/alarm_name"
+            android:process="com.android.noti.alarm.serviceProcess"
+            android:theme="@style/AppThemeWithActionBarSettings" />
+
+        <receiver android:name=".service.AlarmServiceBroadcastReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name=".alert.AlarmAlertActivity"
+            android:label="@string/alarm_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeWithActionBar" />
+
+        <receiver android:name=".alert.AlarmAlertBroadcastReciever" />
+        <receiver android:name=".telephony.PhoneStateChangedBroadcastReciever">
+            <intent-filter>
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

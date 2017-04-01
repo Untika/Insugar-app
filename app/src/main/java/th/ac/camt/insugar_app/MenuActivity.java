@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -46,7 +47,8 @@ public class MenuActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "สวัสดี คุณ "+ user.getFullName(), Toast.LENGTH_LONG).show();
 
         initInstance();
-
+        Log.i("nameL test :", String.valueOf(global.longInsulinName));
+        Log.i("unitL test :", String.valueOf(global.longInsulinUnit));
     }
 
     boolean doubleBackToExitPressedOnce = false;
