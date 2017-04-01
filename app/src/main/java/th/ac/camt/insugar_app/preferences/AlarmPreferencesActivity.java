@@ -301,9 +301,9 @@ public class AlarmPreferencesActivity extends BaseActivity {
                 break;
             case R.id.menu_item_delete:
                 AlertDialog.Builder dialog = new AlertDialog.Builder(AlarmPreferencesActivity.this);
-                dialog.setTitle("Delete");
-                dialog.setMessage("Delete this alarm?");
-                dialog.setPositiveButton("Ok", new OnClickListener() {
+                dialog.setTitle("ลบ");
+                dialog.setMessage("ลบเวลาแจ้งเตือนนี้หรือไม่");
+                dialog.setPositiveButton("ตกลง", new OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -318,7 +318,7 @@ public class AlarmPreferencesActivity extends BaseActivity {
                         finish();
                     }
                 });
-                dialog.setNegativeButton("Cancel", new OnClickListener() {
+                dialog.setNegativeButton("ยกเลิก", new OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {

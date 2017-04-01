@@ -10,14 +10,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.media.RingtoneManager;
 
-import th.ac.camt.insugar_app.alert.AlarmAlertBroadcastReciever;
-
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+
+import th.ac.camt.insugar_app.alert.AlarmAlertBroadcastReciever;
 
 public class Alarm implements Serializable {
 
@@ -53,19 +53,19 @@ public class Alarm implements Serializable {
         public String toString() {
             switch(this.ordinal()){
                 case 0:
-                    return "Sunday";
+                    return "อาทิตย์";
                 case 1:
-                    return "Monday";
+                    return "จันทร์";
                 case 2:
-                    return "Tuesday";
+                    return "อังคาร";
                 case 3:
-                    return "Wednesday";
+                    return "พุธ";
                 case 4:
-                    return "Thursday";
+                    return "พฤหัสบดี";
                 case 5:
-                    return "Friday";
+                    return "ศุกร์";
                 case 6:
-                    return "Saturday";
+                    return "เสาร์";
             }
             return super.toString();
         }
@@ -78,7 +78,7 @@ public class Alarm implements Serializable {
     private Day[] days = {Day.MONDAY, Day.TUESDAY, Day.WEDNESDAY, Day.THURSDAY, Day.FRIDAY, Day.SATURDAY, Day.SUNDAY};
     private String alarmTonePath = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM).toString();
     private Boolean vibrate = true;
-    private String alarmName = "Alarm Clock";
+    private String alarmName = "นาฬิกาแจ้งเตือน";
     private Difficulty difficulty = Difficulty.EASY;
 
     public Alarm() {
@@ -176,10 +176,7 @@ public class Alarm implements Serializable {
         return days;
     }
 
-    /**
-     * @param set
-     *            the repeatDays to set
-     */
+
     public void setDays(Day[] days) {
         this.days = days;
     }
@@ -270,7 +267,7 @@ public class Alarm implements Serializable {
     public String getRepeatDaysString() {
         StringBuilder daysStringBuilder = new StringBuilder();
         if(getDays().length == Day.values().length){
-            daysStringBuilder.append("Every Day");
+            daysStringBuilder.append("ทุกวัน");
         }else{
             Arrays.sort(getDays(), new Comparator<Day>() {
                 @Override
@@ -316,7 +313,7 @@ public class Alarm implements Serializable {
         long hours = timeDifference / (1000 * 60 * 60) - (days * 24);
         long minutes = timeDifference / (1000 * 60) - (days * 24 * 60) - (hours * 60);
         long seconds = timeDifference / (1000) - (days * 24 * 60 * 60) - (hours * 60 * 60) - (minutes * 60);
-        String alert = "Alarm will sound in ";
+        String alert = "แจ้งเตือนใน  ";
         if (days > 0) {
             alert += String.format(
                     "%d days, %d hours, %d minutes and %d seconds", days,
