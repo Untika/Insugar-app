@@ -113,7 +113,7 @@ public class AlarmPreferencesActivity extends BaseActivity {
                         input.setText(alarmPreference.getValue().toString());
 
                         alert.setView(input);
-                        alert.setPositiveButton("Ok", new OnClickListener() {
+                        alert.setPositiveButton("ตกลง", new OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
 
                                 alarmPreference.setValue(input.getText().toString());
