@@ -22,12 +22,39 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"/>
 
-        <ListView
-            android:id="@+id/listViewHistory"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        </ListView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
 
+            <Button
+                android:id="@+id/history_btn_hisLongInsulin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="ประวัติการฉีด Long Insulin"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:padding="20dp"
+                android:layout_margin="24dp"
+                android:background="@drawable/selector_round_rect_button_pink"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/history_btn_hisCalculator"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/selector_round_rect_button_pink"
+                android:padding="20dp"
+                android:textSize="16sp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="ประวัติการคำนวณ"
+                android:textColor="#ffffff"
+                android:layout_gravity="center"/>
+
+        </LinearLayout>
     </LinearLayout>
 
     <!-- Menu -->

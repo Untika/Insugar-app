@@ -15,70 +15,23 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp">
-        <TextView
-            android:text="วัน/เวลา : "
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textSize="16sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/listNameLongInsulin"
-            android:layout_below="@+id/listDateTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp">
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ชื่อ Long Insulin : "
+                android:text="วัน/เวลา : "
+                android:textStyle="bold"
                 android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/listUnitLongInsulin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/listNameLongInsulin"
-            android:layout_margin="5dp">
-
+                android:layout_height="wrap_content" />
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="จำนวนการฉีด Long Insulin : "
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-            <TextView
+                android:id="@+id/his_listview_dateTime"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="16sp"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:text="ยูนิต" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/listTDD"
-            android:layout_below="@+id/listUnitLongInsulin"
+            android:layout_below="@+id/listDateTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp">
@@ -91,6 +44,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/his_listview_tDD"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -118,6 +72,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/his_listview_bloodSugar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -144,6 +99,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/his_listview_insulinName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"/>
@@ -164,6 +120,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/his_listview_insulinUnits"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

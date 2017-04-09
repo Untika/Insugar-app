@@ -13,22 +13,43 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity implements View.OnClickListener {
 
     DrawerLayout drawerLayout;
     ActionBarDrawerToggle actionBarDrawerToggle;
     Toolbar toolbar;
 
     NavigationView navigation;
+    private Button btnHisLongInsulin;
+    private Button btnHisCalculator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
-
+        byWidGet();
         initInstance();
+        btnHisLongInsulin.setOnClickListener(this);
+        btnHisCalculator.setOnClickListener(this);
+    }
 
+    private void byWidGet() {
+        btnHisLongInsulin = (Button) findViewById(R.id.history_btn_hisLongInsulin);
+        btnHisCalculator = (Button) findViewById(R.id.history_btn_hisCalculator);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == btnHisLongInsulin){
+            Intent intent = new Intent(HistoryActivity.this, HistoryLongInsulinActivity.class);
+            startActivity(intent);
+        } else if (v == btnHisCalculator){
+            Intent intent = new Intent(HistoryActivity.this, HistoryCalculatorActivity.class);
+            startActivity(intent);
+        }
     }
 
     private void initInstance() {

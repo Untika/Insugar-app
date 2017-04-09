@@ -141,6 +141,9 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
+
+        <activity android:name=".HistoryLongInsulinActivity" />
+        <activity android:name=".HistoryCalculatorActivity"></activity>
     </application>
 
 </manifest>

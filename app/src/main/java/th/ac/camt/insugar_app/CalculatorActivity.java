@@ -67,7 +67,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private SharedPreferences sharedPreferences;
     private String date;
     private boolean checkInputDialog = false;
-
+    private User user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -211,10 +211,12 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }
                 if (wantToCloseDialog) {
                     global.longInsulinName = spinnerLongInsulin.getSelectedItem().toString();
-                    global.longInsulinUnit = edtUnitLongInsulin.getText().toString();
+                    global.longInsulinUnit = Integer.parseInt(edtUnitLongInsulin.getText().toString());
 
                     Log.i("nameL :", String.valueOf(global.longInsulinName));
                     Log.i("unitL :", String.valueOf(global.longInsulinUnit));
+
+                    new LongInsulinTask().execute(global.longInsulinName, (String.valueOf(user.getId())), String.valueOf(global.longInsulinUnit));
                     checkInputDialog = true;
                     dialog.dismiss();
                 }
@@ -225,9 +227,63 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
     }
 
+    private class LongInsulinTask extends AsyncTask<String,Void,Check[]> {
+        @Override
+        protected Check[] doInBackground(String... params) {
+            try {
+                OkHttpClient client = new OkHttpClient();
+
+                RequestBody data = new FormBody.Builder()
+                        .add("insulinName", params[0])
+                        .add("idUser", params[1])
+                        .add("unit", params[2])
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url(global.URL_LONGINSULIN)
+                        .post(data)
+                        .build();
+
+                Response response = client.newCall(request).execute();
+                String result = response.body().string();
+
+                Log.i("gof", result);
+
+                Gson gson = new Gson();
+
+                Type listType = new TypeToken<ArrayList<Check>>() {
+                }.getType();
+                Collection<Check> enums = gson.fromJson(result, listType);
+                Check[] checks = enums.toArray(new Check[enums.size()]);
+                //Log.i("gof2", checks.toString());
+                return checks;
+
+            } catch (Exception e) {
+                //Log.i("Exception", e.toString());
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Check[] result) {
+            super.onPostExecute(result);
+            switch (result[0].getCheck()) {
+                case "Done Insert":
+                    Toast.makeText(getApplicationContext(), "บันทึกเรียบร้อย", Toast.LENGTH_LONG).show();
+                    break;
+                case "Error Insert":
+                    Toast.makeText(getApplicationContext(), "บันทึกไม่สำเร็จ", Toast.LENGTH_LONG).show();
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "เกิดข้อผิดพลาด ไม่สามารถบันทึกได้", Toast.LENGTH_LONG).show();
+                    break;
+            }
+        }
+    }
+
 
     private void byWidGet() {
         global = (GlobalClass) getApplicationContext();
+        user = global.getUser();
         sharedPreferences = getSharedPreferences("MY_PREFERENCES", Context.MODE_PRIVATE);
         date = sharedPreferences.getString("DATE","");
         df2 = new DecimalFormat(".##");
@@ -463,7 +519,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
                 global.sumUnit = global.unit1 + global.unit2;
                 Log.i("carbo unit :", String.valueOf(global.unit2));
-                User user = global.getUser();
 
                 Log.i("Log doo :",String.valueOf(user.getId()));
                 Log.i("Log doo :",global.insulinName);
@@ -532,12 +587,24 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         @Override
         protected void onPostExecute(Check[] result) {
             super.onPostExecute(result);
+            switch (result[0].getCheck()) {
+                case "Done Insert":
+                    Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                    startActivity(intent);
+                    finish();
+                    break;
+                case "Error Insert":
+                    Toast.makeText(getApplicationContext(), "คำนวณไม่สำเร็จ", Toast.LENGTH_LONG).show();
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "เกิดข้อผิดพลาด ไม่สามารถคำนวณได้", Toast.LENGTH_LONG).show();
+                    break;
+            }
 
-            Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
-            startActivity(intent);
-            finish();
+
             }
         }
+
 /*
     private class CalculatorTask extends AsyncTask<String, Void, Check[]> {
         @Override
