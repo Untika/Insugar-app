@@ -6,15 +6,13 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--Alarm-->
+    <!-- Alarm -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
-    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:name=".GlobalClass"
@@ -87,7 +85,7 @@
         <activity
             android:name=".ActivitySecondKnowledge.KnowledgeTopic7Activity"
             android:label="@string/knowledgetopic7_name"
-            android:theme="@style/AppThemeWithActionBarSecondKnowledge"/>
+            android:theme="@style/AppThemeWithActionBarSecondKnowledge" />
 
         <!-- Settings -->
         <activity
@@ -143,7 +141,6 @@
                 <action android:name="android.intent.action.PHONE_STATE" />
             </intent-filter>
         </receiver>
-
     </application>
 
 </manifest>

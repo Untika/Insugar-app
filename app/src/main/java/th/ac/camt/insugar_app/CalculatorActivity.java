@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -27,10 +28,24 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Locale;
+
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import th.ac.camt.insugar_app.Model.Check;
+import th.ac.camt.insugar_app.Model.User;
 
 
 public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -224,8 +239,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         sumCarbo = (EditText) findViewById(R.id.cal_sumCarbo);
         spinnerMultiply = (Spinner) findViewById(R.id.cal_multiplyWeight);
         txtTDD = (TextView) findViewById(R.id.cal_tvTDD);
-
-
     }
 
     private void initInstance() {
@@ -431,7 +444,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }
                 Log.i("unit1 :", String.valueOf(global.unit1));
 
-
                 ///// sum carbo /////
                 sumCarbo.setError(null);
                 global.sumCarbo = Double.parseDouble(sumCarbo.getText().toString());
@@ -451,14 +463,143 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
                 global.sumUnit = global.unit1 + global.unit2;
                 Log.i("carbo unit :", String.valueOf(global.unit2));
+                User user = global.getUser();
 
-                Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
-                startActivity(intent);
-                finish();
-                Log.i("sum unit :", String.valueOf(global.sumUnit));
+                Log.i("Log doo :",String.valueOf(user.getId()));
+                Log.i("Log doo :",global.insulinName);
+                Log.i("Log doo :",weight.getText().toString());
+                Log.i("Log doo :",String.valueOf(global.tDD));
+                Log.i("Log doo :",String.valueOf(global.bloodSugar));
+                Log.i("Log doo :",String.valueOf(global.unit1));
+                Log.i("Log doo :",String.valueOf(results1));
+                Log.i("Log doo :",String.valueOf(results2));
+                Log.i("Log doo :",String.valueOf(global.sumCarbo));
+                Log.i("Log doo :",String.valueOf(global.unit2));
+                Log.i("Log doo :",String.valueOf(global.sumUnit));
 
+                new CalculatorTask().execute(String.valueOf(user.getId()), global.insulinName, weight.getText().toString(),
+                        String.valueOf(global.tDD), String.valueOf(global.bloodSugar), String.valueOf(global.unit1),
+                        String.valueOf(results1), String.valueOf(results2), String.valueOf(global.sumCarbo),
+                        String.valueOf(global.unit2), String.valueOf(global.sumUnit));
             }
         }
-
     }
+
+    private class CalculatorTask extends AsyncTask<String,Void,Check[]>{
+        @Override
+        protected Check[] doInBackground(String... params) {
+            try {
+                OkHttpClient client = new OkHttpClient();
+
+                RequestBody data = new FormBody.Builder()
+                        .add("idUser", params[0])
+                        .add("insulinName", params[1])
+                        .add("weight", params[2])
+                        .add("TDD", params[3])
+                        .add("bloodSugar", params[4])
+                        .add("unit1", params[5])
+                        .add("result1", params[6])
+                        .add("result2", params[7])
+                        .add("sumCarbo", params[8])
+                        .add("unit2", params[9])
+                        .add("sumUnits", params[10])
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url(global.URL_CALCULATOR)
+                        .post(data)
+                        .build();
+
+                Response response = client.newCall(request).execute();
+                String result = response.body().string();
+
+                Log.i("gof", result);
+
+                Gson gson = new Gson();
+
+                Type listType = new TypeToken<ArrayList<Check>>() {
+                }.getType();
+                Collection<Check> enums = gson.fromJson(result, listType);
+                Check[] checks = enums.toArray(new Check[enums.size()]);
+                Log.i("gof2", checks.toString());
+                return checks;
+
+            } catch (Exception e) {
+                //Log.i("Exception", e.toString());
+            }
+            return null;
+        }
+        @Override
+        protected void onPostExecute(Check[] result) {
+            super.onPostExecute(result);
+
+            Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+            startActivity(intent);
+            finish();
+            }
+        }
+/*
+    private class CalculatorTask extends AsyncTask<String, Void, Check[]> {
+        @Override
+        protected Check[] doInBackground(String... params) {
+            try {
+                OkHttpClient client = new OkHttpClient();
+
+                RequestBody data = new FormBody.Builder()
+                        .add("idUser", params[0])
+                        .add("insulinName", params[1])
+                        .add("weight", params[2])
+                        .add("TDD", params[3])
+                        .add("bloodSugar", params[4])
+                        .add("unit1", params[5])
+                        .add("result1", params[6])
+                        .add("result2", params[7])
+                        .add("sumCarbo", params[8])
+                        .add("unit2", params[9])
+                        .add("sumUnits", params[10])
+                        .build();
+
+                Request request = new Request.Builder()
+                        .url(global.URL_CALCULATOR)
+                        .post(data)
+                        .build();
+
+                Response response = client.newCall(request).execute();
+                String result = response.body().string();
+
+                Log.i("gof", result);
+
+                Gson gson = new Gson();
+
+                Type listType = new TypeToken<ArrayList<Check>>() {
+                }.getType();
+                Collection<Check> enums = gson.fromJson(result, listType);
+                Check[] checks = enums.toArray(new Check[enums.size()]);
+                Log.i("gof2", checks.toString());
+                return checks;
+
+            } catch (Exception e) {
+                //Log.i("Exception", e.toString());
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+        }
+
+        @Override
+        protected void onPostExecute(Check[] result) {
+            super.onPostExecute(result);
+
+            if (result[0].getCheck().equals("Done Insert")) {
+                Toast.makeText(getApplicationContext(), "เรียบร้อย", Toast.LENGTH_LONG).show();
+
+            }
+
+        }
+    }
+    */
 }
