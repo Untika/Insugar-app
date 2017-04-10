@@ -142,8 +142,10 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".HistoryLongInsulinActivity" />
-        <activity android:name=".HistoryCalculatorActivity"></activity>
+        <activity android:name=".HistoryLongInsulinActivity"
+            android:theme="@style/AppThemeWithActionBarHistory" />
+        <activity android:name=".HistoryCalculatorActivity"
+            android:theme="@style/AppThemeWithActionBarHistory" />
     </application>
 
 </manifest>

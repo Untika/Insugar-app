@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F8BBD0">
+    android:background="#FCE4EC">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,6 +19,7 @@
                 android:text="วัน/เวลา : "
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:textColor="#880E4F"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <TextView
@@ -26,7 +27,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
 
         </LinearLayout>
         <LinearLayout
@@ -40,6 +43,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TDD : "
+                android:textColor="#880E4F"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -48,12 +52,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:textColor="#880E4F"
                 android:text="unit/day" />
 
         </LinearLayout>
@@ -69,25 +76,29 @@
                 android:layout_height="wrap_content"
                 android:text="น้ำตาลในเลือด : "
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#880E4F"/>
 
             <TextView
                 android:id="@+id/his_listview_bloodSugar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"
+                android:textColor="#880E4F"
                 android:text="mg/dL" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/listNameInsulin"
             android:layout_below="@+id/listBloodSugar"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp">
 
@@ -96,13 +107,17 @@
                 android:layout_height="wrap_content"
                 android:text="ชื่ออินซูลินที่ใช้ฉีด : "
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#880E4F"/>
 
             <TextView
                 android:id="@+id/his_listview_insulinName"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"/>
+                android:layout_weight="1"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,21 +132,25 @@
                 android:layout_height="wrap_content"
                 android:text="จำนวนการฉีดทั้งหมด : "
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#880E4F"/>
 
             <TextView
                 android:id="@+id/his_listview_insulinUnits"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="16sp"
-                android:text="ยูนิต" />
+                android:text="ยูนิต"
+                android:textColor="#880E4F"/>
         </LinearLayout>
 
 
