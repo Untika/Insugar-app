@@ -17,7 +17,7 @@ public class ResultActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         byWidGet();
-        txtResult.setText(String.valueOf(global.sumUnit));
+        txtResult.setText(String.valueOf(global.finalSumUnits));
         btnOk.setOnClickListener(this);
     }
 

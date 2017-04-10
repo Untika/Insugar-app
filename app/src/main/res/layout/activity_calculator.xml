@@ -48,8 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="6dp">
+            android:layout_marginTop="2dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,7 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="6dp"
-            android:layout_marginBottom="10dp">
+            android:layout_marginBottom="2dp">
              <TextView
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
@@ -155,7 +154,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -186,8 +188,8 @@
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="6dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginTop="4dp">
+            android:layout_marginBottom="12dp"
+            android:layout_marginTop="8dp">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -236,7 +238,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="4dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -260,8 +264,9 @@
                 android:textColor="#1A237E"/>
 
         </LinearLayout>
+
         <Button
-            android:id="@+id/cal_btn_listfoods"
+            android:id="@+id/cal_btn_listFoods"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="ค้นหาอาหาร"
@@ -270,13 +275,71 @@
             android:textSize="16sp"/>
         </LinearLayout>
         </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#9E9E9E"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/act"
+                android:layout_gravity="center"
+                android:layout_marginRight="3dp"
+                android:layout_marginLeft="3dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginBottom="4dp">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="กิจกรรม : "
+                        android:textStyle="bold"
+                        android:textSize="18sp"
+                        android:textColor="#1A237E"/>
+
+                    <EditText
+                        android:id="@+id/cal_sumActivity"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="numberDecimal"/>
+
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/cal_btn_listActivity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ค้นหากิจกรรม"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+        </LinearLayout>
 
         <Button
             android:id="@+id/cal_btn_cal"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
