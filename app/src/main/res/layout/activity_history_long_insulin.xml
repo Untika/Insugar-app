@@ -6,9 +6,12 @@
     android:layout_height="match_parent"
     tools:context="th.ac.camt.insugar_app.HistoryLongInsulinActivity">
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/listview_his_longInsulin"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ListView>
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_listview_longinsulin">
+    </android.support.v7.widget.RecyclerView>
+
 </RelativeLayout>

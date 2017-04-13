@@ -14,6 +14,7 @@ public class GlobalClass extends Application {
     public final String URL_LOGIN = "http://www.insugardmtype1.com/service/login.php";
     public final String URL_CALCULATOR = "http://www.insugardmtype1.com/service/History.php";
     public final String URL_LONGINSULIN = "http://www.insugardmtype1.com/service/LongInsulin.php";
+    public final String URL_GET_LONGINSULIN_LIST ="http://www.insugardmtype1.com/service/getLongInsulin.php";
     private User user;
     public double tDD;
     public double bloodSugar;
