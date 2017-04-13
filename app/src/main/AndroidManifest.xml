@@ -142,10 +142,13 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".HistoryLongInsulinActivity"
+        <activity
+            android:name=".HistoryLongInsulinActivity"
             android:theme="@style/AppThemeWithActionBarHistory" />
-        <activity android:name=".HistoryCalculatorActivity"
+        <activity
+            android:name=".HistoryCalculatorActivity"
             android:theme="@style/AppThemeWithActionBarHistory" />
+        <activity android:name=".FoodListActivity"></activity>
     </application>
 
 </manifest>
