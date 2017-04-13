@@ -20,7 +20,7 @@
     <string name="sumlistactivity_name">รายการกิจกรรม</string>
     <string name="listactivity_name">ค้นหากิจกรรม</string>
 
-    <string name="dialog_title">โปรดกรอก Long Insulin</string>
+    <string name="dialog_title">บันทึกการฉีด Long Insulin</string>
 
     <string name="open_drawer">Open Menu</string>
     <string name="close_drawer">Close Menu</string>
