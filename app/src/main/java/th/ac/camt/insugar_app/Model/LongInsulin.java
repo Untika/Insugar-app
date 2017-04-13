@@ -11,12 +11,9 @@ public class LongInsulin {
     @SerializedName("id")
     @Expose
     private String id;
-    @SerializedName("id_Insulin_Name")
+    @SerializedName("Insulin_Name")
     @Expose
-    private String idInsulinName;
-    @SerializedName("id_User")
-    @Expose
-    private String idUser;
+    private String insulinName;
     @SerializedName("unit")
     @Expose
     private String unit;
@@ -32,20 +29,12 @@ public class LongInsulin {
         this.id = id;
     }
 
-    public String getIdInsulinName() {
-        return idInsulinName;
+    public String getInsulinName() {
+        return insulinName;
     }
 
-    public void setIdInsulinName(String idInsulinName) {
-        this.idInsulinName = idInsulinName;
-    }
-
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
+    public void setInsulinName(String insulinName) {
+        this.insulinName = insulinName;
     }
 
     public String getUnit() {

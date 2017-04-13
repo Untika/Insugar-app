@@ -117,7 +117,7 @@ public class HistoryLongInsulinActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(ViewHolder holder, int position) {
             holder.date.setText(longInsulins[position].getDate());
-            holder.longInsulinName.setText(longInsulins[position].getIdInsulinName());
+            holder.longInsulinName.setText(longInsulins[position].getInsulinName());
             holder.longInsulinUnit.setText(longInsulins[position].getUnit());
         }
 
