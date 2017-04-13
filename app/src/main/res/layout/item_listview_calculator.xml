@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="24dp"
+    android:paddingRight="24dp"
+    android:paddingTop="8dp">
+
+
+    <!-- A CardView that contains a TextView -->
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        card_view:cardBackgroundColor="#99FFFFFF"
+        card_view:cardCornerRadius="4dp"
+        card_view:cardElevation="2sp"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#77FFFFFF"
+                android:paddingRight="24dp">
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="6dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="วัน/เวลา"
+                    android:textColor="@android:color/primary_text_light"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_calculator_dateTime"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/calculator_tdd"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/date"
+                    android:gravity="center_vertical"
+                    android:text="21/1/2016"
+                    android:textColor="@android:color/primary_text_light"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/calculator_tdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="16dp"
+                    android:text="TDD :"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_calculator_tdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/calculator_tdd"
+                    android:gravity="center_vertical"
+                    android:text="10"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/item_calculator_tdd"
+                    android:gravity="center_vertical"
+                    android:text="unit/day"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/calculator_bloodSugar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/calculator_tdd"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:paddingLeft="16dp"
+                    android:text="น้ำตาลในเลือด : "
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                android:id="@+id/item_calculator_bloodSugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/calculator_bloodSugar"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/calculator_bloodSugar"
+                android:text="30"
+                android:textColor="@android:color/secondary_text_light"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date"
+                    android:layout_alignBaseline="@+id/calculator_bloodSugar"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/item_calculator_bloodSugar"
+                    android:gravity="center_vertical"
+                    android:text="mg/dL"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/calculator_insulinName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/calculator_bloodSugar"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="16dp"
+                    android:text="ชื่ออินซูลินที่ใช้ฉีด : "
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_calculator_insulinName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/calculator_insulinName"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/calculator_insulinName"
+                    android:text="Description"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/calculator_insulinUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/calculator_insulinName"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="16dp"
+                    android:text="จำนวนการฉีดทั้งหมด : "
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/item_calculator_insulinUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/calculator_insulinUnit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/calculator_insulinUnit"
+                    android:text="50"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/date"
+                    android:layout_alignBaseline="@+id/calculator_insulinUnit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/item_calculator_insulinUnit"
+                    android:gravity="center_vertical"
+                    android:text="ยูนิต"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

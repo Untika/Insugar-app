@@ -241,7 +241,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         .build();
 
                 Request request = new Request.Builder()
-                        .url(global.URL_LONGINSULIN)
+                        .url(global.URL_ADD_LONGINSULIN)
                         .post(data)
                         .build();
 
@@ -573,7 +573,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         .build();
 
                 Request request = new Request.Builder()
-                        .url(global.URL_CALCULATOR)
+                        .url(global.URL_ADD_CALCULATOR)
                         .post(data)
                         .build();
 
