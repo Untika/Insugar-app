@@ -17,6 +17,8 @@
     <string name="his_cal_name">ประวัติการคำนวณ</string>
     <string name="sumlistfood_name">รายการอาหาร</string>
     <string name="listfood_name">ค้นหาอาหาร</string>
+    <string name="sumlistactivity_name">รายการกิจกรรม</string>
+    <string name="listactivity_name">ค้นหากิจกรรม</string>
 
     <string name="dialog_title">โปรดกรอก Long Insulin</string>
 

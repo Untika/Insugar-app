@@ -41,11 +41,6 @@
         android:checkableBehavior="single">
 
         <item
-            android:id="@+id/navItem6"
-            android:title="ช่วยเหลือ"
-            android:icon="@mipmap/ic_help_black_24dp"/>
-
-        <item
             android:id="@+id/navItem8"
             android:title="เกี่ยวกับ INSUGAR"
             android:icon="@mipmap/ic_info_black_24dp"/>

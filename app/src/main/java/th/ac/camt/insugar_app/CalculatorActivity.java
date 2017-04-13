@@ -70,6 +70,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private User user;
     private EditText sumActivity;
     private Button btnListFood;
+    private Button btnListActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,6 +93,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         spinnerMultiply.setOnItemSelectedListener(this);
         btnCal.setOnClickListener(this);
         btnListFood.setOnClickListener(this);
+        btnListActivity.setOnClickListener(this);
         tDD.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -300,6 +302,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         txtTDD = (TextView) findViewById(R.id.cal_tvTDD);
         sumActivity = (EditText) findViewById(R.id.cal_sumActivity);
         btnListFood = (Button) findViewById(R.id.cal_btn_listFoods);
+        btnListActivity = (Button) findViewById(R.id.cal_btn_listActivity);
     }
 
     private void initInstance() {
@@ -364,22 +367,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         finish();
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
-
-                    case R.id.navItem6:
-                        AlertDialog DialogHelp = new AlertDialog.Builder(
-                                CalculatorActivity.this).create();
-                        DialogHelp.setTitle("ช่วยเหลือ");
-                        DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
-                        DialogHelp.setMessage("\n Coming Soon... \n");
-                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE, "ปิด", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-                        DialogHelp.show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
 
                     case R.id.navItem8:
                         AlertDialog alertDialog = new AlertDialog.Builder(
@@ -464,8 +451,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onClick(View v) {
-        if (v == btnListFood){
+        if (v == btnListFood) {
             Intent intent = new Intent(CalculatorActivity.this, SumFoodListActivity.class);
+            startActivity(intent);
+        } else if (v == btnListActivity){
+            Intent intent = new Intent(CalculatorActivity.this, SumActivityListActivity.class);
             startActivity(intent);
         } else if (v == btnCal) {
             if (tDD.getText().length() == 0 && txtTDD.getText().length() == 0 && weight.getText().length() == 0) {

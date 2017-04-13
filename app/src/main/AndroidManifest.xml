@@ -157,7 +157,15 @@
         <activity
             android:name=".SumFoodListActivity"
             android:label="@string/sumlistfood_name"
-            android:theme="@style/AppThemeWithActionBarSecondCalculator"/>
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
+        <activity
+            android:name=".ActivityListActivity"
+            android:label="@string/listactivity_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
+        <activity
+            android:name=".SumActivityListActivity"
+            android:label="@string/sumlistactivity_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
     </application>
 
 </manifest>
