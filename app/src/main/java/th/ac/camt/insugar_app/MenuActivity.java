@@ -64,7 +64,7 @@ public class MenuActivity extends AppCompatActivity {
 
         this.doubleBackToExitPressedOnce = true;
         drawerLayout.closeDrawer(GravityCompat.START);
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "กรุณากด กลับ อีกครั้งเพื่อออก", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
             @Override

@@ -1,5 +1,6 @@
 package th.ac.camt.insugar_app;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +11,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,8 +36,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private EditText txtPassword;
     GlobalClass global;
 
-    private ProgressBar progressBar;
     private SharedPreferences sharedPreferences;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnLogin = (Button) findViewById(R.id.login_btn_login);
         txtEmail = (EditText) findViewById(R.id.login_email);
         txtPassword = (EditText) findViewById(R.id.login_password);
-        progressBar = (ProgressBar) findViewById(R.id.progressBars);
     }
 
     @Override
@@ -83,13 +82,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog = new ProgressDialog(MainActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("กรุณารอสักครู่...");
+            progressDialog.show();
         }
 
         @Override
         protected void onPostExecute(User[] users) {
             super.onPostExecute(users);
-            progressBar.setVisibility(View.GONE);
             if (users != null) {
                 global.setUser(users[0]);
                 Intent i = new Intent(getApplicationContext(), MenuActivity.class);
@@ -97,6 +98,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 Toast.makeText(getApplicationContext(), "อีเมลหรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_LONG).show();
             }
+            progressDialog.dismiss();
         }
     }
 

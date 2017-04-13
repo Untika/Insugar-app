@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="th.ac.camt.insugar_app.HistoryLongInsulinActivity">
+    tools:context="th.ac.camt.insugar_app.HistoryLongInsulinActivity"
+
+    android:background="#F8BBD0">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listview_his_longInsulin"

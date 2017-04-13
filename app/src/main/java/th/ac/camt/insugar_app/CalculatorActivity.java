@@ -69,6 +69,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private boolean checkInputDialog = false;
     private User user;
     private EditText sumActivity;
+    private Button btnListFood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,6 +91,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         spinner.setOnItemSelectedListener(this);
         spinnerMultiply.setOnItemSelectedListener(this);
         btnCal.setOnClickListener(this);
+        btnListFood.setOnClickListener(this);
         tDD.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -297,6 +299,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         spinnerMultiply = (Spinner) findViewById(R.id.cal_multiplyWeight);
         txtTDD = (TextView) findViewById(R.id.cal_tvTDD);
         sumActivity = (EditText) findViewById(R.id.cal_sumActivity);
+        btnListFood = (Button) findViewById(R.id.cal_btn_listFoods);
     }
 
     private void initInstance() {
@@ -461,7 +464,10 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
     @Override
     public void onClick(View v) {
-        if (v == btnCal) {
+        if (v == btnListFood){
+            Intent intent = new Intent(CalculatorActivity.this, SumFoodListActivity.class);
+            startActivity(intent);
+        } else if (v == btnCal) {
             if (tDD.getText().length() == 0 && txtTDD.getText().length() == 0 && weight.getText().length() == 0) {
                 tDD.setError("ห้ามเว้นว่าง");
                 weight.setError("ห้ามเว้นว่าง");

@@ -1,5 +1,6 @@
 package th.ac.camt.insugar_app;
 
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +8,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -40,8 +40,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private RadioButton radioSexButton;
     private TextView btnBackToLogin;
     GlobalClass global;
-
-    private ProgressBar progressBar;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,8 +62,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         txtPassword = (EditText) findViewById(R.id.regis_password);
         btnSignUp = (Button) findViewById(R.id.regis_btn_register);
         btnBackToLogin = (TextView) findViewById(R.id.regis_btn_back_to_login);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBars);
     }
 
     @Override
@@ -136,13 +133,15 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressBar.setVisibility(View.VISIBLE);
+            progressDialog = new ProgressDialog(RegisterActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("กรุณารอสักครู่...");
+            progressDialog.show();
         }
 
         @Override
         protected void onPostExecute(Check[] result) {
             super.onPostExecute(result);
-            progressBar.setVisibility(View.GONE);
             if (result[0].getCheck().equals("Done Insert")) {
                 Toast.makeText(getApplicationContext(), "เรียบร้อย", Toast.LENGTH_LONG).show();
                 finish();
@@ -151,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             } else {
                 Toast.makeText(getApplicationContext(), "ไม่สามารถลงทะเบียนได้ ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
             }
-
+            progressDialog.dismiss();
         }
     }
 
