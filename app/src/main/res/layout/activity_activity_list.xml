@@ -10,7 +10,7 @@
         android:id="@+id/textView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="รายชื่ออาหาร"
+        android:text="รายชื่อกิจกรรม"
         android:textStyle="bold"
         android:textColor="#000000"
         android:textSize="30dp"
@@ -45,7 +45,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ชื่ออาหาร (นน./จาน)"
+            android:text="ชื่อกิจกรรม"
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15sp"/>
@@ -53,17 +53,17 @@
             android:gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="คาร์โบไฮเดรต (กรัม)"
+            android:text=""
             android:textColor="#000000"
             android:textStyle="bold"
             android:textSize="15sp"/>
     </LinearLayout>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/listview_food"
+        android:id="@+id/listview_activity"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layoutManager="LinearLayoutManager"
-        tools:listitem="@layout/item_listview_foodlist">
+        tools:listitem="@layout/item_listview_activity">
     </android.support.v7.widget.RecyclerView>
 </LinearLayout>
 

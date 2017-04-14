@@ -1,7 +1,6 @@
 package th.ac.camt.insugar_app;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -25,9 +23,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import th.ac.camt.insugar_app.Model.Activity;
 import th.ac.camt.insugar_app.Model.Food;
 
-public class FoodListActivity extends AppCompatActivity {
+public class ActivityListActivity extends AppCompatActivity {
 
 
     private GlobalClass global;
@@ -37,22 +36,22 @@ public class FoodListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food_list);
+        setContentView(R.layout.activity_activity_list);
         byWidget();
         initInstance();
 
         //Get all Food List from service.
-        new FoodListTask().execute();
+        new ActivityListTask().execute();
     }
 
     private void byWidget() {
         global = (GlobalClass) getApplicationContext();
-        recyclerView = (RecyclerView)findViewById(R.id.listview_food);
+        recyclerView = (RecyclerView)findViewById(R.id.listview_activity);
     }
 
-    private class FoodListTask extends AsyncTask<String, Void, Food[]> {
+    private class ActivityListTask extends AsyncTask<String, Void, Activity[]> {
         @Override
-        protected Food[] doInBackground(String... params) {
+        protected Activity[] doInBackground(String... params) {
             try {
                 OkHttpClient client = new OkHttpClient();
 
@@ -60,7 +59,7 @@ public class FoodListActivity extends AppCompatActivity {
                         .build();
 
                 Request request = new Request.Builder()
-                        .url(global.URL_FOOD_LIST)
+                        .url(global.URL_ACTIVITY_LIST)
                         .post(data)
                         .build();
 
@@ -69,11 +68,11 @@ public class FoodListActivity extends AppCompatActivity {
 
                 Gson gson = new Gson();
 
-                Type listType = new TypeToken<ArrayList<Food>>() {
+                Type listType = new TypeToken<ArrayList<Activity>>() {
                 }.getType();
                 Collection<Food> enums = gson.fromJson(result, listType);
-                Food[] foods = enums.toArray(new Food[enums.size()]);
-                return foods;
+                Activity[] activity = enums.toArray(new Activity[enums.size()]);
+                return activity;
 
             } catch (Exception e) {
                 //Log.i("Exception", e.toString());
@@ -84,64 +83,53 @@ public class FoodListActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(FoodListActivity.this);
+            progressDialog = new ProgressDialog(ActivityListActivity.this);
             progressDialog.setCancelable(false);
             progressDialog.setMessage("กรุณารอสักครู่...");
             progressDialog.show();
         }
 
         @Override
-        protected void onPostExecute(Food[] foods) {
-            super.onPostExecute(foods);
-            recyclerView.setAdapter(new FoodListActivity.RecyclerViewAdapter(foods));
+        protected void onPostExecute(Activity[] activity) {
+            super.onPostExecute(activity);
+            recyclerView.setAdapter(new ActivityListActivity.RecyclerViewAdapter(activity));
             progressDialog.dismiss();
         }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        TextView foodName;
-        TextView foodCarbo;
+        TextView activityName;
+        TextView activityUnit;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            foodName = (TextView)itemView.findViewById(R.id.food_name);
-            foodCarbo = (TextView)itemView.findViewById(R.id.food_carbo);
+            activityName = (TextView)itemView.findViewById(R.id.activity_name);
+            activityUnit = (TextView)itemView.findViewById(R.id.activity_unit);
         }
     }
 
-    public class RecyclerViewAdapter extends RecyclerView.Adapter<FoodListActivity.ViewHolder>{
-        private Food[] foods;
+    public class RecyclerViewAdapter extends RecyclerView.Adapter<ActivityListActivity.ViewHolder>{
+        private Activity[] activity;
 
-        public RecyclerViewAdapter(Food[] foods) {
-            this.foods = foods;
+        public RecyclerViewAdapter(Activity[] activity) {
+            this.activity = activity;
         }
 
         @Override
-        public FoodListActivity.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_listview_foodlist, parent, false);
-            return new FoodListActivity.ViewHolder(v);
+        public ActivityListActivity.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(getApplicationContext()).inflate(R.layout.item_listview_activity, parent, false);
+            return new ActivityListActivity.ViewHolder(v);
         }
 
         @Override
-        public void onBindViewHolder(FoodListActivity.ViewHolder holder, final int position) {
-            holder.foodName.setText(foods[position].getName());
-            holder.foodCarbo.setText(foods[position].getCarbo());
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(FoodListActivity.this, SumFoodListActivity.class);
-                    intent.putExtra("result", "Name : " + foods[position].getName() + "\n" + "Carbo : " + foods[position].getCarbo());
-                    startActivity(intent);
-                    finish();
-                    Toast.makeText(FoodListActivity.this, foods[position].getName() + " - " + foods[position].getCarbo(), Toast.LENGTH_SHORT).show();
-                }
-            });
+        public void onBindViewHolder(ActivityListActivity.ViewHolder holder, int position) {
+            holder.activityName.setText(activity[position].getName());
+            holder.activityUnit.setText(activity[position].getUnit());
         }
 
         @Override
         public int getItemCount() {
-            return foods.length;
+            return activity.length;
         }
     }
     private void initInstance() {

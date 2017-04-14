@@ -1,12 +1,12 @@
 package th.ac.camt.insugar_app;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import th.ac.camt.insugar_app.Model.User;
@@ -19,8 +19,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
     private User user;
     private TextView txtNameAccount;
     private TextView txtEmailAccount;
-
-    private ProgressBar progressBar;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +38,14 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
         btnLogout = (Button) findViewById(R.id.account_btn_logout);
         txtNameAccount = (TextView) findViewById(R.id.account_name);
         txtEmailAccount = (TextView) findViewById(R.id.account_email);
-
-        progressBar = (ProgressBar) findViewById(R.id.progressBars);
-
     }
 
     @Override
     public void onClick(View v) {
-        progressBar.setVisibility(View.VISIBLE);
+        progressDialog = new ProgressDialog(AccountActivity.this);
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("กรุณารอสักครู่...");
+        progressDialog.show();
         logOut();
     }
 

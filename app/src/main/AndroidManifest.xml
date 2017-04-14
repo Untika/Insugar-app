@@ -144,11 +144,28 @@
 
         <activity
             android:name=".HistoryLongInsulinActivity"
-            android:theme="@style/AppThemeWithActionBarHistory" />
+            android:label="@string/his_long_name"
+            android:theme="@style/AppThemeWithActionBarSecondHistory" />
         <activity
             android:name=".HistoryCalculatorActivity"
-            android:theme="@style/AppThemeWithActionBarHistory" />
-        <activity android:name=".FoodListActivity"></activity>
+            android:label="@string/his_cal_name"
+            android:theme="@style/AppThemeWithActionBarSecondHistory" />
+        <activity
+            android:name=".FoodListActivity"
+            android:label="@string/listfood_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
+        <activity
+            android:name=".SumFoodListActivity"
+            android:label="@string/sumlistfood_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
+        <activity
+            android:name=".ActivityListActivity"
+            android:label="@string/listactivity_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
+        <activity
+            android:name=".SumActivityListActivity"
+            android:label="@string/sumlistactivity_name"
+            android:theme="@style/AppThemeWithActionBarSecondCalculator" />
     </application>
 
 </manifest>

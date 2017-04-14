@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:paddingTop="8dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="4dp">
 
 
     <!-- A CardView that contains a TextView -->
@@ -56,8 +56,7 @@
                     android:gravity="center_vertical"
                     android:text="21/1/2016"
                     android:textColor="@android:color/primary_text_light"
-                    android:textSize="19sp"
-                    android:textStyle="bold" />
+                    android:textSize="19sp"/>
 
                 <TextView
                     android:id="@+id/calculator_tdd"
@@ -83,8 +82,7 @@
                     android:gravity="center_vertical"
                     android:text="10"
                     android:textColor="@android:color/secondary_text_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -121,8 +119,7 @@
                 android:layout_toRightOf="@+id/calculator_bloodSugar"
                 android:text="30"
                 android:textColor="@android:color/secondary_text_light"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -159,8 +156,7 @@
                     android:layout_toRightOf="@+id/calculator_insulinName"
                     android:text="Description"
                     android:textColor="@android:color/secondary_text_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp"/>
 
                 <TextView
                     android:id="@+id/calculator_insulinUnit"
@@ -183,8 +179,7 @@
                     android:layout_toRightOf="@+id/calculator_insulinUnit"
                     android:text="50"
                     android:textColor="@android:color/secondary_text_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"

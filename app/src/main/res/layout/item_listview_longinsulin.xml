@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingLeft="24dp"
-    android:paddingRight="24dp"
-    android:paddingTop="8dp">
+    android:paddingLeft="8dp"
+    android:paddingRight="8dp"
+    android:paddingTop="4dp">
 
 
     <!-- A CardView that contains a TextView -->
@@ -56,8 +56,7 @@
                     android:gravity="center_vertical"
                     android:text="21/1/2016"
                     android:textColor="@android:color/primary_text_light"
-                    android:textSize="19sp"
-                    android:textStyle="bold" />
+                    android:textSize="19sp"/>
 
                 <TextView
                     android:id="@+id/longinsulin_name"
@@ -83,8 +82,7 @@
                     android:gravity="center_vertical"
                     android:text="Description"
                     android:textColor="@android:color/secondary_text_light"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/longinsulin_unit"
@@ -106,7 +104,19 @@
                     android:layout_alignBaseline="@+id/longinsulin_unit"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/longinsulin_unit"
-                    android:text="30 Unit"
+                    android:text="30"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/item_longinsulin_unit"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/item_longinsulin_unit"
+                    android:gravity="center_vertical"
+                    android:text="ยูนิต"
                     android:textColor="@android:color/secondary_text_light"
                     android:textSize="15sp"
                     android:textStyle="bold" />

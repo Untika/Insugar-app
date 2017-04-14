@@ -115,21 +115,6 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
 
-                    case R.id.navItem6:
-                        AlertDialog DialogHelp = new AlertDialog.Builder(
-                                HistoryActivity.this).create();
-                        DialogHelp.setTitle("ช่วยเหลือ");
-                        DialogHelp.setIcon(R.mipmap.ic_help_black_24dp);
-                        DialogHelp.setMessage("\n Coming Soon... \n");
-                        DialogHelp.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-                        DialogHelp.show();
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-
                     case R.id.navItem8:
                         AlertDialog alertDialog = new AlertDialog.Builder(
                                 HistoryActivity.this).create();

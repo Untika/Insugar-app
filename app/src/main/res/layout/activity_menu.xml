@@ -55,7 +55,7 @@
                 android:textSize="@dimen/button_menu_textsize"
                 android:layout_margin="@dimen/button_menu_margin"
                 android:layout_gravity="center_horizontal"
-                android:text="@string/history_name"
+                android:text="ประวัติ\nการใช้งาน"
                 android:drawablePadding="30dp"
                 android:drawableTop="@mipmap/ic_format_list_bulleted_white_48dp"
                 android:layout_width="@dimen/button_menu_width"

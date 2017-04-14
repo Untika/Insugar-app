@@ -1,10 +1,14 @@
 package th.ac.camt.insugar_app;
 
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -29,13 +33,14 @@ public class HistoryCalculatorActivity extends AppCompatActivity {
     GlobalClass global;
     private User user;
     private RecyclerView recyclerView;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history_calculator);
         byWidget();
-
+        initInstance();
 
         //Get all LongInsulin from service.
         new HistoryCalculatorActivity.CalculatorTask().execute(String.valueOf(user.getId()));
@@ -80,10 +85,34 @@ public class HistoryCalculatorActivity extends AppCompatActivity {
         }
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(HistoryCalculatorActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("กรุณารอสักครู่...");
+            progressDialog.show();
+        }
+
+        @Override
         protected void onPostExecute(Calculator[] calculator) {
             super.onPostExecute(calculator);
 
-            recyclerView.setAdapter(new HistoryCalculatorActivity.RecyclerViewAdapter(calculator));
+            if (calculator != null) {
+                recyclerView.setAdapter(new HistoryCalculatorActivity.RecyclerViewAdapter(calculator));
+            } else {
+                AlertDialog.Builder builder1 = new AlertDialog.Builder(HistoryCalculatorActivity.this);
+                builder1.setMessage("คุณยังไม่มีประวัติการคำนวณ");
+                builder1.setCancelable(true);
+
+                builder1.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert11 = builder1.create();
+                alert11.show();
+            }
+            progressDialog.dismiss();
         }
     }
 
@@ -130,5 +159,19 @@ public class HistoryCalculatorActivity extends AppCompatActivity {
         public int getItemCount() {
             return calculator.length;
         }
+    }
+
+    private void initInstance() {
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
