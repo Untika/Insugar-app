@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 public class SumFoodListActivity extends AppCompatActivity {
 
@@ -13,6 +14,17 @@ public class SumFoodListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sum_food_list);
+
+        TextView txtView = (TextView) findViewById(R.id.tvResult);
+        Intent intent = getIntent();
+        Bundle bd = intent.getExtras();
+        if(bd != null) {
+            String foodData = (String) bd.get("result");
+            txtView.setText(foodData);
+        } else {
+            txtView.setText("No Foods");
+        }
+
         initInstance();
     }
 
@@ -35,6 +47,7 @@ public class SumFoodListActivity extends AppCompatActivity {
         } else if (item.getItemId() == R.id.menu_item_add) {
             Intent intent = new Intent(SumFoodListActivity.this, FoodListActivity.class);
             startActivity(intent);
+            finish();
         } else if (item.getItemId() == R.id.menu_item_success){
             finish();
             return true;
