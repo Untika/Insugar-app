@@ -4,9 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    android:background="#E8EAF6"
     tools:context="th.ac.camt.insugar_app.SumActivityListActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="ชื่อกิจกรรม"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+        <TextView
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+    </LinearLayout>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/listview_sum_activity"
         android:layout_width="match_parent"
