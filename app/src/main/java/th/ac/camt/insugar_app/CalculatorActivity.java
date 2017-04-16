@@ -457,11 +457,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (resultCode == Activity.RESULT_OK) {
                 float sCarbo = data.getFloatExtra("SumCarbo",0);
                 sumCarbo.setText(String.valueOf(sCarbo));
+                sumCarbo.setError(null);
             }
         } else if (requestCode == 2) {
             if (resultCode == Activity.RESULT_OK){
                 int sActivity = data.getIntExtra("SumActivity",0);
                 sumActivity.setText(String.valueOf(sActivity));
+                sumActivity.setError(null);
             }
         }
     }
