@@ -7,10 +7,12 @@
     android:orientation="horizontal"
     tools:context="th.ac.camt.insugar_app.SumFoodListActivity">
 
-    <TextView
-        android:id="@+id/tvResult"
-        android:textSize="16sp"
-        android:layout_margin="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listview_sum_food"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_listview_foodlist">
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

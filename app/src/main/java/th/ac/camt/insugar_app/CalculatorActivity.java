@@ -1,5 +1,6 @@
 package th.ac.camt.insugar_app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -450,10 +451,21 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1) {
+            if (resultCode == Activity.RESULT_OK) {
+                float sCarbo = data.getFloatExtra("SumCarbo",0);
+                sumCarbo.setText(String.valueOf(sCarbo));
+            }
+        }
+    }
+
+    @Override
     public void onClick(View v) {
         if (v == btnListFood) {
             Intent intent = new Intent(CalculatorActivity.this, SumFoodListActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 1);
         } else if (v == btnListActivity){
             Intent intent = new Intent(CalculatorActivity.this, SumActivityListActivity.class);
             startActivity(intent);

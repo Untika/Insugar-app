@@ -14,6 +14,11 @@ public class Food {
     @Expose
     private String carbo;
 
+    public Food(String name, String carbo) {
+        this.name = name;
+        this.carbo = carbo;
+    }
+
     public String getId() {
         return id;
     }

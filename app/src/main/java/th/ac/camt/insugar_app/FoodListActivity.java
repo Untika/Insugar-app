@@ -1,5 +1,6 @@
 package th.ac.camt.insugar_app;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -33,6 +33,7 @@ public class FoodListActivity extends AppCompatActivity {
     private GlobalClass global;
     private RecyclerView recyclerView;
     private ProgressDialog progressDialog;
+    private Food[] foodsRe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,6 +107,17 @@ public class FoodListActivity extends AppCompatActivity {
             super(itemView);
             foodName = (TextView)itemView.findViewById(R.id.food_name);
             foodCarbo = (TextView)itemView.findViewById(R.id.food_carbo);
+            /*itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    v.getTag();
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("FoodName",foods[position].getName());
+                    returnIntent.putExtra("FoodChrbo",foods[position].getCarbo());
+                    setResult(Activity.RESULT_OK,returnIntent);
+                }
+            });
+            */
         }
     }
 
@@ -126,17 +138,21 @@ public class FoodListActivity extends AppCompatActivity {
         public void onBindViewHolder(FoodListActivity.ViewHolder holder, final int position) {
             holder.foodName.setText(foods[position].getName());
             holder.foodCarbo.setText(foods[position].getCarbo());
+            //holder.itemView.setTag(position);
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
 
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(FoodListActivity.this, SumFoodListActivity.class);
-                    intent.putExtra("result", "Name : " + foods[position].getName() + "\n" + "Carbo : " + foods[position].getCarbo());
-                    startActivity(intent);
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("FoodName",foods[position].getName());
+                    returnIntent.putExtra("FoodChrbo",foods[position].getCarbo());
+                    setResult(Activity.RESULT_OK,returnIntent);
                     finish();
-                    Toast.makeText(FoodListActivity.this, foods[position].getName() + " - " + foods[position].getCarbo(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(FoodListActivity.this, foods[position].getName() + " - " + foods[position].getCarbo(), Toast.LENGTH_SHORT).show();
                 }
             });
+
         }
 
         @Override
@@ -144,6 +160,7 @@ public class FoodListActivity extends AppCompatActivity {
             return foods.length;
         }
     }
+
     private void initInstance() {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
