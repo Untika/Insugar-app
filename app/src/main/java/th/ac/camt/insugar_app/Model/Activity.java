@@ -18,6 +18,11 @@ public class Activity {
     @Expose
     private String unit;
 
+    public Activity(String name, String unit) {
+        this.name = name;
+        this.unit = unit;
+    }
+
     public String getId() {
         return id;
     }

@@ -46,7 +46,6 @@ public class SumFoodListActivity extends AppCompatActivity {
         private List<Food> foods;
 
         public RecyclerViewAdapter(List<Food> foods) {
-
             this.foods = foods;
         }
 

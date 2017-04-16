@@ -458,6 +458,11 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 float sCarbo = data.getFloatExtra("SumCarbo",0);
                 sumCarbo.setText(String.valueOf(sCarbo));
             }
+        } else if (requestCode == 2) {
+            if (resultCode == Activity.RESULT_OK){
+                int sActivity = data.getIntExtra("SumActivity",0);
+                sumActivity.setText(String.valueOf(sActivity));
+            }
         }
     }
 
@@ -468,7 +473,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             startActivityForResult(intent, 1);
         } else if (v == btnListActivity){
             Intent intent = new Intent(CalculatorActivity.this, SumActivityListActivity.class);
-            startActivity(intent);
+            startActivityForResult(intent, 2);
         } else if (v == btnCal) {
             if (tDD.getText().length() == 0 && txtTDD.getText().length() == 0 && weight.getText().length() == 0) {
                 tDD.setError("ห้ามเว้นว่าง");
@@ -535,6 +540,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
 
                 sumActivity.setError(null);
                 global.sumActivity = Integer.parseInt(sumActivity.getText().toString());
+
                 global.finalSumUnits = global.sumUnit - global.sumActivity;
 
                 Log.i("Log doo :",String.valueOf(user.getId()));

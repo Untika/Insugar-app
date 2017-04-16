@@ -7,4 +7,12 @@
     android:orientation="horizontal"
     tools:context="th.ac.camt.insugar_app.SumActivityListActivity">
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/listview_sum_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/item_listview_activity">
+    </android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

@@ -1,6 +1,7 @@
 package th.ac.camt.insugar_app;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -122,9 +123,22 @@ public class ActivityListActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(ActivityListActivity.ViewHolder holder, int position) {
+        public void onBindViewHolder(ActivityListActivity.ViewHolder holder, final int position) {
             holder.activityName.setText(activity[position].getName());
             holder.activityUnit.setText(activity[position].getUnit());
+
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Intent returnIntent = new Intent();
+                    returnIntent.putExtra("ActivityName", activity[position].getName());
+                    returnIntent.putExtra("ActivityUnit", activity[position].getUnit());
+                    setResult(android.app.Activity.RESULT_OK, returnIntent);
+                    finish();
+                    //Toast.makeText(FoodListActivity.this, foods[position].getName() + " - " + foods[position].getCarbo(), Toast.LENGTH_SHORT).show();
+                }
+            });
         }
 
         @Override
