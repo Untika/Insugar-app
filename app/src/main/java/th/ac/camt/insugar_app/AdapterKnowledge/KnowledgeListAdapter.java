@@ -62,7 +62,6 @@ public class KnowledgeListAdapter extends BaseAdapter {
                     R.anim.up_from_bottom);
             view.startAnimation(anim);
             lastPosition = position;
-
         }
 
             return view;
