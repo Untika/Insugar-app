@@ -19,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -67,18 +66,11 @@ public class KnowledgeActivity extends AppCompatActivity {
         //these arrays are just the data that
         //I'll be using to populate the ArrayList
         //You can use our own methods to get the data
-        String names[] = {"ความรู้ทั่วไปเรื่องโรคเบาหวาน"
-                , "อาหารกับผู้เป็นเบาหวาน"
-                , "เบาหวานขึ้นตา"
-                , "โรคไตจากเบาหวาน "
-                , "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน"
-                , "วิธีการใช้ยาอินซูลินแบบปากกา"
-                , "ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน"};
+        String names[] = {"ความรู้ทั่วไปเรื่องโรคเบาหวาน", "อาหารกับผู้เป็นเบาหวาน", "เบาหวานขึ้นตา", "โรคไตจากเบาหวาน"
+                , "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน", "วิธีการใช้ยาอินซูลินแบบปากกา", "ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน"};
 
-        final Integer[] photos = {R.drawable.kl1, R.drawable.kl2,
-                R.drawable.kl3, R.drawable.kl4,
-                R.drawable.kl5, R.drawable.kl6,
-                R.drawable.kl7};
+        final Integer[] photos = {R.drawable.kl1, R.drawable.kl2, R.drawable.kl3, R.drawable.kl4,
+                R.drawable.kl5, R.drawable.kl6, R.drawable.kl7};
 
         originalValues = new ArrayList<HashMap<String, Object>>();
 
@@ -139,42 +131,43 @@ public class KnowledgeActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
             }
         });
-
+/*
         playerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        Intent intentKL1 = new Intent(KnowledgeActivity.this, KnowledgeTopic1Activity.class);
-                        startActivity(intentKL1);
-                        break;
-                    case 1:
-                        Intent intentKL2 = new Intent(KnowledgeActivity.this, KnowledgeTopic2Activity.class);
-                        startActivity(intentKL2);
-                        break;
-                    case 2:
-                        Intent intentKL3 = new Intent(KnowledgeActivity.this, KnowledgeTopic3Activity.class);
-                        startActivity(intentKL3);
-                        break;
-                    case 3:
-                        Intent intentKL4 = new Intent(KnowledgeActivity.this, KnowledgeTopic4Activity.class);
-                        startActivity(intentKL4);
-                        break;
-                    case 4:
-                        Intent intentKL5 = new Intent(KnowledgeActivity.this, KnowledgeTopic5Activity.class);
-                        startActivity(intentKL5);
-                        break;
-                    case 5:
-                        Intent intentKL6 = new Intent(KnowledgeActivity.this, KnowledgeTopic6Activity.class);
-                        startActivity(intentKL6);
-                        break;
-                    case 6:
-                        Intent intentKL7 = new Intent(KnowledgeActivity.this, KnowledgeTopic7Activity.class);
-                        startActivity(intentKL7);
-                        break;
+                switch (String.valueOf(title.getText())) {
+                  case "ความรู้ทั่วไปเรื่องโรคเบาหวาน":
+                                Intent intentKL1 = new Intent(KnowledgeActivity.this, KnowledgeTopic1Activity.class);
+                                startActivity(intentKL1);
+                                break;
+                            case "อาหารกับผู้เป็นเบาหวาน":
+                                Intent intentKL2 = new Intent(KnowledgeActivity.this, KnowledgeTopic2Activity.class);
+                                startActivity(intentKL2);
+                                break;
+                            case "เบาหวานขึ้นตา":
+                                Intent intentKL3 = new Intent(KnowledgeActivity.this, KnowledgeTopic3Activity.class);
+                                startActivity(intentKL3);
+                                break;
+                            case "โรคไตจากเบาหวาน":
+                                Intent intentKL4 = new Intent(KnowledgeActivity.this, KnowledgeTopic4Activity.class);
+                                startActivity(intentKL4);
+                                break;
+                            case "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน":
+                                Intent intentKL5 = new Intent(KnowledgeActivity.this, KnowledgeTopic5Activity.class);
+                                startActivity(intentKL5);
+                                break;
+                            case "วิธีการใช้ยาอินซูลินแบบปากกา":
+                                Intent intentKL6 = new Intent(KnowledgeActivity.this, KnowledgeTopic6Activity.class);
+                                startActivity(intentKL6);
+                                break;
+                            case "ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน":
+                                Intent intentKL7 = new Intent(KnowledgeActivity.this, KnowledgeTopic7Activity.class);
+                                startActivity(intentKL7);
+                                break;
                 }
             }
         });
+*/
 
             initInstance();
     }
@@ -212,7 +205,7 @@ public class KnowledgeActivity extends AppCompatActivity {
 
                 //link the cached views to the convertview
                 convertView.setTag(viewHolder);
-
+                listOnClick(viewHolder,convertView);
             } else
                 viewHolder = (ViewHolder) convertView.getTag();
 
@@ -222,9 +215,48 @@ public class KnowledgeActivity extends AppCompatActivity {
             //set the data to be displayed
             viewHolder.photo.setImageDrawable(getResources().getDrawable(photoId));
             viewHolder.name.setText(searchResults.get(position).get("name").toString());
-
+            listOnClick(viewHolder,convertView);
             //return the view to be displayed
             return convertView;
+        }
+
+        private void listOnClick(final ViewHolder viewHolder, View convertView) {
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //  Toast.makeText(getApplicationContext(),viewHolder.name.getText(), Toast.LENGTH_LONG).show();
+                    switch (String.valueOf(viewHolder.name.getText())) {
+                        case "ความรู้ทั่วไปเรื่องโรคเบาหวาน":
+                            Intent intentKL1 = new Intent(getApplicationContext(), KnowledgeTopic1Activity.class);
+                            startActivity(intentKL1);
+                            break;
+                        case "อาหารกับผู้เป็นเบาหวาน":
+                            Intent intentKL2 = new Intent(getApplicationContext(), KnowledgeTopic2Activity.class);
+                            startActivity(intentKL2);
+                            break;
+                        case "เบาหวานขึ้นตา":
+                            Intent intentKL3 = new Intent(getApplicationContext(), KnowledgeTopic3Activity.class);
+                            startActivity(intentKL3);
+                            break;
+                        case "โรคไตจากเบาหวาน":
+                            Intent intentKL4 = new Intent(getApplicationContext(), KnowledgeTopic4Activity.class);
+                            startActivity(intentKL4);
+                            break;
+                        case "การดูแลสุขภาพเท้าของผู้ป่วยเบาหวาน":
+                            Intent intentKL5 = new Intent(getApplicationContext(), KnowledgeTopic5Activity.class);
+                            startActivity(intentKL5);
+                            break;
+                        case "วิธีการใช้ยาอินซูลินแบบปากกา":
+                            Intent intentKL6 = new Intent(getApplicationContext(), KnowledgeTopic6Activity.class);
+                            startActivity(intentKL6);
+                            break;
+                        case "ข้อควรระวังต่างๆ ในผู้ป่วยเบาหวานที่ใช้ยาฉีดอินซูลิน":
+                            Intent intentKL7 = new Intent(getApplicationContext(), KnowledgeTopic7Activity.class);
+                            startActivity(intentKL7);
+                            break;
+                    }
+                }
+            });
         }
     }
 
