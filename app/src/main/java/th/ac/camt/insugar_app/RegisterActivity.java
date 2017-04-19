@@ -143,7 +143,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         protected void onPostExecute(Check[] result) {
             super.onPostExecute(result);
             if (result[0].getCheck().equals("Done Insert")) {
-                Toast.makeText(getApplicationContext(), "เรียบร้อย", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "สมัครสมาชิกเรียบร้อยแล้ว", Toast.LENGTH_LONG).show();
                 finish();
             } else if (result[0].getCheck().equals("email not unique")) {
                 txtEmail.setError(" e-mail นี้มีอยุ่ในระบบแล้ว");

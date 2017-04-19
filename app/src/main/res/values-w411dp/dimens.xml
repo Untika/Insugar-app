@@ -1,0 +1,9 @@
+<resources>
+    <dimen name="drawer_menu_width">300dp</dimen>
+
+    <dimen name="button_menu_width">170dp</dimen>
+    <dimen name="button_menu_height">210dp</dimen>
+    <dimen name="button_menu_textsize">20dp</dimen>
+    <dimen name="button_menu_margin">10dp</dimen>
+    <dimen name="button_menu_paddingtop">50dp</dimen>
+</resources>

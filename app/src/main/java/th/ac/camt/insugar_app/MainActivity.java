@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i = new Intent(getApplicationContext(), MenuActivity.class);
                 startActivity(i);
             } else {
-                Toast.makeText(getApplicationContext(), "อีเมลหรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "อีเมล์หรือรหัสผ่านไม่ถูกต้อง", Toast.LENGTH_LONG).show();
             }
             progressDialog.dismiss();
         }

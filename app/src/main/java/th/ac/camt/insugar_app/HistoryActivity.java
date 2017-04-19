@@ -119,7 +119,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                         AlertDialog alertDialog = new AlertDialog.Builder(
                                 HistoryActivity.this).create();
                         alertDialog.setTitle("เกี่ยวกับ INSUGAR");
-                        alertDialog.setIcon(R.mipmap.ic_info_black_24dp);
+                        alertDialog.setIcon(R.mipmap.ic_launcher);
                         alertDialog.setMessage("\n          โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
                                 "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
                                 "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย\n");
