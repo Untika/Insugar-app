@@ -380,9 +380,8 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                                 CalculatorActivity.this).create();
                         alertDialog.setTitle("เกี่ยวกับ INSUGAR");
                         alertDialog.setIcon(R.mipmap.ic_launcher);
-                        alertDialog.setMessage("\n          โมบายแอพพลิเคชันนี้พัฒนาขึ้นเพื่อช่วยให้ผู้ป่วยโรคเบาหวานชนิดที่ 1 สามารถคำนวณการฉีดอินซูลินในแต่ละมื้ออาหาร" +
-                                "ในแต่ละวันได้อย่างเหมาะสมกับปริมาณการรับประทานอาหารของผู้ใช้ โดยผู้ใช้สามารถเห็นค่าการเปลี่ยนแปลงของระดับน้ำตาลในเลือดได้จากการบันทึกข้อมูลใ" +
-                                "นแต่ละวัน และยังมีส่วนของการให้ความรู้เกี่ยวกับโรคเบาหวานเพื่อให้ผู้ใช้ได้ศึกษาเพิ่มเติมอีกด้วย\n");
+                        alertDialog.setMessage("โมบายแอปพลิเคชันนี้อยู่ภายใต้การควบคุมของทีมวิจัย Embedded Systems and Mobile Application โดยความร่วมมือระหว่าง" +
+                                "คณะแพทยศาสตร์ คณะพยาบาลศาสตร์ และวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่");
                         alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "ปิด", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -661,8 +660,8 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 case "Done Insert":
                     if (global.bloodSugar < 70){
                         AlertDialog.Builder dialog = new AlertDialog.Builder(CalculatorActivity.this);
-                        dialog.setTitle("แจ้งเตือน");
                         dialog.setIcon(R.mipmap.ic_feedback_black_24dp);
+                        dialog.setTitle("แจ้งเตือน");
                         dialog.setMessage("คุณกำลังมีภาวะน้ำตาลในเลือดต่ำ\nโปรดรีบแก้ไข");
                         dialog.setCancelable(false);
                         dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
