@@ -21,15 +21,17 @@ public class GlobalClass extends Application {
     private User user;
     public double tDD;
     public double bloodSugar;
+    public double targetBloodSugar;
+    public double resultBloodSugar;
     public String insulinName;
     public String insulinType;
-    public int unit1;
-    public int unit2;
-    public int sumUnit;
+    public double unit1;
+    public double unit2;
+    public double sumUnit;
     public double sumCarbo;
     public String longInsulinName;
     public int longInsulinUnit;
-    public int sumActivity;
+    public double sumActivity;
     public int finalSumUnits;
 
 

@@ -50,6 +50,13 @@ public class Calculator {
     @SerializedName("final_sum_units")
     @Expose
     private String finalSumUnits;
+    @SerializedName("target_blood_sugar")
+    @Expose
+    private String targetBloodSugar;
+    @SerializedName("result_blood_sugar")
+    @Expose
+    private String resultBloodSugar;
+
     @SerializedName("date_time")
     @Expose
     private String dateTime;
@@ -172,5 +179,21 @@ public class Calculator {
 
     public void setDateTime(String dateTime) {
         this.dateTime = dateTime;
+    }
+
+    public String getTargetBloodSugar() {
+        return targetBloodSugar;
+    }
+
+    public void setTargetBloodSugar(String targetBloodSugar) {
+        this.targetBloodSugar = targetBloodSugar;
+    }
+
+    public String getResultBloodSugar() {
+        return resultBloodSugar;
+    }
+
+    public void setResultBloodSugar(String resultBloodSugar) {
+        this.resultBloodSugar = resultBloodSugar;
     }
 }

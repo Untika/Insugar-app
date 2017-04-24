@@ -72,6 +72,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private EditText sumActivity;
     private Button btnListFood;
     private Button btnListActivity;
+    private EditText targetBloodSugar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -304,6 +305,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
         sumActivity = (EditText) findViewById(R.id.cal_sumActivity);
         btnListFood = (Button) findViewById(R.id.cal_btn_listFoods);
         btnListActivity = (Button) findViewById(R.id.cal_btn_listActivity);
+        targetBloodSugar = (EditText) findViewById(R.id.cal_targetBloodSugar);
     }
 
     private void initInstance() {
@@ -484,6 +486,9 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (bloodSugar.getText().length() == 0) {
                 bloodSugar.setError("ห้ามเว้นว่าง");
             }
+            if (targetBloodSugar.getText().length() == 0) {
+                targetBloodSugar.setError("ห้ามเว้นว่าง");
+            }
             if (spinner.getSelectedItemPosition() == 0) {
                 ((TextView) spinner.getSelectedView()).setError("");
             }
@@ -493,7 +498,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             if (sumActivity.getText().length() == 0) {
                 sumActivity.setError("ห้ามเว้นว่าง");
             }
-            if ((tDD.getText().length() != 0 || txtTDD.getText().length() != 0) && bloodSugar.getText().length() != 0
+            if ((tDD.getText().length() != 0 || txtTDD.getText().length() != 0) && bloodSugar.getText().length() != 0 && targetBloodSugar.getText().length() != 0
                     && spinner.getSelectedItemPosition() != 0 && sumCarbo.getText().length() != 0 && sumActivity.getText().length() != 0) {
 
                 bloodSugar.setError(null);
@@ -509,16 +514,33 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }
                 Log.i("results1 :", String.valueOf(results1));
 
-                //calculate the unit
-                if (global.bloodSugar <= results1) {
+                targetBloodSugar.setError(null);
+                global.targetBloodSugar = Double.parseDouble(targetBloodSugar.getText().toString());
+                Log.i("Target BS :", String.valueOf(global.targetBloodSugar));
+
+                global.resultBloodSugar = global.bloodSugar - global.targetBloodSugar;
+                Log.i("result BS :", String.valueOf(global.resultBloodSugar));
+
+                if (global.resultBloodSugar <= results1) {
                     global.unit1 = 1;
                 } else {
-                    global.unit1 = (int) (global.bloodSugar / results1);
+                    global.unit1 = (float) (global.resultBloodSugar / results1);
                     if (global.unit1 == 0) {
                         global.unit1 = 1;
                     }
                 }
                 Log.i("unit1 :", String.valueOf(global.unit1));
+
+              /*  //calculate the unit
+                if (global.bloodSugar <= results1) {
+                    global.unit1 = 1;
+                } else {
+                    global.unit1 = (float) (global.bloodSugar / results1);
+                    if (global.unit1 == 0) {
+                        global.unit1 = 1;
+                    }
+                }
+                Log.i("unit1 :", String.valueOf(global.unit1)); */
 
                 ///// sum carbo /////
                 sumCarbo.setError(null);
@@ -531,21 +553,23 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 if (global.sumCarbo <= results2) {
                     global.unit2 = 1;
                 } else {
-                    global.unit2 = (int) Math.round(global.sumCarbo / results2);
+                    global.unit2 = (float) (global.sumCarbo / results2);
                     if (global.unit2 == 0) {
                         global.unit2 = 1;
                     }
                 }
+                Log.i("unit2 :", String.valueOf(global.unit2));
 
                 global.sumUnit = global.unit1 + global.unit2;
-                Log.i("carbo unit :", String.valueOf(global.unit2));
+                Log.i("sum unit1+2 :", String.valueOf(global.sumUnit));
 
                 sumActivity.setError(null);
                 global.sumActivity = Integer.parseInt(sumActivity.getText().toString());
 
-                global.finalSumUnits = global.sumUnit - global.sumActivity;
+                global.finalSumUnits = (int) Math.round(global.sumUnit - global.sumActivity);
+                Log.i("final sum unit :", String.valueOf(global.finalSumUnits));
 
-                Log.i("Log doo :",String.valueOf(user.getId()));
+             /*   Log.i("Log doo :",String.valueOf(user.getId()));
                 Log.i("Log doo :",global.insulinName);
                 Log.i("Log doo :",weight.getText().toString());
                 Log.i("Log doo :",String.valueOf(global.tDD));
@@ -555,13 +579,13 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 Log.i("Log doo :",String.valueOf(results2));
                 Log.i("Log doo :",String.valueOf(global.sumCarbo));
                 Log.i("Log doo :",String.valueOf(global.unit2));
-                Log.i("Log doo :",String.valueOf(global.sumUnit));
+                Log.i("Log doo :",String.valueOf(global.sumUnit));*/
 
                 new CalculatorTask().execute(String.valueOf(user.getId()), global.insulinName, weight.getText().toString(),
                         String.valueOf(global.tDD), String.valueOf(global.bloodSugar), String.valueOf(global.unit1),
                         String.valueOf(results1), String.valueOf(results2), String.valueOf(global.sumCarbo),
                         String.valueOf(global.unit2), String.valueOf(global.sumUnit), String.valueOf(global.sumActivity),
-                        String.valueOf(global.finalSumUnits));
+                        String.valueOf(global.finalSumUnits), String.valueOf(global.targetBloodSugar), String.valueOf(global.resultBloodSugar));
             }
         }
     }
@@ -586,6 +610,8 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         .add("sumUnits", params[10])
                         .add("sumActivity", params[11])
                         .add("finalSumUnits", params[12])
+                        .add("targetBloodSugar", params[13])
+                        .add("resultBloodSugar", params[14])
                         .build();
 
                 Request request = new Request.Builder()
