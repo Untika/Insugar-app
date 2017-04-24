@@ -1,6 +1,7 @@
 package th.ac.camt.insugar_app;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -47,6 +48,8 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import th.ac.camt.insugar_app.Model.Check;
 import th.ac.camt.insugar_app.Model.User;
+import th.ac.camt.insugar_app.alarmactivity.AlarmActivity;
+import th.ac.camt.insugar_app.database.Database;
 
 
 public class CalculatorActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
@@ -73,6 +76,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
     private Button btnListFood;
     private Button btnListActivity;
     private EditText targetBloodSugar;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -508,9 +512,9 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 //check type of insulin for get results1
                 double results1 = 0;
                 if (global.insulinType.equals("Short Insulin")) {
-                    results1 = Math.round(1500 / global.tDD);
+                    results1 = (1500 / global.tDD);
                 } else if (global.insulinType.equals("Rapid Insulin")) {
-                    results1 = Math.round(1800 / global.tDD);
+                    results1 = (1800 / global.tDD);
                 }
                 Log.i("results1 :", String.valueOf(results1));
 
@@ -521,14 +525,14 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 global.resultBloodSugar = global.bloodSugar - global.targetBloodSugar;
                 Log.i("result BS :", String.valueOf(global.resultBloodSugar));
 
-                if (global.resultBloodSugar <= results1) {
+              /*  if (global.resultBloodSugar <= results1) {
                     global.unit1 = 1;
-                } else {
+                } else {*/
                     global.unit1 = (float) (global.resultBloodSugar / results1);
-                    if (global.unit1 == 0) {
+                   /* if (global.unit1 == 0) {
                         global.unit1 = 1;
                     }
-                }
+                }*/
                 Log.i("unit1 :", String.valueOf(global.unit1));
 
               /*  //calculate the unit
@@ -547,7 +551,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 global.sumCarbo = Double.parseDouble(sumCarbo.getText().toString());
                 Log.i("Sum Carbo :", String.valueOf(global.sumCarbo));
 
-                double results2 = Math.round(500 / global.tDD);
+                double results2 = (500 / global.tDD);
                 Log.i("results2 :", String.valueOf(results2));
 
                 if (global.sumCarbo <= results2) {
@@ -569,6 +573,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 global.finalSumUnits = (int) Math.round(global.sumUnit - global.sumActivity);
                 Log.i("final sum unit :", String.valueOf(global.finalSumUnits));
 
+
              /*   Log.i("Log doo :",String.valueOf(user.getId()));
                 Log.i("Log doo :",global.insulinName);
                 Log.i("Log doo :",weight.getText().toString());
@@ -586,6 +591,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                         String.valueOf(results1), String.valueOf(results2), String.valueOf(global.sumCarbo),
                         String.valueOf(global.unit2), String.valueOf(global.sumUnit), String.valueOf(global.sumActivity),
                         String.valueOf(global.finalSumUnits), String.valueOf(global.targetBloodSugar), String.valueOf(global.resultBloodSugar));
+
             }
         }
     }
@@ -622,7 +628,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 Response response = client.newCall(request).execute();
                 String result = response.body().string();
 
-                Log.i("gof", result);
+                Log.i("mark", result);
 
                 Gson gson = new Gson();
 
@@ -630,7 +636,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }.getType();
                 Collection<Check> enums = gson.fromJson(result, listType);
                 Check[] checks = enums.toArray(new Check[enums.size()]);
-                Log.i("gof2", checks.toString());
+                Log.i("mark2", checks.toString());
                 return checks;
 
             } catch (Exception e) {
@@ -638,14 +644,41 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             }
             return null;
         }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(CalculatorActivity.this);
+            progressDialog.setCancelable(false);
+            progressDialog.setMessage("กรุณารอสักครู่...");
+            progressDialog.show();
+        }
+
         @Override
         protected void onPostExecute(Check[] result) {
             super.onPostExecute(result);
             switch (result[0].getCheck()) {
                 case "Done Insert":
-                    Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if (global.bloodSugar < 70){
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(CalculatorActivity.this);
+                        dialog.setTitle("แจ้งเตือน");
+                        dialog.setIcon(R.mipmap.ic_feedback_black_24dp);
+                        dialog.setMessage("คุณกำลังมีภาวะน้ำตาลในเลือดต่ำ\nโปรดรีบแก้ไข");
+                        dialog.setCancelable(false);
+                        dialog.setPositiveButton("ตกลง", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                        dialog.show();
+                    } else {
+                        Intent intent = new Intent(CalculatorActivity.this, ResultActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                     break;
                 case "Error Insert":
                     Toast.makeText(getApplicationContext(), "คำนวณไม่สำเร็จ", Toast.LENGTH_LONG).show();
@@ -654,8 +687,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     Toast.makeText(getApplicationContext(), "เกิดข้อผิดพลาด ไม่สามารถคำนวณได้", Toast.LENGTH_LONG).show();
                     break;
             }
-
-
+            progressDialog.dismiss();
             }
         }
 
@@ -688,7 +720,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 Response response = client.newCall(request).execute();
                 String result = response.body().string();
 
-                Log.i("gof", result);
 
                 Gson gson = new Gson();
 
@@ -696,7 +727,6 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }.getType();
                 Collection<Check> enums = gson.fromJson(result, listType);
                 Check[] checks = enums.toArray(new Check[enums.size()]);
-                Log.i("gof2", checks.toString());
                 return checks;
 
             } catch (Exception e) {
