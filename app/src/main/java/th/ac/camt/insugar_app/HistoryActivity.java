@@ -120,8 +120,7 @@ public class HistoryActivity extends AppCompatActivity implements View.OnClickLi
                                 HistoryActivity.this).create();
                         alertDialog.setTitle("เกี่ยวกับ INSUGAR");
                         alertDialog.setIcon(R.mipmap.ic_launcher);
-                        alertDialog.setMessage("โมบายแอปพลิเคชันนี้อยู่ภายใต้การควบคุมของทีมวิจัย Embedded Systems and Mobile Application โดยความร่วมมือระหว่าง" +
-                                "คณะแพทยศาสตร์ คณะพยาบาลศาสตร์ และวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่");
+                        alertDialog.setMessage("โมบายแอปพลิเคชันนี้อยู่ภายใต้การควบคุมของทีมวิจัย Embedded Systems and Mobile Application โดยความร่วมมือระหว่าง คณะแพทยศาสตร์ คณะพยาบาลศาสตร์ และวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่");
                         alertDialog.setButton(DialogInterface.BUTTON_POSITIVE,"ปิด", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
