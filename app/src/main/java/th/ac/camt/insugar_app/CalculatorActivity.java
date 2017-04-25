@@ -117,6 +117,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                     weight.setEnabled(false);
                     spinnerMultiply.setEnabled(false);
                     global.tDD = Double.parseDouble(tDD.getText().toString());
+                    Log.i("TDD1 : ", String.valueOf(global.tDD));
                 } else {
                     weight.setEnabled(true);
                     weight.setFocusable(true);
@@ -258,7 +259,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 Response response = client.newCall(request).execute();
                 String result = response.body().string();
 
-                Log.i("gof", result);
+                Log.i("mark", result);
 
                 Gson gson = new Gson();
 
@@ -266,7 +267,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 }.getType();
                 Collection<Check> enums = gson.fromJson(result, listType);
                 Check[] checks = enums.toArray(new Check[enums.size()]);
-                //Log.i("gof2", checks.toString());
+                //Log.i("mark2", checks.toString());
                 return checks;
 
             } catch (Exception e) {
@@ -380,8 +381,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                                 CalculatorActivity.this).create();
                         alertDialog.setTitle("เกี่ยวกับ INSUGAR");
                         alertDialog.setIcon(R.mipmap.ic_launcher);
-                        alertDialog.setMessage("โมบายแอปพลิเคชันนี้อยู่ภายใต้การควบคุมของทีมวิจัย Embedded Systems and Mobile Application โดยความร่วมมือระหว่าง" +
-                                "คณะแพทยศาสตร์ คณะพยาบาลศาสตร์ และวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่");
+                        alertDialog.setMessage("โมบายแอปพลิเคชันนี้อยู่ภายใต้การควบคุมของทีมวิจัย Embedded Systems and Mobile Application โดยความร่วมมือระหว่าง คณะแพทยศาสตร์ คณะพยาบาลศาสตร์ และวิทยาลัยศิลปะ สื่อ และเทคโนโลยี มหาวิทยาลัยเชียงใหม่");
                         alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "ปิด", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -440,7 +440,7 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
             try {
                 global.tDD = Double.parseDouble(weight.getText().toString()) * Double.parseDouble(spinnerMultiply.getSelectedItem().toString());
                 global.tDD = Double.parseDouble(df2.format(global.tDD));
-                Log.i("GTDD", String.valueOf(global.tDD));
+                Log.i("TDD2 : ", String.valueOf(global.tDD));
                 txtTDD.setText(String.valueOf(global.tDD));
             } catch (Exception e) {
 
@@ -553,14 +553,14 @@ public class CalculatorActivity extends AppCompatActivity implements AdapterView
                 double results2 = (500 / global.tDD);
                 Log.i("results2 :", String.valueOf(results2));
 
-                if (global.sumCarbo <= results2) {
+            /*    if (global.sumCarbo <= results2) {
                     global.unit2 = 1;
-                } else {
+                } else {  */
                     global.unit2 = (float) (global.sumCarbo / results2);
-                    if (global.unit2 == 0) {
+                 /*   if (global.unit2 == 0) {
                         global.unit2 = 1;
                     }
-                }
+                } */
                 Log.i("unit2 :", String.valueOf(global.unit2));
 
                 global.sumUnit = global.unit1 + global.unit2;
